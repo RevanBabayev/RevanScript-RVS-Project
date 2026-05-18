@@ -46,9 +46,14 @@ enum {RVS_FILE_MODE, RVS_REPL_MODE};
 #define RVS_VARIABLE_UNDEFINED_ERROR                      "%s[RVSVariableUndefinedError] : The variable named \"%s\" does not exist!%s\n"
 
 
+// RevanScript (RVS) Info Messages
+#define RVS_VARIABLE_CONSTANT_INFO                        "%s[RVSVariableConstantInfo] : The variable you want to make constant is a constant.%s\n"
+
+
 void rvs_standard_output(const char*, const int8_t*);
 void rvs_standard_input(char*);
 void rvs_standard_debug(bool, const char*);
+void rvs_standard_info(const char*);
 void rvs_standard_error(const char*, const char*);
 
 

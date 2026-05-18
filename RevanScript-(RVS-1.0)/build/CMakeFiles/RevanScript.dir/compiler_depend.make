@@ -4,9 +4,12 @@
 CMakeFiles/RevanScript.dir/src/main.c.o: /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/src/main.c \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsbuf.h \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsctl.h \
+  /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsexp.h \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsflg.h \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsio.h \
+  /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvslgc.h \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsmem.h \
+  /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsprs.h \
   /usr/include/alloca.h \
   /usr/include/endian.h \
   /usr/include/features-time64.h \
@@ -142,6 +145,7 @@ CMakeFiles/RevanScript.dir/src/rvsctl.c.o: /home/revan/Documents/GitHub/RevanScr
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsbuf.h \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsctl.h \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsio.h \
+  /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvslgc.h \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsmem.h \
   /usr/include/ctype.h \
   /usr/include/features-time64.h \
@@ -273,6 +277,7 @@ CMakeFiles/RevanScript.dir/src/rvsio.c.o: /home/revan/Documents/GitHub/RevanScri
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/stdc-predef.h \
+  /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
   /usr/include/string.h \
@@ -291,6 +296,8 @@ CMakeFiles/RevanScript.dir/src/rvsio.c.o: /home/revan/Documents/GitHub/RevanScri
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
   /usr/include/x86_64-linux-gnu/bits/stdio.h \
   /usr/include/x86_64-linux-gnu/bits/stdio2-decl.h \
   /usr/include/x86_64-linux-gnu/bits/stdio2.h \
@@ -327,6 +334,7 @@ CMakeFiles/RevanScript.dir/src/rvsio.c.o: /home/revan/Documents/GitHub/RevanScri
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
@@ -335,7 +343,8 @@ CMakeFiles/RevanScript.dir/src/rvsio.c.o: /home/revan/Documents/GitHub/RevanScri
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdbool.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/RevanScript.dir/src/rvsmem.c.o: /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/src/rvsmem.c \
   /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsbuf.h \
@@ -441,15 +450,13 @@ CMakeFiles/RevanScript.dir/src/rvsmem.c.o: /home/revan/Documents/GitHub/RevanScr
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
-/usr/include/x86_64-linux-gnu/bits/select-decl.h:
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
@@ -461,15 +468,21 @@ CMakeFiles/RevanScript.dir/src/rvsmem.c.o: /home/revan/Documents/GitHub/RevanScr
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
-/usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/usr/include/string.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
 
 /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/src/main.c:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/string.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsexp.h:
+
+/home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvslgc.h:
 
 /home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsbuf.h:
 
@@ -477,9 +490,15 @@ CMakeFiles/RevanScript.dir/src/rvsmem.c.o: /home/revan/Documents/GitHub/RevanScr
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/features-time64.h:
+
 /usr/include/stdlib.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+/usr/include/stdint.h:
+
+/home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsflg.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
@@ -493,6 +512,8 @@ CMakeFiles/RevanScript.dir/src/rvsmem.c.o: /home/revan/Documents/GitHub/RevanScr
 
 /usr/include/x86_64-linux-gnu/bits/select2.h:
 
+/home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsprs.h:
+
 /usr/include/alloca.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
@@ -505,13 +526,7 @@ CMakeFiles/RevanScript.dir/src/rvsmem.c.o: /home/revan/Documents/GitHub/RevanScr
 
 /usr/include/features.h:
 
-/usr/include/features-time64.h:
-
-/home/revan/Documents/GitHub/RevanScript-RVS-Project/RevanScript-(RVS-1.0)/include/rvsflg.h:
-
-/usr/include/stdint.h:
-
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
+/usr/include/x86_64-linux-gnu/bits/select-decl.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 

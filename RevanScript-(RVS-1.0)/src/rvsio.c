@@ -4,6 +4,7 @@
 #include <string.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <time.h>
 
 #include "../include/rvsio.h"
 
@@ -14,10 +15,26 @@ void rvs_standard_output(const char* const data, const int8_t* const rvs_executi
     printf("%s", RVS_COLOR_GREEN);
     while (data[i] != '\0'){
 
+        // Time Escape Sequance
+        if (data_length >= i + 3 && data[i] == '\\' && data[i + 1] == 't' && data[i + 2] == 'm'){
+            time_t current_time = time(NULL);
+            struct tm* local_time = localtime(&current_time);
+            printf("%02d:%02d:%02d", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
+            i += 3;
+        }
+
+        // Date Escape Sequance
+        else if (data_length >= i + 3 && data[i] == '\\' && data[i + 1] == 'd' && data[i + 2] == 't'){
+            time_t current_date = time(NULL);
+            struct tm* local_date = localtime(&current_date);
+            printf("%02d:%02d:%02d", local_date->tm_mday, local_date->tm_mon + 1, local_date->tm_year + 1900);
+            i += 3;
+        } 
+
         // Classic Escape Sequances
 
         // New Line (\n)
-        if (data_length >= i + 2 && data[i] == '\\' && data[i + 1] == 'n'){
+        else if (data_length >= i + 2 && data[i] == '\\' && data[i + 1] == 'n'){
             putchar('\n');
             i += 2;
         }
@@ -59,6 +76,22 @@ void rvs_standard_output(const char* const data, const int8_t* const rvs_executi
                 case '6': printf("%s", RVS_COLOR_MAGENTA); i += 3; break;
                 case '7': printf("%s", RVS_COLOR_CYAN);    i += 3; break;
                 case '8': printf("%s", RVS_COLOR_WHITE);   i += 3; break;
+                case 'r':
+                    srand(time(NULL));
+                    unsigned int random_color_index = (unsigned int) rand() % 8;
+                    switch (random_color_index){
+                        case 0: printf("%s", RVS_COLOR_RESET);    break;
+                        case 1: printf("%s", RVS_COLOR_BLACK);    break;
+                        case 2: printf("%s", RVS_COLOR_RED);      break;
+                        case 3: printf("%s", RVS_COLOR_GREEN);    break;
+                        case 4: printf("%s", RVS_COLOR_YELLOW);   break;
+                        case 5: printf("%s", RVS_COLOR_BLUE);     break;
+                        case 6: printf("%s", RVS_COLOR_MAGENTA);  break;
+                        case 7: printf("%s", RVS_COLOR_CYAN);     break;
+                        case 8: printf("%s", RVS_COLOR_WHITE);    break;
+                    }
+                    i += 3;
+                    break; 
             }
         }
 
@@ -75,6 +108,23 @@ void rvs_standard_output(const char* const data, const int8_t* const rvs_executi
                 case '7': printf("🤔"); i += 3; break;
                 case '8': printf("😵"); i += 3; break;
                 case '9': printf("🥱"); i += 3; break;
+                case 'r':
+                    srand(time(NULL));
+                    unsigned int random_emoji_index = (unsigned int) rand() % 9;
+                    switch (random_emoji_index){
+                        case 0: printf("😀"); break;
+                        case 1: printf("😄"); break;
+                        case 2: printf("😁"); break;
+                        case 3: printf("😅"); break;
+                        case 4: printf("😂"); break;
+                        case 5: printf("😍"); break;
+                        case 6: printf("🤩"); break;
+                        case 7: printf("🤔"); break;
+                        case 8: printf("😵"); break;
+                        case 9: printf("🥱"); break;
+                    }
+                    i += 3;
+                    break; 
             }
         }
 
@@ -112,6 +162,11 @@ void rvs_standard_debug(bool type, const char* const message){
     else{
         printf("%s[DEBUG] : %s%s\n", RVS_COLOR_YELLOW, message, RVS_COLOR_RESET);
     }
+}
+
+
+void rvs_standard_info(const char* const message){
+    printf(message, RVS_COLOR_BLUE, RVS_COLOR_RESET);
 }
 
 

@@ -4,20 +4,20 @@
 #include <stdbool.h>
 
 #include "rvsmem.h"
+#include "rvslgc.h"
 
 
-// RevanScript Variable Logic (Variable Created Logical Variables)
-typedef struct{
-    bool assignment_operation_check;
-	bool string_literal_check;
-    bool binary_start_operation_check;
-} RVSLOGIC;
-
+// RevanScript Expression Parser Queue Logic
+enum{
+    RVS_UNDEFINED_QUEUE,
+    RVS_NUMBER_QUEUE,
+    RVS_OPERATOR_QUEUE
+};
 
 // Checking Functions
 bool rvs_file_type_check(const char*);
 bool rvs_variable_name_check(const RVSBUF*, const RVSMEM*, bool);
-bool rvs_variable_data_check(RVSBUF*, const RVSLOGIC*);
+bool rvs_variable_data_check(RVSBUF*, const RVSLGC*);
 
 
 #endif

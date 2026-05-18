@@ -7,6 +7,7 @@
 
 #include "../include/rvsmem.h"
 #include "../include/rvsio.h"
+#include "../include/rvslgc.h"
 #include "../include/rvsctl.h"
 
 
@@ -57,7 +58,7 @@ bool rvs_variable_name_check(const RVSBUF* const rvs_buffer, const RVSMEM* const
 }
 
 
-bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSLOGIC* const rvs_variable_logic){
+bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSLGC* const rvs_variable_logic){
 
     // No Data Checking
     if (rvs_variable_logic->assignment_operation_check == true && rvs_variable_buffer->variable_data[0] == '\0'){
@@ -73,6 +74,7 @@ bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSLOGIC* const 
 		}
 	}
 
+    // Binary Type Checking
     else if (rvs_variable_buffer->variable_type == RVS_BINARY_TYPE){
         for (size_t i = 0; rvs_variable_buffer->variable_data[i] != '\0'; i++){
             if (rvs_variable_buffer->variable_data[i] != '0' && rvs_variable_buffer->variable_data[i] != '1'){
@@ -87,19 +89,29 @@ bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSLOGIC* const 
         if (strcmp(rvs_variable_buffer->variable_data, "TRUE") != 0 && strcmp(rvs_variable_buffer->variable_data, "FALSE") != 0){
             if (strcmp(rvs_variable_buffer->variable_data, "NULL") != 0){
                 bool point_check = false;
+                bool minus_check = false;
                 size_t point_count = 0;
 
                 for (size_t i = 0; rvs_variable_buffer->variable_data[i] != '\0'; i++){
                     if (!isdigit(rvs_variable_buffer->variable_data[i])){
                         if (rvs_variable_buffer->variable_data[i] != '.'){
-                            rvs_standard_error(RVS_UNDEFINED_TYPE_ERROR, NULL);
-                            return false;
+                            if (rvs_variable_buffer->variable_data[0] != '-'){
+                                rvs_standard_error(RVS_UNDEFINED_TYPE_ERROR, NULL);
+                                return false;
+                            }
+
+                            else minus_check = true;
                         }
 
                         else{
-                            if (point_check == false){
-                                point_check = true;
+                            if (minus_check == true){
+                                if (rvs_variable_buffer->variable_data[1] == '.'){
+                                    rvs_standard_error(RVS_UNDEFINED_TYPE_ERROR, NULL);
+                                    return false;
+                                }
                             }
+                            
+                            if (point_check == false) point_check = true;
                             ++point_count;
                         }
                     }
@@ -154,4 +166,3 @@ bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSLOGIC* const 
 
     return true;
 }
-

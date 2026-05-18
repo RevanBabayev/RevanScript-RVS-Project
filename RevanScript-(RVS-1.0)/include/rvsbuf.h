@@ -20,6 +20,7 @@ enum{
     RVS_FLOAT_TYPE,
     RVS_BOOLEAN_TYPE,
     RVS_BINARY_TYPE,
+    RVS_EXPRESSION_TYPE,
     RVS_NULL_TYPE
 };
 
@@ -30,6 +31,7 @@ typedef struct{
     char* variable_data;
     uint8_t variable_type;
     bool variable_const;
+    size_t variable_address;
     size_t variable_name_counter;
     size_t variable_data_counter;
 } RVSBUF;

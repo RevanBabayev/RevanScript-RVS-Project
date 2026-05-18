@@ -1,0 +1,6 @@
+... RevanScript (RVS) Expression Test Case
+
+var expression = (5 + 5 + 5)
+out expression
+
+end
