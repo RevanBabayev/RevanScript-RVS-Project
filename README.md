@@ -28,17 +28,22 @@ Bundan əlavə daha geniş məlumat üçün GitHub Pages də yaratdığım sayta
 :: src/rvsbuf.c <br>
 :: include/rvsbuf.h <br>
 
-3) RevanScript (RVS) I/O Input Output Handling
+3) RevanScript (RVS) Expression Memory Management
+
+:: src/rvsexp.c
+:: include/rvsexp.h
+
+4) RevanScript (RVS) I/O Input Output Handling
 
 :: src/rvsio.c <br>
 :: include/rvsio.h <br>
  
-4) RevanScript (RVS) Interpreter flags
+5) RevanScript (RVS) Interpreter flags
 
 :: src/rvsflg.c <br>
 :: include/rvsflg.h <br>
 
-5) RevanScript (RVS) Control/Checking 
+6) RevanScript (RVS) Control/Checking 
 
 :: src/rvsctl.c <br>
 :: include/rvsctl.h <br>
