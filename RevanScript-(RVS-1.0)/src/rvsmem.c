@@ -3,6 +3,8 @@
 #include <stdbool.h>
 #include <string.h>
 
+#include <stdio.h>
+
 #include "../include/rvsio.h"
 #include "../include/rvsbuf.h"
 #include "../include/rvsmem.h"
@@ -326,10 +328,10 @@ bool rvs_memory_insert(RVSMEM* rvs_memory ,const RVSBUF const* rvs_buffer){
 
 
 // RevanScript (RVS) Memory (RVSMEM) Check / Variable Name Check Function
-bool rvs_memory_check(const RVSMEM* const rvs_memory, const RVSBUF* const rvs_buffer){
+bool rvs_memory_check(const RVSMEM* const rvs_memory, const char* const variable_name){
     for (size_t i = 0; i < rvs_memory->memory_size; i++){
         if (rvs_memory->variable_ctrls[i] == true){
-            if (strcmp(rvs_memory->variable_names[i], rvs_buffer->variable_name) == 0){
+            if (strcmp(rvs_memory->variable_names[i], variable_name) == 0){
                 return true;
             }
         }

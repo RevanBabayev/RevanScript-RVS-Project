@@ -10,25 +10,25 @@
 
 void rvs_flag_version(void){
     printf("%s\n\t\tRevanScript (RVS) version %.1f%s", 
-        RVS_COLOR_YELLOW, RVS_VERSION,RVS_COLOR_RESET);
+        RVS_COLOR_YELLOW_ESCAPE_CODE, RVS_VERSION, RVS_COLOR_RESET_ESCAPE_CODE);
     #ifdef __GNUC__
         printf("%s\n\tGNU Compiler Collections (GCC) version %d.%d.%d%s\n\n", 
-            RVS_COLOR_YELLOW, __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__, RVS_COLOR_RESET);
+            RVS_COLOR_YELLOW_ESCAPE_CODE, __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__, RVS_COLOR_RESET_ESCAPE_CODE);
     #endif
     printf("\n%s ____                              ____               _         _   \n",
-        RVS_COLOR_CYAN);
+        RVS_COLOR_CYAN_ESCAPE_CODE);
     printf("|  _ \\   ___ __   __  __ _  _ __  / ___|   ___  _ __ (_) _ __  | |_\n");
     printf("| |_) | / _ \\\\ \\ / / / _` || '_ \\ \\___ \\  / __|| '__|| || '_ \\ | __|\n");
     printf("|  _ < |  __/ \\ V / | (_| || | | | ___) || (__ | |   | || |_) || |_ \n");
     printf("|_| \\_\\ \\___|  \\_/   \\__,_||_| |_||____/  \\___||_|   |_|| .__/  \\__|\n");
     printf("                                                        |_|         %s\n\n", 
-        RVS_COLOR_RESET);
+        RVS_COLOR_RESET_ESCAPE_CODE);
 }
 
 
 void rvs_flag_about(void){
-    printf("%s\n\t\t\t\tRevanScript (RVS) Programming Language%s\n", RVS_COLOR_YELLOW, RVS_COLOR_RESET);
-    printf("\n\t%sThe RevanScript (RVS) programming language was created in 2026 by a programmer named Revan Babayev.\n\tThis programming language is notable for its exterely simple code writing and minimal runtime environment.\n\n%s", RVS_COLOR_CYAN, RVS_COLOR_RESET);
+    printf("%s\n\t\t\t\tRevanScript (RVS) Programming Language%s\n", RVS_COLOR_YELLOW_ESCAPE_CODE, RVS_COLOR_RESET_ESCAPE_CODE);
+    printf("\n\t%sThe RevanScript (RVS) programming language was created in 2026 by a programmer named Revan Babayev.\n\tThis programming language is notable for its exterely simple code writing and minimal runtime environment.\n\n%s", RVS_COLOR_CYAN_ESCAPE_CODE, RVS_COLOR_RESET_ESCAPE_CODE);
 }
 
 

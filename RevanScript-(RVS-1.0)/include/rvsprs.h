@@ -5,6 +5,7 @@
 #include "rvsbuf.h"
 #include "rvsexp.h"
 #include "rvslgc.h"
+#include "rvsio.h"
 
 
 // RevanScript Parser Type
@@ -15,13 +16,9 @@ typedef struct{
 } RVSPRS;
 
 
-// RevanScript Input/Output Type
-typedef char RVSIO;
-
-
 // Parser Functions 
 void rvs_parser_delete(RVSPRS*);
-RVSPRS* rvs_variable_parser(const char*, RVSMEM*);
+RVSPRS* rvs_variable_parser(const char*);
 RVSBUF* rvs_variable_name_parser(const char*);
 RVSIO* rvs_direct_string_parser(const char*);
 

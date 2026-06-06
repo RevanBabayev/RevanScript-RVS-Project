@@ -14,7 +14,7 @@
 
 // RevanScript Main Data Types
 enum{
-    RVS_UNDEFINED_TYPE = 0,
+    RVS_UNDEFINED_TYPE,
     RVS_STRING_TYPE,
     RVS_INTEGER_TYPE,
     RVS_FLOAT_TYPE,

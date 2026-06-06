@@ -1,3 +1,4 @@
+// C Standard Librarys
 #include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
@@ -6,13 +7,17 @@
 #include <stdbool.h>
 #include <time.h>
 
+
+// RevanScript Core / Engine Librarys
 #include "../include/rvsio.h"
+#include "../include/rvstbl.h"
 
 
-void rvs_standard_output(const char* const data, const int8_t* const rvs_execution_mode){
+// RevanScript Standard Output Function
+void rvs_standard_output(const RVSIO* const data, const int8_t* const rvs_execution_mode){
     size_t data_length = strlen(data);
     size_t i = 0;
-    printf("%s", RVS_COLOR_GREEN);
+    printf("%s", RVS_COLOR_GREEN_ESCAPE_CODE);
     while (data[i] != '\0'){
 
         // Time Escape Sequance
@@ -67,28 +72,28 @@ void rvs_standard_output(const char* const data, const int8_t* const rvs_executi
         // Color Escape Sequances
         else if (data_length >= i + 3 && data[i] == '\\' && data[i + 1] == 'c'){
             switch (data[i + 2]){
-                case '0': printf("%s", RVS_COLOR_RESET);   i += 3; break;
-                case '1': printf("%s", RVS_COLOR_BLACK);   i += 3; break;
-                case '2': printf("%s", RVS_COLOR_RED);     i += 3; break;
-                case '3': printf("%s", RVS_COLOR_GREEN);   i += 3; break;
-                case '4': printf("%s", RVS_COLOR_YELLOW);  i += 3; break;
-                case '5': printf("%s", RVS_COLOR_BLUE);    i += 3; break;
-                case '6': printf("%s", RVS_COLOR_MAGENTA); i += 3; break;
-                case '7': printf("%s", RVS_COLOR_CYAN);    i += 3; break;
-                case '8': printf("%s", RVS_COLOR_WHITE);   i += 3; break;
+                case '0': printf("%s", RVS_COLOR_RESET_ESCAPE_CODE);   i += 3; break;
+                case '1': printf("%s", RVS_COLOR_BLACK_ESCAPE_CODE);   i += 3; break;
+                case '2': printf("%s", RVS_COLOR_RED_ESCAPE_CODE);     i += 3; break;
+                case '3': printf("%s", RVS_COLOR_GREEN_ESCAPE_CODE);   i += 3; break;
+                case '4': printf("%s", RVS_COLOR_YELLOW_ESCAPE_CODE);  i += 3; break;
+                case '5': printf("%s", RVS_COLOR_BLUE_ESCAPE_CODE);    i += 3; break;
+                case '6': printf("%s", RVS_COLOR_MAGENTA_ESCAPE_CODE); i += 3; break;
+                case '7': printf("%s", RVS_COLOR_CYAN_ESCAPE_CODE);    i += 3; break;
+                case '8': printf("%s", RVS_COLOR_WHITE_ESCAPE_CODE);   i += 3; break;
                 case 'r':
                     srand(time(NULL));
                     unsigned int random_color_index = (unsigned int) rand() % 8;
                     switch (random_color_index){
-                        case 0: printf("%s", RVS_COLOR_RESET);    break;
-                        case 1: printf("%s", RVS_COLOR_BLACK);    break;
-                        case 2: printf("%s", RVS_COLOR_RED);      break;
-                        case 3: printf("%s", RVS_COLOR_GREEN);    break;
-                        case 4: printf("%s", RVS_COLOR_YELLOW);   break;
-                        case 5: printf("%s", RVS_COLOR_BLUE);     break;
-                        case 6: printf("%s", RVS_COLOR_MAGENTA);  break;
-                        case 7: printf("%s", RVS_COLOR_CYAN);     break;
-                        case 8: printf("%s", RVS_COLOR_WHITE);    break;
+                        case 0: printf("%s", RVS_COLOR_RESET_ESCAPE_CODE);    break;
+                        case 1: printf("%s", RVS_COLOR_BLACK_ESCAPE_CODE);    break;
+                        case 2: printf("%s", RVS_COLOR_RED_ESCAPE_CODE);      break;
+                        case 3: printf("%s", RVS_COLOR_GREEN_ESCAPE_CODE);    break;
+                        case 4: printf("%s", RVS_COLOR_YELLOW_ESCAPE_CODE);   break;
+                        case 5: printf("%s", RVS_COLOR_BLUE_ESCAPE_CODE);     break;
+                        case 6: printf("%s", RVS_COLOR_MAGENTA_ESCAPE_CODE);  break;
+                        case 7: printf("%s", RVS_COLOR_CYAN_ESCAPE_CODE);     break;
+                        case 8: printf("%s", RVS_COLOR_WHITE_ESCAPE_CODE);    break;
                     }
                     i += 3;
                     break; 
@@ -134,15 +139,55 @@ void rvs_standard_output(const char* const data, const int8_t* const rvs_executi
             i++;
         }
     }
-    printf("%s", RVS_COLOR_CYAN);
+    printf("%s", RVS_COLOR_CYAN_ESCAPE_CODE);
     if (*rvs_execution_mode == RVS_REPL_MODE){
         putchar('\n');
     }
 }
 
 
-void rvs_standard_input(char* input_buffer){
-    printf("%s", RVS_COLOR_GREEN);
+// RevanScript Standard Table Output Function
+void rvs_standard_table_output(const RVSTBL* const rvs_table){
+    // Square draw
+    size_t c_i = 0;
+    size_t data_counter = 0;
+    goto start_and_end_draw_block;
+
+    // Cycle label
+    next_draw_block:
+    for (size_t h_i = 0; h_i < rvs_table->config.height; h_i++){
+        putchar('|');
+        for (size_t r_i = 0; r_i < rvs_table->config.rows; r_i++){
+            for (size_t w_i = 0; w_i < rvs_table->config.width; w_i++){
+                putchar(rvs_table->datas[data_counter][w_i]);
+            }
+            putchar('|');
+            data_counter++;
+        }
+        putchar('\n');
+    }
+    goto start_and_end_draw_block;
+
+    // Start and end label
+    start_and_end_draw_block:
+    putchar('+');
+    for (size_t r_i = 0; r_i < rvs_table->config.rows; r_i++){
+        for (size_t w_i = 0; w_i < rvs_table->config.width; w_i++){
+            putchar('-');
+        }
+        putchar('+');
+    }
+    putchar('\n');
+    if (c_i < rvs_table->config.cols){
+        c_i++;
+        goto next_draw_block;
+    }
+}
+
+
+// RevanScript Standard Input Function
+void rvs_standard_input(RVSIO* input_buffer){
+    printf("%s", RVS_COLOR_GREEN_ESCAPE_CODE);
     if (!fgets(input_buffer, 2048, stdin)){
         return;
     }
@@ -150,33 +195,35 @@ void rvs_standard_input(char* input_buffer){
     else{
         input_buffer[strlen(input_buffer) - 1] = '\0';
     }
-    printf("%s", RVS_COLOR_CYAN);
+    printf("%s", RVS_COLOR_CYAN_ESCAPE_CODE);
 }
 
 
+// RevanScript Standard Debug Function
 void rvs_standard_debug(bool type, const char* const message){
     if (type == true){
-        printf("%s[DEBUG] : %s%s\n", RVS_COLOR_GREEN, message, RVS_COLOR_RESET);
+        printf("%s[DEBUG] : %s%s\n", RVS_COLOR_GREEN_ESCAPE_CODE, message, RVS_COLOR_RESET_ESCAPE_CODE);
     }
 
     else{
-        printf("%s[DEBUG] : %s%s\n", RVS_COLOR_YELLOW, message, RVS_COLOR_RESET);
+        printf("%s[DEBUG] : %s%s\n", RVS_COLOR_YELLOW_ESCAPE_CODE, message, RVS_COLOR_RESET_ESCAPE_CODE);
     }
 }
 
 
+// RevanScript Standard Information Function
 void rvs_standard_info(const char* const message){
-    printf(message, RVS_COLOR_BLUE, RVS_COLOR_RESET);
+    printf(message, RVS_COLOR_BLUE_ESCAPE_CODE, RVS_COLOR_RESET_ESCAPE_CODE);
 }
 
 
+// RevanScript Standard Error Function
 void rvs_standard_error(const char* const type, const char* const notified){
     if (!notified){
-        fprintf(stderr, type , RVS_COLOR_RED, RVS_COLOR_RESET);
+        fprintf(stderr, type , RVS_COLOR_RED_ESCAPE_CODE, RVS_COLOR_RESET_ESCAPE_CODE);
     }
 
     else{
-        fprintf(stderr, type , RVS_COLOR_RED, notified, RVS_COLOR_RESET);
+        fprintf(stderr, type , RVS_COLOR_RED_ESCAPE_CODE, notified, RVS_COLOR_RESET_ESCAPE_CODE);
     }
 }
-

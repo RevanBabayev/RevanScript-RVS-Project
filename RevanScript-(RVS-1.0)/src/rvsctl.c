@@ -3,8 +3,6 @@
 #include <stddef.h>
 #include <ctype.h>
 
-#include <stdio.h>
-
 #include "../include/rvsmem.h"
 #include "../include/rvsio.h"
 #include "../include/rvslgc.h"
@@ -23,32 +21,31 @@ bool rvs_file_type_check(const char* const file_type){
 }
 
 
-bool rvs_variable_name_check(const RVSBUF* const rvs_buffer, const RVSMEM* const rvs_memory, bool create_type){
-
-    if (rvs_buffer->variable_name[0] == '\0'){
+bool rvs_variable_name_check(const char* const variable_name, const RVSMEM* const rvs_memory, bool create_type){
+    if (variable_name[0] == '\0'){
         rvs_standard_error(RVS_VARIABLE_NO_NAME_ERROR, NULL);
         return false;
     }
 
-    if (isdigit(rvs_buffer->variable_name[0]) != 0){
+    if (isdigit(variable_name[0]) != 0){
         rvs_standard_error(RVS_VARIABLE_NAME_FIRST_CHARACTER_NUMBER_ERROR, NULL);
         return false;
     }
 
-    if (strlen(rvs_buffer->variable_name) > 30){
+    if (strlen(variable_name) > 30){
         rvs_standard_error(RVS_VARIABLE_NAME_LENGTH_ERROR, NULL);
         return false;
     }
     
-    for (size_t i = 0; rvs_buffer->variable_name[i] != '\0'; i++){
-        if (isalnum(rvs_buffer->variable_name[i]) == 0 && rvs_buffer->variable_name[i] != '_'){
+    for (size_t i = 0; variable_name[i] != '\0'; i++){
+        if (isalnum(variable_name[i]) == 0 && variable_name[i] != '_'){
             rvs_standard_error(RVS_VARIABLE_NAME_CHARACTER_ERROR, NULL);
             return false;
         }
     }
 
     if (create_type == true){
-        if (rvs_memory_check(rvs_memory, rvs_buffer) == true){
+        if (rvs_memory_check(rvs_memory, variable_name) == true){
             rvs_standard_error(RVS_VARIABLE_NAME_DUBLICATE_ERROR, NULL);
             return false;
         }
@@ -58,7 +55,7 @@ bool rvs_variable_name_check(const RVSBUF* const rvs_buffer, const RVSMEM* const
 }
 
 
-bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSLGC* const rvs_variable_logic){
+bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSMEM* const rvs_memory, const RVSLGC* const rvs_variable_logic){
 
     // No Data Checking
     if (rvs_variable_logic->assignment_operation_check == true && rvs_variable_buffer->variable_data[0] == '\0'){

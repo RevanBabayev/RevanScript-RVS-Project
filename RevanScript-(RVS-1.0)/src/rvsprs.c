@@ -3,8 +3,6 @@
 #include <string.h>
 #include <ctype.h>
 
-#include <stdio.h>
-
 #include "../include/rvsprs.h"
 #include "../include/rvsbuf.h"
 #include "../include/rvsexp.h"
@@ -21,13 +19,15 @@ RVSPRS* _rvs_parser_create(void){
 	return rvs_parser;
 }
 
+
 // RevanScript Parser Memory Delete
 void rvs_parser_delete(RVSPRS* rvs_parser){
 	free(rvs_parser);
 }
 
+
 // RevanScript (RVS) Variable Parser Function
-RVSPRS* rvs_variable_parser(const char* const code_line, RVSMEM* rvs_memory){
+RVSPRS* rvs_variable_parser(const char* const code_line){
 
 	// RevanScript (RVS) Parser Memory
 	RVSPRS* rvs_parser = _rvs_parser_create();
@@ -138,7 +138,7 @@ RVSPRS* rvs_variable_parser(const char* const code_line, RVSMEM* rvs_memory){
 				//  Operators Buffer Write
 				else if (code_line[i] == '+' || code_line[i] == '-' || code_line[i] == '*' || code_line[i] == '/'){
 					if (rvs_variable_logic->expression_queue == RVS_UNDEFINED_QUEUE){
-						printf("\nEXPRESSION FIRST OPERATOR INVALID\n");
+						//printf("\nEXPRESSION FIRST OPERATOR INVALID\n");
 						rvs_buffer_delete(rvs_variable_buffer);
 						rvs_expression_delete(rvs_variable_expression);
 						rvs_logic_delete(rvs_variable_logic);
@@ -147,7 +147,7 @@ RVSPRS* rvs_variable_parser(const char* const code_line, RVSMEM* rvs_memory){
 					}
 
 					else if (rvs_variable_logic->expression_queue == RVS_OPERATOR_QUEUE){
-						printf("\nEXPRESSION INVALID\n");
+						//printf("\nEXPRESSION INVALID\n");
 						rvs_buffer_delete(rvs_variable_buffer);
 						rvs_expression_delete(rvs_variable_expression);
 						rvs_logic_delete(rvs_variable_logic);
@@ -182,7 +182,7 @@ RVSPRS* rvs_variable_parser(const char* const code_line, RVSMEM* rvs_memory){
 				}
 			}
 
-			// Boolean, Integer, Float, Binary and NULL Types Parsing
+			// Boolean, Integer, Float, Binary, Null and Variable Types Parsing
 			else{
 				if (code_line[i] == ' ') continue;
 				rvs_variable_buffer->variable_data[rvs_variable_buffer->variable_data_counter++] = code_line[i];
@@ -190,7 +190,7 @@ RVSPRS* rvs_variable_parser(const char* const code_line, RVSMEM* rvs_memory){
 		}
 	}
 
-	// RevanScript Buffee Null Terminators
+	// RevanScript Buffer Null Terminators
 	rvs_variable_buffer->variable_name[rvs_variable_buffer->variable_name_counter] = '\0';
 	rvs_variable_buffer->variable_data[rvs_variable_buffer->variable_data_counter] = '\0';
 	rvs_variable_expression->ops[rvs_variable_expression->ops_counter] = '\0';
