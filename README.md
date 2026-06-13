@@ -16,6 +16,8 @@ C proqramlaşdırma dili ilə yazmışam.
 Daha ətraflı və praktik nümunələr görmək üçün "https://youtube.com/@RvCodes9" YouTube kanalına baxa bilərsiniz.
 Bundan əlavə daha geniş məlumat üçün GitHub Pages də yaratdığım sayta daxil ola bilərsiniz. Saytın linki - "https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/" vəya fikir bildirmək istəyirsinizsə Reddit link - "https://www.reddit.com/r/RevanScript/?share_id=JbriuIdPKRP5Aku10N43N&utm_content=1&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1" istifadə edə bilərsiniz.
 
+
+
 [RevanScript (RVS) Project Layers]
 
 1) RevanScript (RVS) Memory Management
@@ -52,6 +54,8 @@ Bundan əlavə daha geniş məlumat üçün GitHub Pages də yaratdığım sayta
 
 :: src/rvsmth.c <br>
 :: include/rvsmth.h <br>
+
+
 
 [RevanScript Simple Codes]
 
