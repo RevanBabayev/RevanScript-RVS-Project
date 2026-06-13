@@ -48,6 +48,11 @@ Bundan əlavə daha geniş məlumat üçün GitHub Pages də yaratdığım sayta
 :: src/rvsctl.c <br>
 :: include/rvsctl.h <br>
 
+7) RevanScript (RVS) Math Engine
+
+:: src/rvsmth.c <br>
+:: include/rvsmth.h <br>
+
 [RevanScript Simple Codes]
 
 ... RevanScript (RVS) Comment <br>
