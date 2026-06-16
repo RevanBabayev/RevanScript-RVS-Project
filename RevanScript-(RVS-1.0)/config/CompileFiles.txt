@@ -1,0 +1,12 @@
+../src/main.c
+../src/rvsbuf.c
+../src/rvsctl.c
+../src/rvsexp.c
+../src/rvsflg.c
+../src/rvsio.c
+../src/rvslgc.c
+../src/rvsmem.c
+../src/rvsmth.c
+../src/rvsprs.c
+../src/rvsstd.c
+../src/rvstbl.c
