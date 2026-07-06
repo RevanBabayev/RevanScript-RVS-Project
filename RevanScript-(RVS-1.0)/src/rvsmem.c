@@ -1,11 +1,12 @@
+// C Standard Librarys
 #include <stdlib.h>
 #include <stddef.h>
 #include <stdbool.h>
 #include <string.h>
 
-#include <stdio.h>
-
+// RevanScript (RVS) Core / Engine Librarys
 #include "../include/rvsio.h"
+#include "../include/rvserr.h"
 #include "../include/rvsbuf.h"
 #include "../include/rvsmem.h"
 
@@ -126,18 +127,39 @@ bool _rvs_memory_realloc(RVSMEM* rvs_memory){
 void _rvs_memory_type_define(RVSMEM* rvs_memory, const RVSBUF* const rvs_buffer){
     // Variable Type Write Memory
     switch (rvs_buffer->variable_type){
-        case RVS_STRING_TYPE:   strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "STR");   break;
-        case RVS_INTEGER_TYPE:  strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "INT");   break;
-        case RVS_FLOAT_TYPE:    strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "FLT");   break;
-        case RVS_BOOLEAN_TYPE:  strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "BLN");   break;
-        case RVS_BINARY_TYPE:   strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "BIN");   break;
-        case RVS_NULL_TYPE:     strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "NULL");  break;
+        case RVS_STRING_TYPE:   
+            strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "STR");
+            rvs_standard_debug(false, "Variable Type <String>"); 
+            break;
+        case RVS_INTEGER_TYPE:  
+            strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "INT"); 
+            rvs_standard_debug(false, "Variable Type <Integer>");  
+            break;
+        case RVS_FLOAT_TYPE:    
+            strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "FLT");
+            rvs_standard_debug(false, "Variable Type <Float>");    
+            break;
+        case RVS_BOOLEAN_TYPE:  
+            strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "BLN");
+            rvs_standard_debug(false, "Variable Type <Boolean>");    
+            break;
+        case RVS_BINARY_TYPE:   
+            strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "BIN");  
+            rvs_standard_debug(false, "Variable Type <Binary>");  
+            break;
+        case RVS_NULL_TYPE:     
+            strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "NULL");
+            rvs_standard_debug(false, "Variable Type <Null>");   
+            break;
     }
 }
 
 
 // RevanScript Memory (RVSMEM) Type Get
-void _rvs_memory_type_get(const RVSMEM* const rvs_memory, const size_t* const rvsmem_index, RVSBUF* rvs_buffer){
+void _rvs_memory_type_get(const RVSMEM* const rvs_memory, 
+                          const size_t* const rvsmem_index, 
+                          RVSBUF* rvs_buffer)
+{
     if (strcmp(rvs_memory->variable_types[*rvsmem_index], "STR") == 0){
         rvs_buffer->variable_type = RVS_STRING_TYPE;
     }
@@ -382,7 +404,7 @@ bool rvs_memory_set(RVSMEM* rvs_memory, const RVSBUF* const rvs_buffer){
 
 
 // RevanScript (RVS) Memory (RVSMEM) Cst (Constant Variable) Function
-bool rvs_memory_cst(RVSMEM* rvs_memory, const RVSBUF* const rvs_buffer){
+bool rvs_memory_const(RVSMEM* rvs_memory, const RVSBUF* const rvs_buffer){
     for (size_t i = 0; i < rvs_memory->memory_size; i++){
         if (strcmp(rvs_memory->variable_names[i], rvs_buffer->variable_name) == 0){
             if (rvs_memory->variable_consts[i] == false){

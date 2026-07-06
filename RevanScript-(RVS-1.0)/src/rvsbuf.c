@@ -4,17 +4,39 @@
 #include "../include/rvsbuf.h"
 
 
+// RevanScript (RVS) Direct Data Buffer (Create Function)
+RVS_DIRECT_BUFFER* rvs_direct_buffer_create(void){
+    RVS_DIRECT_BUFFER* rvs_direct_buffer = (RVS_DIRECT_BUFFER*) malloc(sizeof(RVS_DIRECT_BUFFER));
+    if (!rvs_direct_buffer) return NULL;
+    rvs_direct_buffer->direct_data = (char*) malloc(sizeof(char) * RVS_DIRECT_BUFFER_DATA_LENGTH);
+    if (!rvs_direct_buffer->direct_data){
+        free(rvs_direct_buffer);
+        return NULL;
+    }
+    rvs_direct_buffer->direct_data_counter = 0;
+    return rvs_direct_buffer;
+}
+
+
+// RevanScript (RVS) Direct Data Buffer (Delete Function)
+void rvs_direct_buffer_delete(RVS_DIRECT_BUFFER* rvs_direct_buffer){
+    free(rvs_direct_buffer->direct_data);
+    free(rvs_direct_buffer);
+}
+
+
+// RevanScript (RVS) Variable Meta-Data Buffer (Create Function)
 RVSBUF* rvs_buffer_create(void){
     RVSBUF* rvs_buffer = (RVSBUF*) malloc(sizeof(RVSBUF));
     if (!rvs_buffer) return NULL;
 
-    rvs_buffer->variable_name = (char*) malloc(sizeof(char) * RVS_BUFFER_VARIABLE_NAME_LENGHT);
+    rvs_buffer->variable_name = (char*) malloc(sizeof(char) * RVS_BUFFER_VARIABLE_NAME_LENGTH);
     if (!rvs_buffer->variable_name){
         free(rvs_buffer);
         return NULL;
     }
 
-    rvs_buffer->variable_data = (char*) malloc(sizeof(char) * RVS_BUFFER_VARIABLE_DATA_LENGHT);
+    rvs_buffer->variable_data = (char*) malloc(sizeof(char) * RVS_BUFFER_VARIABLE_DATA_LENGTH);
     if (!rvs_buffer->variable_data){
         free(rvs_buffer->variable_name);
         free(rvs_buffer);
@@ -35,6 +57,7 @@ RVSBUF* rvs_buffer_create(void){
 }
 
 
+// RevanScript (RVS) Variable Meta-Data Buffer (Delete Function)
 void rvs_buffer_delete(RVSBUF* buffer){
     free(buffer->variable_name);
     free(buffer->variable_data);

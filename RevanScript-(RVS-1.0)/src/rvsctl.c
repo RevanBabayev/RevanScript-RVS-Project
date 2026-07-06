@@ -1,12 +1,16 @@
+// C Standard Librarys
 #include <stdbool.h>
 #include <string.h>
 #include <stddef.h>
 #include <ctype.h>
 
+// RevanScript (RVS) Core/Engine Librarys
 #include "../include/rvsmem.h"
 #include "../include/rvsio.h"
 #include "../include/rvslgc.h"
+#include "../include/rvskey.h"
 #include "../include/rvsctl.h"
+#include "../include/rvserr.h"
 
 
 bool rvs_file_type_check(const char* const file_type){
@@ -21,7 +25,11 @@ bool rvs_file_type_check(const char* const file_type){
 }
 
 
-bool rvs_variable_name_check(const char* const variable_name, const RVSMEM* const rvs_memory, bool create_type){
+bool rvs_variable_name_check(
+    const char* const variable_name, 
+    const RVSMEM* const rvs_memory, 
+    bool create_type)
+{
     if (variable_name[0] == '\0'){
         rvs_standard_error(RVS_VARIABLE_NO_NAME_ERROR, NULL);
         return false;
@@ -51,12 +59,21 @@ bool rvs_variable_name_check(const char* const variable_name, const RVSMEM* cons
         }
     }
 
+    for (unsigned short i = 0; i < RVS_KEYWORD_COUNT; i++){
+        if (strncmp(rvs_keyword_list[i], variable_name, (size_t) rvs_keywords_length[i]) == 0){
+            rvs_standard_error(RVS_VARIABLE_NAME_KEYWORD_NAME_PROBLEM_ERROR, NULL);
+            return false;
+        }
+    }
+
     return true;
 }
 
 
-bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSMEM* const rvs_memory, const RVSLGC* const rvs_variable_logic){
-
+bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, 
+                             const RVSMEM* const rvs_memory, 
+                             const RVSLGC* const rvs_variable_logic)
+{
     // No Data Checking
     if (rvs_variable_logic->assignment_operation_check == true && rvs_variable_buffer->variable_data[0] == '\0'){
 		rvs_standard_error(RVS_VARIABLE_NO_DATA_ERROR, NULL);
@@ -93,7 +110,7 @@ bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSMEM* const rv
                     if (!isdigit(rvs_variable_buffer->variable_data[i])){
                         if (rvs_variable_buffer->variable_data[i] != '.'){
                             if (rvs_variable_buffer->variable_data[0] != '-'){
-                                rvs_standard_error(RVS_UNDEFINED_TYPE_ERROR, NULL);
+                                rvs_standard_error(RVS_VARIABLE_UNDEFINED_TYPE_ERROR, NULL);
                                 return false;
                             }
 
@@ -103,7 +120,7 @@ bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSMEM* const rv
                         else{
                             if (minus_check == true){
                                 if (rvs_variable_buffer->variable_data[1] == '.'){
-                                    rvs_standard_error(RVS_UNDEFINED_TYPE_ERROR, NULL);
+                                    rvs_standard_error(RVS_VARIABLE_UNDEFINED_TYPE_ERROR, NULL);
                                     return false;
                                 }
                             }
@@ -162,4 +179,23 @@ bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, const RVSMEM* const rv
     }
 
     return true;
+}
+
+
+bool rvs_direct_data_check(const RVS_DIRECT_BUFFER* const rvs_direct_buffer,
+                           const RVS_DIRECT_LOGIC* const rvs_direct_logic)
+{
+    // No Direct Data Checking
+    if (rvs_direct_buffer->direct_data_counter == 0){
+        rvs_standard_error(RVS_DIRECT_NO_DATA_ERROR, NULL);
+        return false;
+    }
+
+    // String Data Checking
+    if (rvs_direct_logic->string_literal_check == true){
+        rvs_standard_error(RVS_STRING_LITERAL_ERROR, NULL);
+        return false;
+    }
+
+    // --
 }

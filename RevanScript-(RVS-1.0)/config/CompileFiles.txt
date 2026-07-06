@@ -10,3 +10,4 @@
 ../src/rvsprs.c
 ../src/rvsstd.c
 ../src/rvstbl.c
+../src/rvskey.c

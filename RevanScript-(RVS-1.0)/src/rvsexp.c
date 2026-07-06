@@ -1,9 +1,9 @@
+// C Standard Librarys
 #include <stdlib.h>
 #include <stddef.h>
 #include <string.h>
 
-#include <stdio.h>
-
+// RevanScript (RVS) Core / Engine Librarys
 #include "../include/rvsexp.h"
 #include "../include/rvsbuf.h"
 #include "../include/rvsmth.h"
@@ -61,7 +61,7 @@ bool rvs_expression_process(const RVSEXP* const rvs_expression, RVSBUF* rvs_buff
     strcpy(total, rvs_expression->nums[0]);
     for (size_t i = 0; i < strlen(rvs_expression->ops); i++){
         if (rvs_expression->ops[i] == '+'){
-            char* rvs_addition_operation = rvs_math_int_add(total, rvs_expression->nums[i + 1]);
+            RVSMTH* rvs_addition_operation = rvs_math_int_add(total, rvs_expression->nums[i + 1]);
             if (!rvs_addition_operation){
                 free(total);
                 return false;

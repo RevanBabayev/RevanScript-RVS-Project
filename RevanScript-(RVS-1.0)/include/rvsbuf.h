@@ -1,15 +1,18 @@
 #ifndef RVSBUF_H
 #define RVSBUF_H
 
+
+// C Standard Librarys
 #include <stddef.h>
 #include <stdbool.h>
 #include <stdint.h>
 
 
 // RevanScript Buffer Variable Standard Define
-#define RVS_BUFFER_VARIABLE_NAME_LENGHT 2048
-#define RVS_BUFFER_VARIABLE_DATA_LENGHT 2048
-#define RVS_BUFFER_VARIABLE_TYPE_LENGHT 5
+#define RVS_DIRECT_BUFFER_DATA_LENGTH 2048
+#define RVS_BUFFER_VARIABLE_NAME_LENGTH 2048
+#define RVS_BUFFER_VARIABLE_DATA_LENGTH 2048
+#define RVS_BUFFER_VARIABLE_TYPE_LENGTH 5
 
 
 // RevanScript Main Data Types
@@ -25,6 +28,13 @@ enum{
 };
 
 
+// RevanScript Direct Buffer Type
+typedef struct{
+    char* direct_data;
+    size_t direct_data_counter;
+} RVS_DIRECT_BUFFER;
+
+
 // RevanScript Buffer Type
 typedef struct{
     char* variable_name;
@@ -37,6 +47,9 @@ typedef struct{
 } RVSBUF;
 
 
+// Variable Buffer Functions
+RVS_DIRECT_BUFFER* rvs_direct_buffer_create(void);
+void rvs_direct_buffer_delete(RVS_DIRECT_BUFFER*);
 RVSBUF* rvs_buffer_create(void);
 void rvs_buffer_delete(RVSBUF*);
 
