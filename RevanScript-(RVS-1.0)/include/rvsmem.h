@@ -8,7 +8,7 @@
 
 
 // RevanScript (RVS) Memory Debugger Mode Define
-#define RVS_MEMORY_DEBUGGER_MODE false
+#define RVS_MEMORY_DEBUGGER_MODE true
 
 // RevanScript Memory Standard Define
 #define RVS_MEMORY_DEFAULT_SIZE 1000
@@ -37,7 +37,7 @@ bool rvs_memory_insert(RVSMEM*, const RVSBUF*);
 bool rvs_memory_check(const RVSMEM*, const char*);
 bool rvs_memory_get(const RVSMEM*, RVSBUF*);
 bool rvs_memory_set(RVSMEM*, const RVSBUF*);
-bool rvs_memory_cst(RVSMEM*, const RVSBUF*);
+bool rvs_memory_const(RVSMEM*, const RVSBUF*);
 bool rvs_memory_clear(RVSMEM*, const RVSBUF*);
 void rvs_memory_delete(RVSMEM*);
 

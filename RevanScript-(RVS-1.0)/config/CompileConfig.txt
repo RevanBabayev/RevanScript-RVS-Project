@@ -1,4 +1,5 @@
 CompilerName = gcc
+CompileType = Static
 LanguageStandard = c99
 CompilerOptimization = Medium
 OutputFile = ../bin/gcc/RevanScript

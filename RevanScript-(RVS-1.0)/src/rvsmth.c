@@ -1,16 +1,18 @@
+// C Standard Librarys
 #include <stdlib.h>
 #include <string.h>
 #include <stddef.h>
 #include <stdbool.h>
 
+// RevanScript (RVS) Core / Engine Librarys
 #include "../include/rvsmth.h"
 
 
-// RevanScript Stabilize Number Length Function 
-void _rvs_stabilize_number_length(
-    char* num1, char* num2, 
-    const size_t* const num1_length, 
-    const size_t* const num2_length)
+// RevanScript (RVS) Stabilize Number Length Function 
+void _rvs_stabilize_number_length(char* num1, 
+                                  char* num2, 
+                                  const size_t* const num1_length, 
+                                  const size_t* const num2_length)
 
 {
     if (*num1_length > *num2_length){

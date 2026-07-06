@@ -8,13 +8,13 @@
 #include <time.h>
 
 
-// RevanScript Core / Engine Librarys
+// RevanScript (RVS) Core / Engine Librarys
 #include "../include/rvsio.h"
 #include "../include/rvstbl.h"
 
 
 // RevanScript Standard Output Function
-void rvs_standard_output(const RVSIO* const data, const int8_t* const rvs_execution_mode){
+void rvs_standard_output(const RVSIOBUF* const data, const int8_t* const rvs_execution_mode){
     size_t data_length = strlen(data);
     size_t i = 0;
     printf("%s", RVS_COLOR_GREEN_ESCAPE_CODE);
@@ -186,12 +186,14 @@ void rvs_standard_table_output(const RVSTBL* const rvs_table){
 
 
 // RevanScript Standard Input Function
-void rvs_standard_input(RVSIO* input_buffer){
+void rvs_standard_input(RVSIOBUF* input_buffer, const int8_t const* rvs_execution_mode){
+    if (*rvs_execution_mode == RVS_REPL_MODE){
+        printf("%s::: %s", RVS_COLOR_MAGENTA_ESCAPE_CODE, RVS_COLOR_RESET_ESCAPE_CODE);
+    }
     printf("%s", RVS_COLOR_GREEN_ESCAPE_CODE);
     if (!fgets(input_buffer, 2048, stdin)){
         return;
     }
-    
     else{
         input_buffer[strlen(input_buffer) - 1] = '\0';
     }
