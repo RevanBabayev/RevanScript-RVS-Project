@@ -171,7 +171,7 @@ bool get(const char* const code_line,
 		rvs_table_insert(rvs_table, "Variable Constant");
 		rvs_table_insert(rvs_table, (rvs_buffer->variable_const == true) ? "TRUE" : "FALSE");
 		rvs_table_insert(rvs_table, "Variable Address");
-		//rvs_table_insert(rvs_table, rvs_buffer->variable_address);
+		rvs_table_insert(rvs_table, rvs_buffer->variable_address);
 		rvs_standard_table_output(rvs_table);
 		rvs_table_delete(rvs_table);
 	}
