@@ -14,9 +14,24 @@
 void rvs_flag_version(void){
     printf("%s\n\t\tRevanScript (RVS) version %.1f%s", 
         RVS_COLOR_YELLOW_ESCAPE_CODE, RVS_VERSION, RVS_COLOR_RESET_ESCAPE_CODE);
-    #ifdef __GNUC__
-        printf("%s\n\tGNU Compiler Collections (GCC) version %d.%d.%d%s\n\n", 
-            RVS_COLOR_YELLOW_ESCAPE_CODE, __GNUC__, __GNUC_MINOR__, __GNUC_PATCHLEVEL__, RVS_COLOR_RESET_ESCAPE_CODE);
+    #if defined( __GNUC__) && !defined(__clang__)
+        printf(
+            "%s\n\tGNU Compiler Collections (GCC) version %d.%d.%d%s\n\n", 
+            RVS_COLOR_YELLOW_ESCAPE_CODE, 
+            __GNUC__, 
+            __GNUC_MINOR__, 
+            __GNUC_PATCHLEVEL__, 
+            RVS_COLOR_RESET_ESCAPE_CODE
+        );
+    #elif defined(__clang__)
+        printf(
+            "%s\n\tC/C++ Compiler (Clang/LLVM) version %d.%d.%d%s\n\n",
+            RVS_COLOR_YELLOW_ESCAPE_CODE,
+            __clang_major__,
+            __clang_minor__,
+            __clang_patchlevel__,
+            RVS_COLOR_RESET_ESCAPE_CODE
+        );
     #endif
     printf("\n%s ____                              ____               _         _   \n",
         RVS_COLOR_CYAN_ESCAPE_CODE);
