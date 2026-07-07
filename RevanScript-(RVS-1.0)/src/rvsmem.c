@@ -1,4 +1,5 @@
 // C Standard Librarys
+#include <stdio.h>
 #include <stdlib.h>
 #include <stddef.h>
 #include <stdbool.h>
@@ -370,7 +371,7 @@ bool rvs_memory_get(const RVSMEM* const rvs_memory, RVSBUF* rvs_buffer){
                 strcpy(rvs_buffer->variable_data, rvs_memory->variable_datas[i]);
                 _rvs_memory_type_get(rvs_memory, &i, rvs_buffer);
                 rvs_buffer->variable_const = rvs_memory->variable_consts[i];
-                rvs_buffer->variable_address = i;
+                snprintf(rvs_buffer->variable_address, RVS_BUFFER_VARIABLE_ADDRESS_LENGTH, "0x%zx", i);
                 return true;
             }
         }

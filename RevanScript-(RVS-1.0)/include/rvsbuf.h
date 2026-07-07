@@ -13,6 +13,7 @@
 #define RVS_BUFFER_VARIABLE_NAME_LENGTH 2048
 #define RVS_BUFFER_VARIABLE_DATA_LENGTH 2048
 #define RVS_BUFFER_VARIABLE_TYPE_LENGTH 5
+#define RVS_BUFFER_VARIABLE_ADDRESS_LENGTH 20
 
 
 // RevanScript Main Data Types
@@ -41,7 +42,7 @@ typedef struct{
     char* variable_data;
     uint8_t variable_type;
     bool variable_const;
-    size_t variable_address;
+    char* variable_address;
     size_t variable_name_counter;
     size_t variable_data_counter;
 } RVSBUF;
