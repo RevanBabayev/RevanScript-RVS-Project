@@ -85,7 +85,7 @@
 */
 
 
-// C Standard Librarys
+// C Standard Libraries
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -93,7 +93,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-// RevanScript (RVS) Standard Core/Engine Librarys
+// RevanScript (RVS) Standard Core/Engine Libraries
 #include "../include/rvsio.h"
 #include "../include/rvsctl.h"
 #include "../include/rvsmem.h"

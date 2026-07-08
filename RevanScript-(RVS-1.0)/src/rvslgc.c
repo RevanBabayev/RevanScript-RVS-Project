@@ -1,5 +1,7 @@
+// C Standard Libraries
 #include <stdlib.h>
 
+// RevanScript (RVS) Core / Engine Libraries 
 #include "../include/rvsctl.h"
 #include "../include/rvslgc.h"
 
@@ -15,12 +17,10 @@ RVS_DIRECT_LOGIC* rvs_direct_logic_create(void){
 	return rvs_direct_logic;
 }
 
-
 // RevanScript Direct Data Logic (Delete Function)
 void rvs_direct_logic_delete(RVS_DIRECT_LOGIC* rvs_direct_logic){
 	free(rvs_direct_logic);
 }
-
 
 // RevanScript Variable Logic (Create Function)
 RVSLGC* rvs_logic_create(void){
@@ -33,7 +33,6 @@ RVSLGC* rvs_logic_create(void){
 	rvs_logic->expression_queue = RVS_UNDEFINED_QUEUE;
     return rvs_logic;
 }
-
 
 // RevanScript Variable Logic (Delete Function)
 void rvs_logic_delete(RVSLGC* rvs_logic){

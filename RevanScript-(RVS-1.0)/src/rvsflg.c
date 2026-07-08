@@ -1,11 +1,11 @@
-// C Standard Librarys
+// C Standard Libraries
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
 #include <stdint.h>
 
-// RevanScript (RVS) Core / Engine Librarys
+// RevanScript (RVS) Core / Engine Libraries
 #include "../include/rvsio.h"
 #include "../include/rvserr.h"
 #include "../include/rvsflg.h"

@@ -1,6 +1,8 @@
+// C Standard Libraries
 #include <stdlib.h>
 #include <stdbool.h>
 
+// RevanScript (RVS) Core / Engine Libraries
 #include "../include/rvsbuf.h"
 
 
