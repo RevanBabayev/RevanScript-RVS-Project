@@ -78,7 +78,7 @@
 	Birdə daha çox tip əlavə etməyi düşünürəm.
 
 	RevanScript Data Types -> [String, Integer, Float, Boolean, Decemal, Binary, Hexadecemal]
-	RevanScript Structures Types -> [Box, Map]
+	RevanScript Data Structures Types -> [Box, Map]
 
 	[Box == Dynamic Array]
 	[Map == Hash Map]
