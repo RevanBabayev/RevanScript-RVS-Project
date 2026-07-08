@@ -191,9 +191,10 @@ bool get(const char* const code_line,
 
 
 // RevanScript (RVS) Output Function
-bool out(const char* const code_line, 
-		 const RVSMEM* const rvs_memory, 
-		 const int8_t* const rvs_execution_mode)
+bool out(
+	const char* const code_line, 
+	const RVSMEM* const rvs_memory, 
+	const int8_t* const rvs_execution_mode)
 {
 	// RevanScript Variable Name Parser
 	RVSBUF* rvs_buffer = rvs_variable_name_parser(code_line);
@@ -207,7 +208,9 @@ bool out(const char* const code_line,
 
 	// RevanScript Output
 	if (rvs_memory_get(rvs_memory, rvs_buffer) == true){
-		rvs_standard_output(rvs_buffer->variable_data, rvs_execution_mode);
+		RVSIO_Buffer iobuf;
+		iobuf.output_buffer = rvs_buffer->variable_data;
+		rvs_standard_output(&iobuf, rvs_execution_mode);
 		rvs_buffer_delete(rvs_buffer);
 		return true;
 	}
@@ -236,7 +239,9 @@ bool inp(const char* const code_line, RVSMEM* rvs_memory, const int8_t* const rv
 	}
 	
 	// RevanScript Standard Input
-	rvs_standard_input(rvs_buffer->variable_data, rvs_execution_mode);
+	RVSIO_Buffer iobuf;
+	iobuf.input_buffer = rvs_buffer->variable_data;
+	rvs_standard_input(&iobuf, rvs_execution_mode);
 	rvs_buffer->variable_type = RVS_STRING_TYPE;
 
 	// RevanScript Set Memory
@@ -303,11 +308,15 @@ bool del(const char* const code_line, RVSMEM* rvs_memory){
 bool prt(const char* const code_line, const int8_t* const rvs_execution_mode){
 	RVS_DIRECT_PARSER* rvs_direct_parser = rvs_direct_data_parser(code_line);
 	if (!rvs_direct_parser) return false;
-	if (rvs_direct_data_check(rvs_direct_parser->rvs_direct_buffer, rvs_direct_parser->rvs_direct_logic) == false){
+	if (rvs_direct_data_check(
+		rvs_direct_parser->rvs_direct_buffer, 
+		rvs_direct_parser->rvs_direct_logic) == false){
 		free(rvs_direct_parser);
 		return false;
 	}
-	rvs_standard_output(rvs_direct_parser->rvs_direct_buffer->direct_data, rvs_execution_mode);
+	RVSIO_Buffer iobuf;
+	iobuf.output_buffer = rvs_direct_parser->rvs_direct_buffer->direct_data;
+	rvs_standard_output(&iobuf, rvs_execution_mode);
 	return true;
 }
 

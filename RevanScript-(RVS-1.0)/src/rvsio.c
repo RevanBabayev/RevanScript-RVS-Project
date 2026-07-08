@@ -14,14 +14,14 @@
 
 
 // RevanScript Standard Output Function
-void rvs_standard_output(const RVSIOBUF* const data, const int8_t* const rvs_execution_mode){
-    size_t data_length = strlen(data);
+void rvs_standard_output(const RVSIO_Buffer* const data, const int8_t* const rvs_execution_mode){
+    size_t data_length = strlen(data->output_buffer);
     size_t i = 0;
     printf("%s", RVS_COLOR_GREEN_ESCAPE_CODE);
-    while (data[i] != '\0'){
+    while (data->output_buffer[i] != '\0'){
 
         // Time Escape Sequance
-        if (data_length >= i + 3 && data[i] == '\\' && data[i + 1] == 't' && data[i + 2] == 'm'){
+        if (data_length >= i + 3 && data->output_buffer[i] == '\\' && data->output_buffer[i + 1] == 't' && data->output_buffer[i + 2] == 'm'){
             time_t current_time = time(NULL);
             struct tm* local_time = localtime(&current_time);
             printf("%02d:%02d:%02d", local_time->tm_hour, local_time->tm_min, local_time->tm_sec);
@@ -29,7 +29,7 @@ void rvs_standard_output(const RVSIOBUF* const data, const int8_t* const rvs_exe
         }
 
         // Date Escape Sequance
-        else if (data_length >= i + 3 && data[i] == '\\' && data[i + 1] == 'd' && data[i + 2] == 't'){
+        else if (data_length >= i + 3 && data->output_buffer[i] == '\\' && data->output_buffer[i + 1] == 'd' && data->output_buffer[i + 2] == 't'){
             time_t current_date = time(NULL);
             struct tm* local_date = localtime(&current_date);
             printf("%02d:%02d:%02d", local_date->tm_mday, local_date->tm_mon + 1, local_date->tm_year + 1900);
@@ -39,30 +39,30 @@ void rvs_standard_output(const RVSIOBUF* const data, const int8_t* const rvs_exe
         // Classic Escape Sequances
 
         // New Line (\n)
-        else if (data_length >= i + 2 && data[i] == '\\' && data[i + 1] == 'n'){
+        else if (data_length >= i + 2 && data->output_buffer[i] == '\\' && data->output_buffer[i + 1] == 'n'){
             putchar('\n');
             i += 2;
         }
 
         // Tab Line (\t)
-        else if (data_length >= i + 2 && data[i] == '\\' && data[i + 1] == 't'){
+        else if (data_length >= i + 2 && data->output_buffer[i] == '\\' && data->output_buffer[i + 1] == 't'){
             putchar('\t');
             i += 2;
         }
 
         // Beep sound (\a)
-        else if (data_length >= i + 2 && data[i] == '\\' && data[i + 1] == 'a'){
+        else if (data_length >= i + 2 && data->output_buffer[i] == '\\' && data->output_buffer[i + 1] == 'a'){
             putchar('\a');
             i += 2;
         }
 
         // Backspace (\b)
-        else if (data_length >= i + 3 && data[i + 1] == '\\' && data[i + 2] == 'b'){
+        else if (data_length >= i + 3 && data->output_buffer[i + 1] == '\\' && data->output_buffer[i + 2] == 'b'){
             i += 3;
         }
 
         // Display Clear (\cl)
-        else if (data_length >= i + 3 && data[i] == '\\' && data[i + 1] == 'c' && data[i + 2] == 'l'){
+        else if (data_length >= i + 3 && data->output_buffer[i] == '\\' && data->output_buffer[i + 1] == 'c' && data->output_buffer[i + 2] == 'l'){
             if (!system("clear")){
                 return;
             }
@@ -70,8 +70,8 @@ void rvs_standard_output(const RVSIOBUF* const data, const int8_t* const rvs_exe
         }
         
         // Color Escape Sequances
-        else if (data_length >= i + 3 && data[i] == '\\' && data[i + 1] == 'c'){
-            switch (data[i + 2]){
+        else if (data_length >= i + 3 && data->output_buffer[i] == '\\' && data->output_buffer[i + 1] == 'c'){
+            switch (data->output_buffer[i + 2]){
                 case '0': printf("%s", RVS_COLOR_RESET_ESCAPE_CODE);   i += 3; break;
                 case '1': printf("%s", RVS_COLOR_BLACK_ESCAPE_CODE);   i += 3; break;
                 case '2': printf("%s", RVS_COLOR_RED_ESCAPE_CODE);     i += 3; break;
@@ -101,8 +101,8 @@ void rvs_standard_output(const RVSIOBUF* const data, const int8_t* const rvs_exe
         }
 
         // Emoji Escape Sequances
-        else if (data_length >= i + 3 && data[i] == '\\' && data[i + 1] == 'e'){
-            switch (data[i + 2]){
+        else if (data_length >= i + 3 && data->output_buffer[i] == '\\' && data->output_buffer[i + 1] == 'e'){
+            switch (data->output_buffer[i + 2]){
                 case '0': printf("😀"); i += 3; break;
                 case '1': printf("😄"); i += 3; break;
                 case '2': printf("😁"); i += 3; break;
@@ -135,7 +135,7 @@ void rvs_standard_output(const RVSIOBUF* const data, const int8_t* const rvs_exe
 
         // Output Character
         else{
-            putchar(data[i]);
+            putchar(data->output_buffer[i]);
             i++;
         }
     }
@@ -186,16 +186,16 @@ void rvs_standard_table_output(const RVSTBL* const rvs_table){
 
 
 // RevanScript Standard Input Function
-void rvs_standard_input(RVSIOBUF* input_buffer, const int8_t const* rvs_execution_mode){
+void rvs_standard_input(RVSIO_Buffer* data, const int8_t const* rvs_execution_mode){
     if (*rvs_execution_mode == RVS_REPL_MODE){
         printf("%s::: %s", RVS_COLOR_MAGENTA_ESCAPE_CODE, RVS_COLOR_RESET_ESCAPE_CODE);
     }
     printf("%s", RVS_COLOR_GREEN_ESCAPE_CODE);
-    if (!fgets(input_buffer, 2048, stdin)){
+    if (!fgets(data->input_buffer, 2048, stdin)){
         return;
     }
     else{
-        input_buffer[strlen(input_buffer) - 1] = '\0';
+        data->input_buffer[strlen(data->input_buffer) - 1] = '\0';
     }
     printf("%s", RVS_COLOR_CYAN_ESCAPE_CODE);
 }
