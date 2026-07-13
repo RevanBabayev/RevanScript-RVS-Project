@@ -19,6 +19,7 @@ typedef struct{
 // RevanScript Direct Parser Type
 typedef struct{
     RVS_DIRECT_BUFFER* rvs_direct_buffer;
+    RVSEXP* rvs_direct_expression;
     RVS_DIRECT_LOGIC* rvs_direct_logic;
 } RVS_DIRECT_PARSER;
 

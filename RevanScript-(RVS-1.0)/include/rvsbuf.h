@@ -18,20 +18,20 @@
 
 // RevanScript Main Data Types
 enum{
-    RVS_UNDEFINED_TYPE,
-    RVS_STRING_TYPE,
-    RVS_INTEGER_TYPE,
-    RVS_FLOAT_TYPE,
-    RVS_BOOLEAN_TYPE,
-    RVS_BINARY_TYPE,
-    RVS_EXPRESSION_TYPE,
-    RVS_NULL_TYPE
+    RVS_UNDEFINED_TYPE,    // 1
+    RVS_STRING_TYPE,       // 2
+    RVS_INTEGER_TYPE,      // 3
+    RVS_FLOAT_TYPE,        // 4
+    RVS_BOOLEAN_TYPE,      // 5
+    RVS_EXPRESSION_TYPE,   // 6
+    RVS_NULL_TYPE          // 7
 };
 
 
 // RevanScript Direct Buffer Type
 typedef struct{
     char* direct_data;
+    uint8_t direct_type;
     size_t direct_data_counter;
 } RVS_DIRECT_BUFFER;
 

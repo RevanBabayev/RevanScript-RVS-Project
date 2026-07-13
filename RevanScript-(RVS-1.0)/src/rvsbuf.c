@@ -15,6 +15,8 @@ RVS_DIRECT_BUFFER* rvs_direct_buffer_create(void){
         free(rvs_direct_buffer);
         return NULL;
     }
+    rvs_direct_buffer->direct_data[0] = '\0';
+    rvs_direct_buffer->direct_type = RVS_UNDEFINED_TYPE;
     rvs_direct_buffer->direct_data_counter = 0;
     return rvs_direct_buffer;
 }

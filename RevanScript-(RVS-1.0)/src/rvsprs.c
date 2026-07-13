@@ -17,7 +17,6 @@
 
 // RevanScript (RVS) Direct Parser Memory (Create Function)
 RVS_DIRECT_PARSER* rvs_direct_parser_create(void){
-
 	// RevanScript (RVS) Direct Parser Memory Allocate
 	RVS_DIRECT_PARSER* rvs_direct_parser = (RVS_DIRECT_PARSER*) malloc(sizeof(RVS_DIRECT_PARSER));
 	if (!rvs_direct_parser) return NULL;
@@ -29,16 +28,25 @@ RVS_DIRECT_PARSER* rvs_direct_parser_create(void){
 		return NULL;
 	}
 
+	// RevanScript Direct Expression Memory Allocate
+	RVSEXP* rvs_direct_expression = rvs_expression_create();
+	if (!rvs_direct_expression){
+		rvs_direct_buffer_delete(rvs_direct_buffer);
+		free(rvs_direct_parser);
+	}
+
 	// RevanScript Direct Logic Memory Allocate
 	RVS_DIRECT_LOGIC* rvs_direct_logic = rvs_direct_logic_create();
 	if (!rvs_direct_logic){
 		rvs_direct_buffer_delete(rvs_direct_buffer);
+		rvs_expression_delete(rvs_direct_expression);
 		free(rvs_direct_parser);
 		return NULL;
 	}
 
 	// Connect Pointers
 	rvs_direct_parser->rvs_direct_buffer = rvs_direct_buffer;
+	rvs_direct_parser->rvs_direct_expression = rvs_direct_expression;
 	rvs_direct_parser->rvs_direct_logic = rvs_direct_logic;
 
 	// Return Direct Parser
@@ -56,7 +64,6 @@ void rvs_direct_parser_delete(RVS_DIRECT_PARSER* rvs_direct_parser){
 
 // RevanScript (RVS) Variable Parser Memory (Create Function)
 RVSPRS* rvs_parser_create(void){
-
 	// RevanScript (RVS) Parser Memory Allocate
 	RVSPRS* rvs_parser = (RVSPRS*) malloc(sizeof(RVSPRS));
 	if (!rvs_parser) return NULL;
@@ -106,7 +113,6 @@ void rvs_parser_delete(RVSPRS* rvs_parser){
 
 // RevanScript (RVS) Variable Parser Function
 RVSPRS* rvs_variable_parser(const char* const code_line){
-
 	// RevanScript (RVS) Parser Memory
 	RVSPRS* rvs_parser = rvs_parser_create();
 	if (!rvs_parser) return NULL;
@@ -129,7 +135,7 @@ RVSPRS* rvs_variable_parser(const char* const code_line){
 
 		// Variable Data 
 		else if (rvs_parser->rvs_logic->assignment_operation_check == true){
-
+			
 			// String Data Literal (Open / Close) System
 			if (code_line[i] == '\"'){
 				if (rvs_parser->rvs_logic->string_literal_check == false){
@@ -142,16 +148,6 @@ RVSPRS* rvs_variable_parser(const char* const code_line){
 				else{
 					rvs_parser->rvs_logic->string_literal_check = false;
 					break;
-				}
-			}
-
-			// Binary Type (Open) System
- 			else if (rvs_parser->rvs_logic->string_literal_check == false && code_line[i] == 'b'){
-				if (rvs_parser->rvs_logic->binary_start_operation_check == false){
-					rvs_parser->rvs_logic->binary_start_operation_check = true;
-					if (rvs_parser->rvs_buffer->variable_type == RVS_UNDEFINED_TYPE){
-						rvs_parser->rvs_buffer->variable_type = RVS_BINARY_TYPE;
-					}
 				}
 			}
 
@@ -272,6 +268,9 @@ RVS_DIRECT_PARSER* rvs_direct_data_parser(const char* const code_line){
 		if (code_line[i] == '\"'){
 			if (rvs_direct_parser->rvs_direct_logic->string_literal_check == false){
 				rvs_direct_parser->rvs_direct_logic->string_literal_check = true;
+				if (rvs_direct_parser->rvs_direct_buffer->direct_type == RVS_UNDEFINED_TYPE){
+					rvs_direct_parser->rvs_direct_buffer->direct_type = RVS_STRING_TYPE;
+				}
 				continue;
 			}
 

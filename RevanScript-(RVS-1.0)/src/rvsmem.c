@@ -144,10 +144,6 @@ void _rvs_memory_type_define(RVSMEM* rvs_memory, const RVSBUF* const rvs_buffer)
             strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "BLN");
             rvs_standard_debug(false, "Variable Type <Boolean>");    
             break;
-        case RVS_BINARY_TYPE:   
-            strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "BIN");  
-            rvs_standard_debug(false, "Variable Type <Binary>");  
-            break;
         case RVS_NULL_TYPE:     
             strcpy(rvs_memory->variable_types[rvs_memory->variable_iter], "NULL");
             rvs_standard_debug(false, "Variable Type <Null>");   
@@ -172,9 +168,6 @@ void _rvs_memory_type_get(const RVSMEM* const rvs_memory,
     }
     else if (strcmp(rvs_memory->variable_types[*rvsmem_index], "BLN") == 0){
         rvs_buffer->variable_type = RVS_BOOLEAN_TYPE;
-    }
-    else if (strcmp(rvs_memory->variable_types[*rvsmem_index], "BIN") == 0){
-        rvs_buffer->variable_type = RVS_BINARY_TYPE;
     }
     else if (strcmp(rvs_memory->variable_types[*rvsmem_index], "NULL") == 0){
         rvs_buffer->variable_type = RVS_NULL_TYPE;

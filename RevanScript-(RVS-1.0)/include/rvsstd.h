@@ -6,6 +6,6 @@
 #include "rvsprs.h"
 #include "rvsmem.h"
 
-RVSPRS* rvs_standard_variable(const char*, RVSMEM*, bool);
+RVSPRS* rvs_standard_variable(const char*, RVSMEM*, bool, bool);
 
 #endif

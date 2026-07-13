@@ -60,7 +60,7 @@ bool rvs_variable_name_check(
     }
 
     for (unsigned short i = 0; i < RVS_KEYWORD_COUNT; i++){
-        if (strncmp(rvs_keyword_list[i], variable_name, (size_t) rvs_keywords_length[i]) == 0){
+        if (strcmp(rvs_keyword_list[i], variable_name) == 0){
             rvs_standard_error(RVS_VARIABLE_NAME_KEYWORD_NAME_PROBLEM_ERROR, NULL);
             return false;
         }
@@ -70,9 +70,10 @@ bool rvs_variable_name_check(
 }
 
 
-bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer, 
-                             const RVSMEM* const rvs_memory, 
-                             const RVSLGC* const rvs_variable_logic)
+bool rvs_variable_data_check(
+    RVSBUF* rvs_variable_buffer, 
+    const RVSMEM* const rvs_memory, 
+    const RVSLGC* const rvs_variable_logic)
 {
     // No Data Checking
     if (rvs_variable_logic->assignment_operation_check == true && rvs_variable_buffer->variable_data[0] == '\0'){
@@ -87,16 +88,6 @@ bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer,
 			return false;
 		}
 	}
-
-    // Binary Type Checking
-    else if (rvs_variable_buffer->variable_type == RVS_BINARY_TYPE){
-        for (size_t i = 0; rvs_variable_buffer->variable_data[i] != '\0'; i++){
-            if (rvs_variable_buffer->variable_data[i] != '0' && rvs_variable_buffer->variable_data[i] != '1'){
-                rvs_standard_error(RVS_BINARY_TYPE_ERROR, NULL);
-                return false;
-            }
-        }
-    }
 
     // (Boolean, Integer, Float and NULL) Type Checking
     else if (rvs_variable_buffer->variable_type == RVS_UNDEFINED_TYPE){
@@ -182,8 +173,9 @@ bool rvs_variable_data_check(RVSBUF* rvs_variable_buffer,
 }
 
 
-bool rvs_direct_data_check(const RVS_DIRECT_BUFFER* const rvs_direct_buffer,
-                           const RVS_DIRECT_LOGIC* const rvs_direct_logic)
+bool rvs_direct_data_check(
+    const RVS_DIRECT_BUFFER* const rvs_direct_buffer,
+    const RVS_DIRECT_LOGIC* const rvs_direct_logic)
 {
     // No Direct Data Checking
     if (rvs_direct_buffer->direct_data_counter == 0){
