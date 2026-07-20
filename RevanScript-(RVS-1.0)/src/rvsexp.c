@@ -19,14 +19,14 @@ RVSEXP* rvs_expression_create(void){
     
     // Operations Memory Allocate
     rvs_expression->ops = (char*) malloc(sizeof(char) * 2048);
-    if (!rvs_expression){
+    if (!rvs_expression->ops){
         free(rvs_expression);
         return NULL;
     }
 
     // Numbers Memory Allocate
     rvs_expression->nums = (char**) malloc(sizeof(char*) * 2048);
-    if (!rvs_expression){
+    if (!rvs_expression->nums){
         free(rvs_expression->ops);
         free(rvs_expression);
         return NULL;
@@ -46,6 +46,8 @@ RVSEXP* rvs_expression_create(void){
         rvs_expression->nums[i][0] = '\0';
     }
 
+    rvs_expression->ops[0] = '\0';
+
     rvs_expression->ops_counter = 0;
     rvs_expression->nums_counter = 0;
     rvs_expression->char_counter = 0;
@@ -55,7 +57,7 @@ RVSEXP* rvs_expression_create(void){
 
 
 // RevanScript (RVS) Expression Process Engine
-bool rvs_expression_process(const RVSEXP* const rvs_expression, RVSBUF* rvs_buffer){
+bool rvs_expression_process(const RVSEXP* const rvs_expression, RVS_VARIABLE_BUFFER* rvs_buffer){
     char* total = (char*) calloc(sizeof(char), 2048);
     if (!total) return false;
     strcpy(total, rvs_expression->nums[0]);

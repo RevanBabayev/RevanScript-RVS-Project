@@ -16,7 +16,7 @@
 #define RVS_BUFFER_VARIABLE_ADDRESS_LENGTH 20
 
 
-// RevanScript Main Data Types
+// RevanScript (RVS) Main Data Types
 enum{
     RVS_UNDEFINED_TYPE,    // 1
     RVS_STRING_TYPE,       // 2
@@ -28,7 +28,7 @@ enum{
 };
 
 
-// RevanScript Direct Buffer Type
+// RevanScript (RVS) Direct Buffer Type
 typedef struct{
     char* direct_data;
     uint8_t direct_type;
@@ -36,7 +36,7 @@ typedef struct{
 } RVS_DIRECT_BUFFER;
 
 
-// RevanScript Buffer Type
+// RevanScript (RVS) Variable Buffer Type
 typedef struct{
     char* variable_name;
     char* variable_data;
@@ -45,13 +45,20 @@ typedef struct{
     char* variable_address;
     size_t variable_name_counter;
     size_t variable_data_counter;
+} RVS_VARIABLE_BUFFER;
+
+
+// RevanScript (RVS) Buffer Type
+typedef union{
+    RVS_VARIABLE_BUFFER* rvs_variable_buffer;
+    RVS_DIRECT_BUFFER* rvs_direct_buffer;
 } RVSBUF;
 
 
 // Variable Buffer Functions
 RVS_DIRECT_BUFFER* rvs_direct_buffer_create(void);
 void rvs_direct_buffer_delete(RVS_DIRECT_BUFFER*);
-RVSBUF* rvs_buffer_create(void);
-void rvs_buffer_delete(RVSBUF*);
+RVS_VARIABLE_BUFFER* rvs_buffer_create(void);
+void rvs_buffer_delete(RVS_VARIABLE_BUFFER*);
 
 #endif

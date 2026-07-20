@@ -23,18 +23,18 @@ void rvs_direct_logic_delete(RVS_DIRECT_LOGIC* rvs_direct_logic){
 }
 
 // RevanScript Variable Logic (Create Function)
-RVSLGC* rvs_logic_create(void){
-    RVSLGC* rvs_logic = (RVSLGC*) malloc(sizeof(RVSLGC));
-    if (!rvs_logic) return NULL;
-    rvs_logic->assignment_operation_check = false;
-	rvs_logic->string_literal_check = false;
-	rvs_logic->binary_start_operation_check = false;
-	rvs_logic->expression_check = false;
-	rvs_logic->expression_queue = RVS_UNDEFINED_QUEUE;
-    return rvs_logic;
+RVS_VARIABLE_LOGIC* rvs_logic_create(void){
+    RVS_VARIABLE_LOGIC* rvs_variable_logic = (RVS_VARIABLE_LOGIC*) malloc(sizeof(RVS_VARIABLE_LOGIC));
+    if (!rvs_variable_logic) return NULL;
+    rvs_variable_logic->assignment_operation_check = false;
+	rvs_variable_logic->string_literal_check = false;
+	rvs_variable_logic->binary_start_operation_check = false;
+	rvs_variable_logic->expression_check = false;
+	rvs_variable_logic->expression_queue = RVS_UNDEFINED_QUEUE;
+    return rvs_variable_logic;
 }
 
 // RevanScript Variable Logic (Delete Function)
-void rvs_logic_delete(RVSLGC* rvs_logic){
+void rvs_logic_delete(RVS_VARIABLE_LOGIC* rvs_logic){
 	free(rvs_logic);
 }

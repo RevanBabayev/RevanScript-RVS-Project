@@ -7,7 +7,6 @@
 #include "rvsmem.h"
 #include "rvslgc.h"
 
-
 // RevanScript Expression Parser Queue Logic
 enum{
     RVS_UNDEFINED_QUEUE,
@@ -15,10 +14,16 @@ enum{
     RVS_OPERATOR_QUEUE
 };
 
+// RevanScript (RVS) Direct and Variable Type
+enum{
+    RVS_SEMANTIC_DIRECT_TYPE,
+    RVS_SEMANTIC_VARIABLE_TYPE
+};
+
 // Checking Functions
 bool rvs_file_type_check(const char*);
 bool rvs_variable_name_check(const char*, const RVSMEM*, bool);
-bool rvs_variable_data_check(RVSBUF*, const RVSMEM*, const RVSLGC*);
-bool rvs_direct_data_check(const RVS_DIRECT_BUFFER*, const RVS_DIRECT_LOGIC*);
+bool rvs_variable_data_check(RVS_VARIABLE_BUFFER*, const RVSMEM*, const RVS_VARIABLE_LOGIC*);
+bool rvs_direct_data_check(RVS_DIRECT_BUFFER*, const RVS_DIRECT_LOGIC*);
 
 #endif

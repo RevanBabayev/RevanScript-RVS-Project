@@ -15,53 +15,6 @@
 #include "../include/rvserr.h"
 
 
-// RevanScript (RVS) Direct Parser Memory (Create Function)
-RVS_DIRECT_PARSER* rvs_direct_parser_create(void){
-	// RevanScript (RVS) Direct Parser Memory Allocate
-	RVS_DIRECT_PARSER* rvs_direct_parser = (RVS_DIRECT_PARSER*) malloc(sizeof(RVS_DIRECT_PARSER));
-	if (!rvs_direct_parser) return NULL;
-
-	// RevanScript Direct Buffer Memory Allocate
-	RVS_DIRECT_BUFFER* rvs_direct_buffer = rvs_direct_buffer_create();
-	if (!rvs_direct_buffer){
-		free(rvs_direct_parser);
-		return NULL;
-	}
-
-	// RevanScript Direct Expression Memory Allocate
-	RVSEXP* rvs_direct_expression = rvs_expression_create();
-	if (!rvs_direct_expression){
-		rvs_direct_buffer_delete(rvs_direct_buffer);
-		free(rvs_direct_parser);
-	}
-
-	// RevanScript Direct Logic Memory Allocate
-	RVS_DIRECT_LOGIC* rvs_direct_logic = rvs_direct_logic_create();
-	if (!rvs_direct_logic){
-		rvs_direct_buffer_delete(rvs_direct_buffer);
-		rvs_expression_delete(rvs_direct_expression);
-		free(rvs_direct_parser);
-		return NULL;
-	}
-
-	// Connect Pointers
-	rvs_direct_parser->rvs_direct_buffer = rvs_direct_buffer;
-	rvs_direct_parser->rvs_direct_expression = rvs_direct_expression;
-	rvs_direct_parser->rvs_direct_logic = rvs_direct_logic;
-
-	// Return Direct Parser
-	return rvs_direct_parser;
-}
-
-
-// RevanScript (RVS) Direct Parser Memory (Delete Function)
-void rvs_direct_parser_delete(RVS_DIRECT_PARSER* rvs_direct_parser){
-	rvs_direct_buffer_delete(rvs_direct_parser->rvs_direct_buffer);
-	rvs_direct_logic_delete(rvs_direct_parser->rvs_direct_logic);
-	free(rvs_direct_parser);
-}
-
-
 // RevanScript (RVS) Variable Parser Memory (Create Function)
 RVSPRS* rvs_parser_create(void){
 	// RevanScript (RVS) Parser Memory Allocate
@@ -69,7 +22,7 @@ RVSPRS* rvs_parser_create(void){
 	if (!rvs_parser) return NULL;
 
 	// RevanScript (RVS) Buffer Memory Allocate
-	RVSBUF* rvs_variable_buffer = rvs_buffer_create();
+	RVS_VARIABLE_BUFFER* rvs_variable_buffer = rvs_buffer_create();
 	if (!rvs_variable_buffer){
 		free(rvs_parser);
 		return NULL;
@@ -84,7 +37,7 @@ RVSPRS* rvs_parser_create(void){
 	}
 
 	// RevanScript Parsing Logic Memory Allocate
-	RVSLGC* rvs_variable_logic = rvs_logic_create();
+	RVS_VARIABLE_LOGIC* rvs_variable_logic = rvs_logic_create();
 	if (!rvs_variable_logic){
 		rvs_buffer_delete(rvs_variable_buffer);
 		rvs_expression_delete(rvs_variable_expression);
@@ -240,19 +193,67 @@ RVSPRS* rvs_variable_parser(const char* const code_line){
 
 
 // RevanScript (RVS) Variable Name Parser
-RVSBUF* rvs_variable_name_parser(const char* const code_line){
+RVS_VARIABLE_BUFFER* rvs_variable_name_parser(const char* const code_line){
 	// RevanScript (RVS) Variable Buffer
-	RVSBUF* rvs_buffer = rvs_buffer_create();
-	if (!rvs_buffer) return NULL;
+	RVS_VARIABLE_BUFFER* rvs_variable_buffer = rvs_buffer_create();
+	if (!rvs_variable_buffer) return NULL;
 
 	// Parsing
 	for (size_t i = 0; code_line[i] != '\n' && code_line[i] != '\0'; i++){
 		if (code_line[i] == ' ') continue;
-		rvs_buffer->variable_name[rvs_buffer->variable_name_counter++] = code_line[i];
+		rvs_variable_buffer->variable_name[rvs_variable_buffer->variable_name_counter++] = code_line[i];
 	}
 
-	rvs_buffer->variable_name[rvs_buffer->variable_name_counter] = '\0';
-	return rvs_buffer;
+	rvs_variable_buffer->variable_name[rvs_variable_buffer->variable_name_counter] = '\0';
+	return rvs_variable_buffer;
+}
+
+
+// RevanScript (RVS) Direct Parser Memory (Create Function)
+RVS_DIRECT_PARSER* rvs_direct_parser_create(void){
+	// RevanScript (RVS) Direct Parser Memory Allocate
+	RVS_DIRECT_PARSER* rvs_direct_parser = (RVS_DIRECT_PARSER*) malloc(sizeof(RVS_DIRECT_PARSER));
+	if (!rvs_direct_parser) return NULL;
+
+	// RevanScript Direct Buffer Memory Allocate
+	RVS_DIRECT_BUFFER* rvs_direct_buffer = rvs_direct_buffer_create();
+	if (!rvs_direct_buffer){
+		free(rvs_direct_parser);
+		return NULL;
+	}
+
+	// RevanScript Direct Expression Memory Allocate
+	RVSEXP* rvs_direct_expression = rvs_expression_create();
+	if (!rvs_direct_expression){
+		rvs_direct_buffer_delete(rvs_direct_buffer);
+		free(rvs_direct_parser);
+	}
+
+	// RevanScript Direct Logic Memory Allocate
+	RVS_DIRECT_LOGIC* rvs_direct_logic = rvs_direct_logic_create();
+	if (!rvs_direct_logic){
+		rvs_direct_buffer_delete(rvs_direct_buffer);
+		rvs_expression_delete(rvs_direct_expression);
+		free(rvs_direct_parser);
+		return NULL;
+	}
+
+	// Connect Pointers
+	rvs_direct_parser->rvs_direct_buffer = rvs_direct_buffer;
+	rvs_direct_parser->rvs_direct_expression = rvs_direct_expression;
+	rvs_direct_parser->rvs_direct_logic = rvs_direct_logic;
+
+	// Return Direct Parser
+	return rvs_direct_parser;
+}
+
+
+// RevanScript (RVS) Direct Parser Memory (Delete Function)
+void rvs_direct_parser_delete(RVS_DIRECT_PARSER* rvs_direct_parser){
+	rvs_direct_buffer_delete(rvs_direct_parser->rvs_direct_buffer);
+	rvs_expression_delete(rvs_direct_parser->rvs_direct_expression);
+	rvs_direct_logic_delete(rvs_direct_parser->rvs_direct_logic);
+	free(rvs_direct_parser);
 }
 
 
@@ -296,7 +297,60 @@ RVS_DIRECT_PARSER* rvs_direct_data_parser(const char* const code_line){
 			}
 		}
 
-		// Boolean, Integer, Float, Binary, Null and Variable Types Parsing
+		// Expression Parsing
+		else if (code_line[i] == '('){ // Open 
+			if (rvs_direct_parser->rvs_direct_logic->expression_check == false){
+				rvs_direct_parser->rvs_direct_logic->expression_check = true;
+				if (rvs_direct_parser->rvs_direct_buffer->direct_type == RVS_UNDEFINED_TYPE){
+					rvs_direct_parser->rvs_direct_buffer->direct_type = RVS_EXPRESSION_TYPE;
+				}
+			}
+		}
+		
+		else if (code_line[i] == ')'){ // Close
+			if (rvs_direct_parser->rvs_direct_logic->expression_check == true){
+				rvs_direct_parser->rvs_direct_logic->expression_check = false;
+				break;
+			}
+		}
+
+		// Expression Data write
+		else if (rvs_direct_parser->rvs_direct_logic->expression_check == true){
+			if (code_line[i] == ' ') continue;
+
+			// Numbers Buffer Write
+			else if (isdigit(code_line[i]) != 0){
+				rvs_direct_parser->rvs_direct_expression->nums[rvs_direct_parser->rvs_direct_expression->nums_counter][rvs_direct_parser->rvs_direct_expression->char_counter++] = code_line[i];
+				if (rvs_direct_parser->rvs_direct_logic->expression_queue != RVS_NUMBER_QUEUE){
+					rvs_direct_parser->rvs_direct_logic->expression_queue = RVS_NUMBER_QUEUE;
+				}
+			}
+
+			//  Operators Buffer Write
+			else if (code_line[i] == '+' || code_line[i] == '-' || code_line[i] == '*' || code_line[i] == '/'){
+				if (rvs_direct_parser->rvs_direct_logic->expression_queue == RVS_UNDEFINED_QUEUE){
+					//printf("\nEXPRESSION FIRST OPERATOR INVALID\n");
+					rvs_direct_parser_delete(rvs_direct_parser);
+					return NULL;
+				}
+
+				else if (rvs_direct_parser->rvs_direct_logic->expression_queue == RVS_OPERATOR_QUEUE){
+					//printf("\nEXPRESSION INVALID\n");
+					rvs_direct_parser_delete(rvs_direct_parser);
+					return NULL;
+				}
+
+				// Number Buffer Config
+				rvs_direct_parser->rvs_direct_expression->nums[rvs_direct_parser->rvs_direct_expression->nums_counter][rvs_direct_parser->rvs_direct_expression->char_counter] = '\0';
+				rvs_direct_parser->rvs_direct_expression->nums_counter++;
+				rvs_direct_parser->rvs_direct_expression->char_counter = 0;
+
+				rvs_direct_parser->rvs_direct_expression->ops[rvs_direct_parser->rvs_direct_expression->ops_counter++] = code_line[i]; 
+				rvs_direct_parser->rvs_direct_logic->expression_queue = RVS_OPERATOR_QUEUE;
+			}
+		}
+
+		// Boolean, Integer, Float, Null [Variable Types Parsing]
 		else{
 			if (code_line[i] == ' ') continue;
 			rvs_direct_parser->rvs_direct_buffer->direct_data[rvs_direct_parser->rvs_direct_buffer->direct_data_counter++] = code_line[i];

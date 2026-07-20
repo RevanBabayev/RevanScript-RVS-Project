@@ -10,9 +10,9 @@
 
 // RevanScript Variable Parser Type
 typedef struct{
-    RVSBUF* rvs_buffer;
+    RVS_VARIABLE_BUFFER* rvs_buffer;
     RVSEXP* rvs_expression;
-    RVSLGC* rvs_logic;
+    RVS_VARIABLE_LOGIC* rvs_logic;
 } RVSPRS;
 
 
@@ -24,10 +24,11 @@ typedef struct{
 } RVS_DIRECT_PARSER;
 
 
-// Parser Functions 
-void rvs_parser_delete(RVSPRS*);
+// Parser Functions
 RVSPRS* rvs_variable_parser(const char*);
-RVSBUF* rvs_variable_name_parser(const char*);
+void rvs_parser_delete(RVSPRS*);
+RVS_VARIABLE_BUFFER* rvs_variable_name_parser(const char*);
 RVS_DIRECT_PARSER* rvs_direct_data_parser(const char*);
+void rvs_direct_parser_delete(RVS_DIRECT_PARSER*);
 
 #endif

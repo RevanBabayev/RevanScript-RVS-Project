@@ -33,8 +33,17 @@ RVSPRS* rvs_standard_variable(const char* const code_line, RVSMEM* rvs_memory, b
 		else rvs_parser->rvs_buffer->variable_const = false;
 	}
 
+	// RevanScript Expression Process
+	if (rvs_parser->rvs_buffer->variable_type == RVS_EXPRESSION_TYPE){
+		if (!rvs_expression_process(rvs_parser->rvs_expression, rvs_parser->rvs_buffer)){
+			// Dellocate
+			rvs_parser_delete(rvs_parser);
+			return NULL;
+		}
+	}
+
 	// RevanScript automatic NULL data
-	if (rvs_parser->rvs_logic->assignment_operation_check == false){
+	else if (rvs_parser->rvs_logic->assignment_operation_check == false){
 		strcpy(rvs_parser->rvs_buffer->variable_data, "NULL");
 		rvs_parser->rvs_buffer->variable_type = RVS_NULL_TYPE;
 	}
@@ -44,15 +53,6 @@ RVSPRS* rvs_standard_variable(const char* const code_line, RVSMEM* rvs_memory, b
 		// Dellocate
 		rvs_parser_delete(rvs_parser);
 		return NULL;
-	}
-
-	// RevanScript Expression Process
-	if (rvs_parser->rvs_buffer->variable_type == RVS_EXPRESSION_TYPE){
-		if (!rvs_expression_process(rvs_parser->rvs_expression, rvs_parser->rvs_buffer)){
-			// Dellocate
-			rvs_parser_delete(rvs_parser);
-			return NULL;
-		}
 	}
 
     return rvs_parser;

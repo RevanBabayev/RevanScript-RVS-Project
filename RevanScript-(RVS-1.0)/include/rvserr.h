@@ -23,5 +23,6 @@
 #define RVS_VARIABLE_UNDEFINED_ERROR                      "%s[RVSVariableUndefinedError] : The variable named \"%s\" does not exist!%s\n"
 #define RVS_VARIABLE_NAME_KEYWORD_NAME_PROBLEM_ERROR      "%s[RVSVariableNameKeywordNameProblemError] : Variable names cannot be the same as keyword names!%s\n"
 #define RVS_DIRECT_NO_DATA_ERROR                          "%s[RVSDirectNoDataError] : No direct data was given!%s\n"
+#define RVS_DIRECT_UNDEFINED_TYPE_ERROR                   "%s[RVSDirectUndefinedTypeError] : Unknown value type!%s\n"
 
 #endif

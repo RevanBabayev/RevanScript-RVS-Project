@@ -20,7 +20,7 @@ typedef struct{
 
 
 RVSEXP* rvs_expression_create(void);
-bool rvs_expression_process(const RVSEXP*, RVSBUF*);
+bool rvs_expression_process(const RVSEXP*, RVS_VARIABLE_BUFFER*);
 void rvs_expression_delete(RVSEXP*);
 
 #endif
