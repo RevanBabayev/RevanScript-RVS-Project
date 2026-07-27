@@ -1,70 +1,51 @@
 # RevanScript (RVS) Programming Language Project
-RevanScript-Interpreter
-
-RevanScript (RVS) Direct Execution Interpreter Model
+An efficient, lightweight, and direct execution interpreter model built from scratch.
 
 <p align="center">
-  <img src="RevanScript-Logo.png" width="200"/>
+  <img src="RevanScript-Logo.png" width="200" alt="RevanScript Logo"/>
 </p>
 
+## 📖 Introduction
+**RevanScript (RVS)** sadə, command-based (əmr əsaslı) təmələ sahib bir proqramlaşdırma dilidir. Olduqca minimal və anlaşılan bir sintaksisə malikdir. RevanScript (RVS) dilinin əsas üstünlüyü onun sürətli və yüngül işləyən daxili tərcüməçi (interpreter) proqramına sahib olmasıdır. 
 
-[RevanScript (RVS) Documentation]
+Layihə tamamilə **C proqramlaşdırma dili** ilə sıfırdan hazırlanmışdır.
 
-RevanScript sadə command-based təməli bir proqramlaşdirma dili kimi dizayn etmişən.
-Olduqca sadə və minimal sintaksisə malikdir. RevanScript (RVS) in əsas üstünlüyü onun sürətli və yüngül tərcüməçi proqramına sahib olmasıdir. Dildə bir çox məlumat tipləri var. Bunlara misal (String, Integer, Float, Boolean) dır. Dildə hələki primitiv tiplər işlək vəziyyətdədir. Bu dilin çalışmasi üçün tərçüməçi proqram təminatını paylaşmışam. 
-C proqramlaşdırma dili ilə yazmışam.
-Daha ətraflı və praktik nümunələr görmək üçün "https://youtube.com/@RvCodes9" YouTube kanalına baxa bilərsiniz.
-Bundan əlavə daha geniş məlumat üçün GitHub Pages də yaratdığım sayta daxil ola bilərsiniz. Saytın linki - "https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/" vəya fikir bildirmək istəyirsinizsə Reddit link - "https://www.reddit.com/r/RevanScript/?share_id=JbriuIdPKRP5Aku10N43N&utm_content=1&utm_medium=android_app&utm_name=androidcss&utm_source=share&utm_term=1" istifadə edə bilərsiniz.
+## 💎 Data Types
+Dildə müxtəlif məlumat tiplərinin idarə edilməsi nəzərdə tutulmuşdur. Hazırda aşağıdakı primitiv tiplər tam işlək vəziyyətdədir:
+* **String** (Mətn tipləri)
+* **Integer** (Tam ədədlər)
+* **Float** (Kəsr ədədlər)
+* **Boolean** (Məntiqi tiplər)
 
-<br>
+## 📂 Project Layers & Architecture
+RevanScript layihəsi modulyar arxitekturaya malikdir və aşağıdakı C faylları (Layers) vasitəsilə idarə olunur:
 
-[RevanScript (RVS) Project Layers]
+1. **Memory Management:** `src/rvsmem.c` | `include/rvsmem.h`
+2. **Buffer Memory Management:** `src/rvsbuf.c` | `include/rvsbuf.h`
+3. **Expression Memory Management:** `src/rvsexp.c` | `include/rvsexp.h`
+4. **I/O Handling:** `src/rvsio.c` | `include/rvsio.h`
+5. **Interpreter Flags:** `src/rvsflg.c` | `include/rvsflg.h`
+6. **Control & Checking:** `src/rvsctl.c` | `include/rvsctl.h`
+7. **Math Engine:** `src/rvsmth.c` | `include/rvsmth.h`
 
-1) RevanScript (RVS) Memory Management
+## 💻 RevanScript Code Examples
+Aşağıda RevanScript (RVS) dilinin əsas əmrlərini və sintaksisini göstərən sadə nümunə kod verilmişdir:
 
-:: src/rvsmem.c <br>
-:: include/rvsmem.h <br>
+```custom
+... RevanScript (RVS) Comment 
+var text = "Hello, World!\n" 
+out text 
+set text = "\t\c4RevanScript (RVS) Programming Language\n" 
+out text 
+inp text 
+out text 
+cst text 
+del text 
+```
 
-2) RevanScript (RVS) Buffer Memory Management
+## 🌐 Community & Official Links
+RevanScript inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün aşağıdakı rəsmi resurslardan istifadə edə bilərsiniz:
 
-:: src/rvsbuf.c <br>
-:: include/rvsbuf.h <br>
-
-3) RevanScript (RVS) Expression Memory Management
-
-:: src/rvsexp.c <br>
-:: include/rvsexp.h <br>
-
-4) RevanScript (RVS) I/O Input Output Handling
-
-:: src/rvsio.c <br>
-:: include/rvsio.h <br>
- 
-5) RevanScript (RVS) Interpreter flags
-
-:: src/rvsflg.c <br>
-:: include/rvsflg.h <br>
-
-6) RevanScript (RVS) Control/Checking 
-
-:: src/rvsctl.c <br>
-:: include/rvsctl.h <br>
-
-7) RevanScript (RVS) Math Engine
-
-:: src/rvsmth.c <br>
-:: include/rvsmth.h <br>
-
-<br>
-
-[RevanScript Simple Codes]
-
-... RevanScript (RVS) Comment <br>
-var text = "Hello, World!\n" <br>
-out text <br>
-set text = "\t\c4RevanScript (RVS) Programming Language\n" <br>
-out text <br>
-inp text <br>
-out text <br>
-cst text <br>
-del text <br>
+* **📺 YouTube Tutorials:** [RvCodes9 YouTube Channel](https://youtube.com/@RvCodes9) — Praktik nümunələr və video bələdçilər.
+* **📄 Official Documentation:** [RevanScript Pages Site](https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/) — Geniş məlumat və dərsliklər.
+* **💬 Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) — Fikir bildirmək, müzakirə etmək və sual vermək üçün rəsmi sub-reddit.
