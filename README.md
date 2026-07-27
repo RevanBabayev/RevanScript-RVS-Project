@@ -1,7 +1,7 @@
 # RevanScript (RVS) Programming Language Project
-# RevanScript-Interpreter
+RevanScript-Interpreter
 
-# RevanScript (RVS) Direct Execution Interpreter Model
+RevanScript (RVS) Direct Execution Interpreter Model
 
 <p align="center">
   <img src="RevanScript-Logo.png" width="200"/>
