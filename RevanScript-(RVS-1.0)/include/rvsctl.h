@@ -22,7 +22,7 @@ enum{
 
 // Checking Functions
 bool rvs_file_type_check(const char*);
-bool rvs_variable_name_check(const char*, const RVSMEM*, bool);
+bool rvs_variable_name_check(const char*, const RVSMEM*, bool, bool);
 bool rvs_variable_data_check(RVS_VARIABLE_BUFFER*, const RVSMEM*, const RVS_VARIABLE_LOGIC*);
 bool rvs_direct_data_check(RVS_DIRECT_BUFFER*, const RVS_DIRECT_LOGIC*);
 

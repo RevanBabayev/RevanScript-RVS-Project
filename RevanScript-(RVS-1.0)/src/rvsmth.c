@@ -9,7 +9,7 @@
 
 
 // RevanScript (RVS) Stabilize Number Length Function 
-void _rvs_stabilize_number_length(
+void __rvs_stabilize_number_length(
     char* num1, 
     char* num2, 
     const size_t* const num1_length, 
@@ -31,7 +31,7 @@ void _rvs_stabilize_number_length(
 
 
 // RevanScript Reverse Number Process Function
-bool _rvs_reverse_number_process(char* number, const size_t* const number_length){
+bool __rvs_reverse_number_process(char* number, const size_t* const number_length){
     char* reverse_number = (char*) malloc(sizeof(char) * 2048);
     if (!reverse_number) return false;
     size_t reverse_number_counter = 0;
@@ -55,7 +55,7 @@ RVSMTH* rvs_math_int_add(char* num1, char* num2){
     size_t total_counter = 0;
     int carry = 0;
 
-    _rvs_stabilize_number_length(num1, num2, &num1_length, &num2_length);
+    __rvs_stabilize_number_length(num1, num2, &num1_length, &num2_length);
 
     for (int i = num1_length - 1; i >= 0; i--){
         int number1 = (int) num1[i] - '0';
@@ -71,7 +71,7 @@ RVSMTH* rvs_math_int_add(char* num1, char* num2){
     }
 
     total[total_counter] = '\0';
-    if (_rvs_reverse_number_process(total, &total_counter) == false){
+    if (__rvs_reverse_number_process(total, &total_counter) == false){
         free(total);
         return NULL;
     }

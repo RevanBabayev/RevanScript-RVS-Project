@@ -1,98 +1,179 @@
 ... RevanScript Programming Language
 ... RevanScript Real Test Case 
 
-var pl0 = "Python"
-var pl1 = "Java"
-var pl2 = "C#"
-var pl3 = "C++"
-var pl4 = "C"
-var pl5 = "Rust"
-var pl6 = "Go"
-var pl7 = "Assembly"
-var pl8 = "Ruby"
-var pl9 = "Kotlin"
-var pl10 = "Pascal"
-var pl11 = "Basic"
-var pl12 = "Cobol"
-var pl13 = "Ada"
-var pl14 = "JavaScript"
-var pl15 = "TypeScript"
-var pl16 = "PHP"
-var pl17 = "RevanScript"
-var pl18 = "Lua"
+var mutable_pl0 = "Python"
+var mutable_pl1 = "Java"
+var mutable_pl2 = "C#"
+var mutable_pl3 = "C++"
+var mutable_pl4 = "C"
+var mutable_pl5 = "Rust"
+var mutable_pl6 = "Go"
+var mutable_pl7 = "Assembly"
+var mutable_pl8 = "Ruby"
+var mutable_pl9 = "Kotlin"
+var mutable_pl10 = "Pascal"
+var mutable_pl11 = "Basic"
+var mutable_pl12 = "Cobol"
+var mutable_pl13 = "Ada"
+var mutable_pl14 = "JavaScript"
+var mutable_pl15 = "TypeScript"
+var mutable_pl16 = "PHP"
+var mutable_pl17 = "RevanScript (RVS)"
+var mutable_pl18 = "Lua"
 
-out pl0
-prt "\n"
-del pl0
+let immutable_pl0 = "Python"
+let immutable_pl1 = "Java"
+let immutable_pl2 = "C#"
+let immutable_pl3 = "C++"
+let immutable_pl4 = "C"
+let immutable_pl5 = "Rust"
+let immutable_pl6 = "Go"
+let immutable_pl7 = "Assembly"
+let immutable_pl8 = "Ruby"
+let immutable_pl9 = "Kotlin"
+let immutable_pl10 = "Pascal"
+let immutable_pl11 = "Basic"
+let immutable_pl12 = "Cobol"
+let immutable_pl13 = "Ada"
+let immutable_pl14 = "JavaScript"
+let immutable_pl15 = "TypeScript"
+let immutable_pl16 = "PHP"
+let immutable_pl17 = "RevanScript (RVS)"
+let immutable_pl18 = "Lua"
 
-out pl1
+out mutable_pl0
 prt "\n"
-del pl1
+out immutable_pl0
+prt "\n"
 
-out pl2
+out mutable_pl1
 prt "\n"
-del pl2
+out immutable_pl1
+prt "\n"
 
-out pl3
+out mutable_pl2
 prt "\n"
-del pl3
+out immutable_pl2
+prt "\n"
 
-out pl4
+out mutable_pl3
 prt "\n"
-del pl4
+out immutable_pl3
+prt "\n"
 
-out pl5
+out mutable_pl4
 prt "\n"
-del pl5
+out immutable_pl4
+prt "\n"
 
-out pl6
+out mutable_pl5
 prt "\n"
-del pl6
+out immutable_pl5
+prt "\n"
 
-out pl7
+out mutable_pl6
 prt "\n"
-del pl7
+out immutable_pl6
+prt "\n"
 
-out pl8
+out mutable_pl7
 prt "\n"
-del pl8
+out immutable_pl7
+prt "\n"
 
-out pl9
+out mutable_pl8
 prt "\n"
-del pl9
+out immutable_pl8
+prt "\n"
 
-out pl10
+out mutable_pl9
 prt "\n"
-del pl10
+out immutable_pl9
+prt "\n"
 
-out pl11
+out mutable_pl10
 prt "\n"
-del pl11
+out immutable_pl10
+prt "\n"
 
-out pl12
+out mutable_pl11
 prt "\n"
-del pl12
+out immutable_pl11
+prt "\n"
 
-out pl13
+out mutable_pl12
 prt "\n"
-del pl13
+out immutable_pl12
+prt "\n"
 
-out pl14
+out mutable_pl13
 prt "\n"
-del pl14
+out immutable_pl13
+prt "\n"
 
-out pl15
+out mutable_pl14
 prt "\n"
-del pl15
+out immutable_pl14
+prt "\n"
 
-out pl16
+out mutable_pl15
 prt "\n"
-del pl16
+out immutable_pl15
+prt "\n"
 
-out pl17
+out mutable_pl16
 prt "\n"
-del pl17
+out immutable_pl16
+prt "\n"
 
-out pl18
+out mutable_pl17
 prt "\n"
-del pl18
+out immutable_pl17
+prt "\n"
+
+out mutable_pl18
+prt "\n"
+out immutable_pl18
+prt "\n"
+
+... Mutable Variable Deallocate
+del mutable_pl0
+del mutable_pl1
+del mutable_pl2
+del mutable_pl3
+del mutable_pl4
+del mutable_pl5
+del mutable_pl6
+del mutable_pl7
+del mutable_pl8
+del mutable_pl9
+del mutable_pl10
+del mutable_pl11
+del mutable_pl12
+del mutable_pl13
+del mutable_pl14
+del mutable_pl15
+del mutable_pl16
+del mutable_pl17
+del mutable_pl18
+
+... Immutable Variable Deallocate
+del immutable_pl0
+del immutable_pl1
+del immutable_pl2
+del immutable_pl3
+del immutable_pl4
+del immutable_pl5
+del immutable_pl6
+del immutable_pl7
+del immutable_pl8
+del immutable_pl9
+del immutable_pl10
+del immutable_pl11
+del immutable_pl12
+del immutable_pl13
+del immutable_pl14
+del immutable_pl15
+del immutable_pl16
+del immutable_pl17
+del immutable_pl18

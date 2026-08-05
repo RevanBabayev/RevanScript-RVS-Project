@@ -37,67 +37,74 @@ bool __rvs_value_type_check(RVSBUF* const rvs_buffer, const RVSLGC* const rvs_lo
         else if (rvs_buffer->rvs_variable_buffer->variable_type == RVS_UNDEFINED_TYPE){
             if (strcmp(rvs_buffer->rvs_variable_buffer->variable_data, "TRUE") != 0 && strcmp(rvs_buffer->rvs_variable_buffer->variable_data, "FALSE") != 0){
                 if (strcmp(rvs_buffer->rvs_variable_buffer->variable_data, "NULL") != 0){
-                    bool point_check = false;
-                    bool minus_check = false;
-                    size_t point_count = 0;
+                    if (rvs_variable_name_check(rvs_buffer->rvs_variable_buffer->variable_data, NULL, false, true) == false){
+                        bool point_check = false;
+                        bool minus_check = false;
+                        size_t point_count = 0;
 
-                    for (size_t i = 0; rvs_buffer->rvs_variable_buffer->variable_data[i] != '\0'; i++){
-                        if (!isdigit(rvs_buffer->rvs_variable_buffer->variable_data[i])){
-                            if (rvs_buffer->rvs_variable_buffer->variable_data[i] != '.'){
-                                if (rvs_buffer->rvs_variable_buffer->variable_data[0] != '-'){
-                                    rvs_standard_error(RVS_VARIABLE_UNDEFINED_TYPE_ERROR, NULL);
-                                    return false;
-                                }
-
-                                else minus_check = true;
-                            }
-
-                            else{
-                                if (minus_check == true){
-                                    if (rvs_buffer->rvs_variable_buffer->variable_data[1] == '.'){
+                        for (size_t i = 0; rvs_buffer->rvs_variable_buffer->variable_data[i] != '\0'; i++){
+                            if (!isdigit(rvs_buffer->rvs_variable_buffer->variable_data[i])){
+                                if (rvs_buffer->rvs_variable_buffer->variable_data[i] != '.'){
+                                    if (rvs_buffer->rvs_variable_buffer->variable_data[0] != '-'){
                                         rvs_standard_error(RVS_VARIABLE_UNDEFINED_TYPE_ERROR, NULL);
                                         return false;
                                     }
+
+                                    else minus_check = true;
                                 }
-                                
-                                if (point_check == false) point_check = true;
-                                ++point_count;
+
+                                else{
+                                    if (minus_check == true){
+                                        if (rvs_buffer->rvs_variable_buffer->variable_data[1] == '.'){
+                                            rvs_standard_error(RVS_VARIABLE_UNDEFINED_TYPE_ERROR, NULL);
+                                            return false;
+                                        }
+                                    }
+                                    
+                                    if (point_check == false) point_check = true;
+                                    ++point_count;
+                                }
                             }
                         }
+
+                        // Float Type
+                        if (point_check == true){
+                            
+                            // Float First Char Point Problem (Error)
+                            if (rvs_buffer->rvs_variable_buffer->variable_data[0] == '.'){
+                                rvs_standard_error(RVS_FLOAT_FIRST_POINT_ERROR, NULL);
+                                return false;
+                            }
+
+                            if (point_count > 1){
+                                rvs_standard_error(RVS_FLOAT_MULTI_POINT_ERROR, NULL);
+                                return false;
+                            }
+
+                            if (rvs_buffer->rvs_variable_buffer->variable_data[strlen(rvs_buffer->rvs_variable_buffer->variable_data) - 1] == '.'){
+                                rvs_standard_error(RVS_FLOAT_LAST_POINT_ERROR, NULL);
+                                return false;
+                            }
+
+                            rvs_buffer->rvs_variable_buffer->variable_type = RVS_FLOAT_TYPE;
+                        }
+
+                        // Integer Type
+                        else{
+
+                            // Integer First Char Digit Zero Problem (Error)
+                            if (strlen(rvs_buffer->rvs_variable_buffer->variable_data) > 1 && rvs_buffer->rvs_variable_buffer->variable_data[0] == '0'){
+                                rvs_standard_error(RVS_INTEGER_FIRST_DIGIT_ZERO_ERROR, NULL);
+                                return false;
+                            }
+
+                            rvs_buffer->rvs_variable_buffer->variable_type = RVS_INTEGER_TYPE;
+                        }
                     }
 
-                    // Float Type
-                    if (point_check == true){
-                        
-                        // Float First Char Point Problem (Error)
-                        if (rvs_buffer->rvs_variable_buffer->variable_data[0] == '.'){
-                            rvs_standard_error(RVS_FLOAT_FIRST_POINT_ERROR, NULL);
-                            return false;
-                        }
-
-                        if (point_count > 1){
-                            rvs_standard_error(RVS_FLOAT_MULTI_POINT_ERROR, NULL);
-                            return false;
-                        }
-
-                        if (rvs_buffer->rvs_variable_buffer->variable_data[strlen(rvs_buffer->rvs_variable_buffer->variable_data) - 1] == '.'){
-                            rvs_standard_error(RVS_FLOAT_LAST_POINT_ERROR, NULL);
-                            return false;
-                        }
-
-                        rvs_buffer->rvs_variable_buffer->variable_type = RVS_FLOAT_TYPE;
-                    }
-
-                    // Integer Type
+                    // Variable Type
                     else{
-
-                        // Integer First Char Digit Zero Problem (Error)
-                        if (strlen(rvs_buffer->rvs_variable_buffer->variable_data) > 1 && rvs_buffer->rvs_variable_buffer->variable_data[0] == '0'){
-                            rvs_standard_error(RVS_INTEGER_FIRST_DIGIT_ZERO_ERROR, NULL);
-                            return false;
-                        }
-
-                        rvs_buffer->rvs_variable_buffer->variable_type = RVS_INTEGER_TYPE;
+                        rvs_buffer->rvs_variable_buffer->variable_type = RVS_VARIABLE_TYPE;
                     }
                 }
 
@@ -230,40 +237,53 @@ bool rvs_file_type_check(const char* const file_type){
 bool rvs_variable_name_check(
     const char* const variable_name, 
     const RVSMEM* const rvs_memory, 
-    bool create_type)
+    bool create_type,
+    bool by_pass_value_check)
 {
     if (variable_name[0] == '\0'){
-        rvs_standard_error(RVS_VARIABLE_NO_NAME_ERROR, NULL);
+        if (by_pass_value_check == false){
+            rvs_standard_error(RVS_VARIABLE_NO_NAME_ERROR, NULL);
+        }
         return false;
     }
 
     if (isdigit(variable_name[0]) != 0){
-        rvs_standard_error(RVS_VARIABLE_NAME_FIRST_CHARACTER_NUMBER_ERROR, NULL);
+        if (by_pass_value_check == false){ 
+            rvs_standard_error(RVS_VARIABLE_NAME_FIRST_CHARACTER_NUMBER_ERROR, NULL);
+        }
         return false;
     }
 
     if (strlen(variable_name) > 30){
-        rvs_standard_error(RVS_VARIABLE_NAME_LENGTH_ERROR, NULL);
+        if (by_pass_value_check == false){
+            rvs_standard_error(RVS_VARIABLE_NAME_LENGTH_ERROR, NULL);
+        }
         return false;
     }
     
     for (size_t i = 0; variable_name[i] != '\0'; i++){
         if (isalnum(variable_name[i]) == 0 && variable_name[i] != '_'){
-            rvs_standard_error(RVS_VARIABLE_NAME_CHARACTER_ERROR, NULL);
+            if (by_pass_value_check == false){
+                rvs_standard_error(RVS_VARIABLE_NAME_CHARACTER_ERROR, NULL);
+            }
             return false;
         }
     }
 
     if (create_type == true){
         if (rvs_memory_check(rvs_memory, variable_name) == true){
-            rvs_standard_error(RVS_VARIABLE_NAME_DUBLICATE_ERROR, NULL);
+            if (by_pass_value_check == false){
+                rvs_standard_error(RVS_VARIABLE_NAME_DUBLICATE_ERROR, NULL);
+            }
             return false;
         }
     }
 
     for (unsigned short i = 0; i < RVS_KEYWORD_COUNT; i++){
         if (strcmp(rvs_keyword_list[i], variable_name) == 0){
-            rvs_standard_error(RVS_VARIABLE_NAME_KEYWORD_NAME_PROBLEM_ERROR, NULL);
+            if (by_pass_value_check == false){
+                rvs_standard_error(RVS_VARIABLE_NAME_KEYWORD_NAME_PROBLEM_ERROR, NULL);
+            }
             return false;
         }
     }

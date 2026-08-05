@@ -186,7 +186,7 @@ void rvs_standard_table_output(const RVSTBL* const rvs_table){
 
 
 // RevanScript Standard Input Function
-void rvs_standard_input(RVSIO_Buffer* data, const int8_t const* rvs_execution_mode){
+void rvs_standard_input(RVSIO_Buffer* data, const int8_t* const rvs_execution_mode){
     if (*rvs_execution_mode == RVS_REPL_MODE){
         printf("%s::: %s", RVS_COLOR_MAGENTA_ESCAPE_CODE, RVS_COLOR_RESET_ESCAPE_CODE);
     }

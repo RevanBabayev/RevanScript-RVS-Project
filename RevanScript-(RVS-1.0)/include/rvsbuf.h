@@ -24,7 +24,8 @@ enum{
     RVS_FLOAT_TYPE,        // 4
     RVS_BOOLEAN_TYPE,      // 5
     RVS_EXPRESSION_TYPE,   // 6
-    RVS_NULL_TYPE          // 7
+    RVS_NULL_TYPE,         // 7
+    RVS_VARIABLE_TYPE      // 8
 };
 
 

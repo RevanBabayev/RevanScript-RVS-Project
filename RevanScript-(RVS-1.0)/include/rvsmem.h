@@ -35,7 +35,7 @@ typedef struct{
 RVSMEM* rvs_memory_create(void);
 bool rvs_memory_insert(RVSMEM*, const RVS_VARIABLE_BUFFER*);
 bool rvs_memory_check(const RVSMEM*, const char*);
-bool rvs_memory_get(const RVSMEM*, RVS_VARIABLE_BUFFER*);
+bool rvs_memory_get(const RVSMEM*, RVS_VARIABLE_BUFFER*, bool);
 bool rvs_memory_set(RVSMEM*, const RVS_VARIABLE_BUFFER*);
 bool rvs_memory_const(RVSMEM*, const RVS_VARIABLE_BUFFER*);
 bool rvs_memory_clear(RVSMEM*, const RVS_VARIABLE_BUFFER*);

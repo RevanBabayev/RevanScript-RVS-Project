@@ -108,12 +108,12 @@ bool get(const char* const code_line, const RVSMEM* const rvs_memory, const int8
 	RVS_VARIABLE_BUFFER* rvs_variable_buffer = rvs_variable_name_parser(code_line);
 	if (!rvs_variable_buffer) return false;
 
-	if (!rvs_variable_name_check(rvs_variable_buffer->variable_name, NULL, false)){
+	if (!rvs_variable_name_check(rvs_variable_buffer->variable_name, NULL, false, false)){
 		rvs_buffer_delete(rvs_variable_buffer);
 		return false;
 	}
 
-	if (rvs_memory_get(rvs_memory, rvs_variable_buffer) == true){
+	if (rvs_memory_get(rvs_memory, rvs_variable_buffer, false) == true){
 		struct RVSTBLConfig rvs_table_config = {.rows=2, .cols=5, .width=25, .height=1};
 		RVSTBL* rvs_table = rvs_table_create(rvs_table_config);
 		rvs_table_insert(rvs_table, "Variable Name");
@@ -155,13 +155,13 @@ bool out(const char* const code_line, const RVSMEM* const rvs_memory, const int8
 	if (!rvs_variable_buffer) return false;
 
 	// RevanScript Variable Name Check
-	if (!rvs_variable_name_check(rvs_variable_buffer->variable_name, NULL, false)){
+	if (!rvs_variable_name_check(rvs_variable_buffer->variable_name, NULL, false, false)){
 		rvs_buffer_delete(rvs_variable_buffer);
 		return false;
 	}
 
 	// RevanScript Output
-	if (rvs_memory_get(rvs_memory, rvs_variable_buffer) == true){
+	if (rvs_memory_get(rvs_memory, rvs_variable_buffer, false) == true){
 		RVSIO_Buffer iobuf;
 		iobuf.output_buffer = rvs_variable_buffer->variable_data;
 		rvs_standard_output(&iobuf, rvs_execution_mode);
@@ -187,7 +187,7 @@ bool inp(const char* const code_line, RVSMEM* rvs_memory, const int8_t* const rv
 	if (!rvs_variable_buffer) return false;
 
 	// Variable Name Check
-	if (rvs_variable_name_check(rvs_variable_buffer->variable_name, rvs_memory, false) == false){
+	if (rvs_variable_name_check(rvs_variable_buffer->variable_name, rvs_memory, false, false) == false){
 		rvs_buffer_delete(rvs_variable_buffer);
 		return false;
 	}
@@ -217,7 +217,7 @@ bool cst(const char* const code_line, RVSMEM* rvs_memory){
 	if (!rvs_variable_buffer) return false;
 
 	// RevanScript Variable Name Check
-	if (rvs_variable_name_check(rvs_variable_buffer->variable_name, rvs_memory, false) == false){
+	if (rvs_variable_name_check(rvs_variable_buffer->variable_name, rvs_memory, false, false) == false){
 		rvs_buffer_delete(rvs_variable_buffer);
 		return false;
 	}
@@ -241,7 +241,7 @@ bool del(const char* const code_line, RVSMEM* rvs_memory){
 	if (!rvs_variable_buffer) return false;
 
 	// RevanScript Variable Name Check
-	if (rvs_variable_name_check(rvs_variable_buffer->variable_name, rvs_memory, false) == false){
+	if (rvs_variable_name_check(rvs_variable_buffer->variable_name, rvs_memory, false, false) == false){
 		rvs_buffer_delete(rvs_variable_buffer);
 		return false;
 	}
@@ -275,7 +275,7 @@ bool prt(const char* const code_line, const int8_t* const rvs_execution_mode){
 
 
 // RevanScript (RVS) Keyword Search Function
-bool keys(const char* const code_line, RVSMEM* rvs_memory, bool* end_process_check, const int8_t const* rvs_execution_mode){
+bool keys(const char* const code_line, RVSMEM* rvs_memory, bool* end_process_check, const int8_t* const rvs_execution_mode){
 	if (strncmp(code_line, "...", 3) == 0){
 		return true;
 	}

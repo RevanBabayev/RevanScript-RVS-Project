@@ -16,7 +16,7 @@ RVSPRS* rvs_standard_variable(const char* const code_line, RVSMEM* rvs_memory, b
 	if (!rvs_parser) return NULL;
 
 	// RevanScript Buffer "Variable Name" Checking
-	if (rvs_variable_name_check(rvs_parser->rvs_buffer->variable_name, rvs_memory, create_mode) == false){
+	if (rvs_variable_name_check(rvs_parser->rvs_buffer->variable_name, rvs_memory, create_mode, false) == false){
 		// Dellocate
 		rvs_parser_delete(rvs_parser);
 		return NULL;
@@ -53,6 +53,14 @@ RVSPRS* rvs_standard_variable(const char* const code_line, RVSMEM* rvs_memory, b
 		// Dellocate
 		rvs_parser_delete(rvs_parser);
 		return NULL;
+	}
+
+	if (rvs_parser->rvs_buffer->variable_type == RVS_VARIABLE_TYPE){
+		if (rvs_memory_get(rvs_memory, rvs_parser->rvs_buffer, true) == false){
+			// Dellocate
+			rvs_parser_delete(rvs_parser);
+			return NULL;
+		}
 	}
 
     return rvs_parser;

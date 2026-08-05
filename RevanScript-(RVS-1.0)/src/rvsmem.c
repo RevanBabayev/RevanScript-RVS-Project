@@ -13,7 +13,7 @@
 
 
 // RevanScript (RVS) Memory (RVSMEM) Realloc Function
-bool _rvs_memory_realloc(RVSMEM* rvs_memory){
+bool __rvs_memory_realloc(RVSMEM* rvs_memory){
     size_t rvs_new_memory_size = rvs_memory->memory_size * 2;
 
     // Reallocate Memory
@@ -125,7 +125,7 @@ bool _rvs_memory_realloc(RVSMEM* rvs_memory){
 
 
 // RevanScript Memory (RVSMEM) Type Define
-void _rvs_memory_type_define(RVSMEM* rvs_memory, const RVS_VARIABLE_BUFFER* const rvs_variable_buffer){
+void __rvs_memory_type_define(RVSMEM* rvs_memory, const RVS_VARIABLE_BUFFER* const rvs_variable_buffer){
     // Variable Type Write Memory
     switch (rvs_variable_buffer->variable_type){
         case RVS_STRING_TYPE:   
@@ -153,7 +153,7 @@ void _rvs_memory_type_define(RVSMEM* rvs_memory, const RVS_VARIABLE_BUFFER* cons
 
 
 // RevanScript Memory (RVSMEM) Type Get
-void _rvs_memory_type_get(
+void __rvs_memory_type_get(
     const RVSMEM* const rvs_memory, 
     const size_t* const rvsmem_index, 
     RVS_VARIABLE_BUFFER* rvs_variable_buffer)
@@ -319,10 +319,10 @@ RVSMEM* rvs_memory_create(void){
 
 
 // RevanScript (RVS) Memory (RVSMEM) Insert Function
-bool rvs_memory_insert(RVSMEM* rvs_memory, const RVS_VARIABLE_BUFFER const* rvs_variable_buffer){
+bool rvs_memory_insert(RVSMEM* rvs_memory, const RVS_VARIABLE_BUFFER* const rvs_variable_buffer){
     while (rvs_memory->memory_size > rvs_memory->variable_iter){
         if ((rvs_memory->memory_size - 1) == rvs_memory->variable_iter){
-            if (!_rvs_memory_realloc(rvs_memory)){
+            if (!__rvs_memory_realloc(rvs_memory)){
                 return false;
             }
         }
@@ -330,7 +330,7 @@ bool rvs_memory_insert(RVSMEM* rvs_memory, const RVS_VARIABLE_BUFFER const* rvs_
         if (rvs_memory->variable_ctrls[rvs_memory->variable_iter] == false){
             strcpy(rvs_memory->variable_names[rvs_memory->variable_iter], rvs_variable_buffer->variable_name);
             strcpy(rvs_memory->variable_datas[rvs_memory->variable_iter], rvs_variable_buffer->variable_data);
-            _rvs_memory_type_define(rvs_memory, rvs_variable_buffer);
+            __rvs_memory_type_define(rvs_memory, rvs_variable_buffer);
             rvs_memory->variable_consts[rvs_memory->variable_iter] = rvs_variable_buffer->variable_const;
             rvs_memory->variable_ctrls[rvs_memory->variable_iter] = true;
             rvs_memory->variable_iter++;
@@ -358,15 +358,25 @@ bool rvs_memory_check(const RVSMEM* const rvs_memory, const char* const variable
 
 
 // RevanScript (RVS) Memory (RVSMEM) Get Function
-bool rvs_memory_get(const RVSMEM* const rvs_memory, RVS_VARIABLE_BUFFER* rvs_variable_buffer){
+bool rvs_memory_get(const RVSMEM* const rvs_memory, RVS_VARIABLE_BUFFER* rvs_variable_buffer, bool rvs_by_pass_value_check){
     for (size_t i = 0; i < rvs_memory->memory_size; i++){
         if (rvs_memory->variable_ctrls[i] == true){
-            if (strcmp(rvs_memory->variable_names[i], rvs_variable_buffer->variable_name) == 0){
-                strcpy(rvs_variable_buffer->variable_data, rvs_memory->variable_datas[i]);
-                _rvs_memory_type_get(rvs_memory, &i, rvs_variable_buffer);
-                rvs_variable_buffer->variable_const = rvs_memory->variable_consts[i];
-                snprintf(rvs_variable_buffer->variable_address, RVS_BUFFER_VARIABLE_ADDRESS_LENGTH, "0x%zx", i);
-                return true;
+            if (rvs_by_pass_value_check == false){
+                if (strcmp(rvs_memory->variable_names[i], rvs_variable_buffer->variable_name) == 0){
+                    strcpy(rvs_variable_buffer->variable_data, rvs_memory->variable_datas[i]);
+                    __rvs_memory_type_get(rvs_memory, &i, rvs_variable_buffer);
+                    rvs_variable_buffer->variable_const = rvs_memory->variable_consts[i];
+                    snprintf(rvs_variable_buffer->variable_address, RVS_BUFFER_VARIABLE_ADDRESS_LENGTH, "0x%zx", i);
+                    return true;
+                }
+            }
+
+            else{
+                if (strcmp(rvs_memory->variable_names[i], rvs_variable_buffer->variable_data) == 0){
+                    strcpy(rvs_variable_buffer->variable_data, rvs_memory->variable_datas[i]);
+                    __rvs_memory_type_get(rvs_memory, &i, rvs_variable_buffer);
+                    return true;
+                }
             }
         }
     }
@@ -382,7 +392,7 @@ bool rvs_memory_set(RVSMEM* rvs_memory, const RVS_VARIABLE_BUFFER* const rvs_var
             if (strcmp(rvs_memory->variable_names[i], rvs_variable_buffer->variable_name) == 0){
                 if (rvs_memory->variable_consts[i] == false){
                     strcpy(rvs_memory->variable_datas[i], rvs_variable_buffer->variable_data);
-                    _rvs_memory_type_define(rvs_memory, rvs_variable_buffer);
+                    __rvs_memory_type_define(rvs_memory, rvs_variable_buffer);
                     return true;
                 }
 

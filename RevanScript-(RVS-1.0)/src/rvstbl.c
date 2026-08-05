@@ -9,7 +9,7 @@
 
 
 // RevanScript (RVS) Table Create Function
-RVSTBL* rvs_table_create(const struct RVSTBLConfig const rvs_table_config){
+RVSTBL* rvs_table_create(const struct RVSTBLConfig rvs_table_config){
     RVSTBL* rvs_table = (RVSTBL*) malloc(sizeof(RVSTBL));
     if (!rvs_table) return NULL;
     size_t length = rvs_table_config.rows * rvs_table_config.cols;
