@@ -12,10 +12,11 @@ Layihə tamamilə **C proqramlaşdırma dili** ilə sıfırdan hazırlanmışdı
 
 ## 💎 Data Types
 Dildə müxtəlif məlumat tiplərinin idarə edilməsi nəzərdə tutulmuşdur. Hazırda aşağıdakı primitiv tiplər tam işlək vəziyyətdədir:
-* **String** (Mətn tipləri)
-* **Integer** (Tam ədədlər)
-* **Float** (Kəsr ədədlər)
-* **Boolean** (Məntiqi tiplər)
+* **String** (Mətn tipi)
+* **Integer** (Tam ədəd tipi)
+* **Float** (Kəsr ədəd tipi)
+* **Boolean** (Məntiq tipi)
+* **Null** (Boşluq tipi)
 
 ## 📂 Project Layers & Architecture
 RevanScript layihəsi modulyar arxitekturaya malikdir və aşağıdakı C faylları (Layers) vasitəsilə idarə olunur:
