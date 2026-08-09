@@ -101,6 +101,9 @@
 #include "../include/rvsflg.h"
 #include "../include/rvskey.h"
 #include "../include/rvserr.h"
+#ifdef __RVS_WINDOWS_OS_DEFINE__
+	#include "../include/rvswin.h"
+#endif
 
 
 // RevanScript (RVS) Read Eval Print Loop (REPL) Function
@@ -194,6 +197,11 @@ bool file(const char* const file_name, RVSMEM* rvs_memory){
 
 // RevanScript Main Function
 int main(const int argc, const char** const argv){
+
+	// Windows Optimization
+	#ifdef __RVS_WINDOWS_OS_DEFINE__
+		windows_console_activate();
+	#endif
 
 	// RevanScript Global Memory
 	RVSMEM* rvs_global_memory = rvs_memory_create();

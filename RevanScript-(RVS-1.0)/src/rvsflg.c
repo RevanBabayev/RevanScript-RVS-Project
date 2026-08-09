@@ -8,13 +8,14 @@
 // RevanScript (RVS) Core / Engine Libraries
 #include "../include/rvsio.h"
 #include "../include/rvserr.h"
+#include "../include/rvsdef.h"
 #include "../include/rvsflg.h"
 
 
 void rvs_flag_version(void){
     printf("%s\n\t\tRevanScript (RVS) version %.1f%s", 
         RVS_COLOR_YELLOW_ESCAPE_CODE, RVS_VERSION, RVS_COLOR_RESET_ESCAPE_CODE);
-    #if defined( __GNUC__) && !defined(__clang__)
+    #if __RVS_GCC_COMPILER_DEFINE__
         printf(
             "%s\n\tGNU Compiler Collections (GCC) version %d.%d.%d%s\n\n", 
             RVS_COLOR_YELLOW_ESCAPE_CODE, 
@@ -23,7 +24,7 @@ void rvs_flag_version(void){
             __GNUC_PATCHLEVEL__, 
             RVS_COLOR_RESET_ESCAPE_CODE
         );
-    #elif defined(__clang__)
+    #elif __RVS_CLANG_COMPILER_DEFINE__
         printf(
             "%s\n\tC/C++ Compiler (Clang/LLVM) version %d.%d.%d%s\n\n",
             RVS_COLOR_YELLOW_ESCAPE_CODE,
