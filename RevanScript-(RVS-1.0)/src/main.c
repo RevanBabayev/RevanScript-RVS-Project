@@ -200,7 +200,7 @@ int main(const int argc, const char** const argv){
 
 	// Windows Optimization
 	#ifdef __RVS_WINDOWS_OS_DEFINE__
-		windows_console_activate();
+		windows_console_init();
 	#endif
 
 	// RevanScript Global Memory

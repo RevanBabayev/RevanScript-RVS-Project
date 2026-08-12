@@ -2,4 +2,4 @@
 #include <windows.h>
 
 // Windows Console Activate Function
-void windows_console_activate(void);
+void windows_console_init(void);
