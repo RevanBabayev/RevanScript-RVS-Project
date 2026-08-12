@@ -12,10 +12,12 @@
 	--------------------------------------------
 	automatic gcc compile file -> shell/executable-gcc.sh
 	automatic clang compile file -> shell/executable-clang.sh
+	automatic mingw-gcc compile file -> shell/executable-mingw-gcc.sh
 	---------------------------------------------
 	SimpleMake (Source Codes Build Tool) Support
 	---------------------------------------------
 */
+
 
 /*
     RevanScript (RVS) haqqında və istifadə qaydaları.
@@ -101,6 +103,8 @@
 #include "../include/rvsflg.h"
 #include "../include/rvskey.h"
 #include "../include/rvserr.h"
+
+// RevanScript (RVS) Windows Application Programming Interface (API) Library
 #ifdef __RVS_WINDOWS_OS_DEFINE__
 	#include "../include/rvswin.h"
 #endif
@@ -198,7 +202,7 @@ bool file(const char* const file_name, RVSMEM* rvs_memory){
 // RevanScript Main Function
 int main(const int argc, const char** const argv){
 
-	// Windows Optimization
+	// Windows Support (Console)
 	#ifdef __RVS_WINDOWS_OS_DEFINE__
 		windows_console_init();
 	#endif

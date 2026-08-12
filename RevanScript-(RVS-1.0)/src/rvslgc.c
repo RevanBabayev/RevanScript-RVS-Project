@@ -1,3 +1,24 @@
+/*
+	© 2026 Rəvan Babayev. All rights reserved.
+	--------------------------------------------
+	License : GPLv3 / Open Source Project
+	--------------------------------------------
+	RvCodes9 -- GitHub / YouTube / Reddit -- Platform
+	--------------------------------------------
+	RevanScript (RVS) Programming Language
+	RevanScript (RVS) Interpreter Program (Direct Execution Model)
+	--------------------------------------------
+	C Source Codes  |  C1999 / C99 Standard | Compiler -> GNU Compiler Collection (GCC) and Clang
+	--------------------------------------------
+	automatic gcc compile file -> shell/executable-gcc.sh
+	automatic clang compile file -> shell/executable-clang.sh
+	automatic mingw-gcc compile file -> shell/executable-mingw-gcc.sh
+	---------------------------------------------
+	SimpleMake (Source Codes Build Tool) Support
+	---------------------------------------------
+*/
+
+
 // C Standard Libraries
 #include <stdlib.h>
 

@@ -21,120 +21,120 @@ var mutable_pl16 = "PHP"
 var mutable_pl17 = "RevanScript (RVS)"
 var mutable_pl18 = "Lua"
 
-let immutable_pl0 = "Python"
-let immutable_pl1 = "Java"
-let immutable_pl2 = "C#"
-let immutable_pl3 = "C++"
-let immutable_pl4 = "C"
-let immutable_pl5 = "Rust"
-let immutable_pl6 = "Go"
-let immutable_pl7 = "Assembly"
-let immutable_pl8 = "Ruby"
-let immutable_pl9 = "Kotlin"
-let immutable_pl10 = "Pascal"
-let immutable_pl11 = "Basic"
-let immutable_pl12 = "Cobol"
-let immutable_pl13 = "Ada"
-let immutable_pl14 = "JavaScript"
-let immutable_pl15 = "TypeScript"
-let immutable_pl16 = "PHP"
-let immutable_pl17 = "RevanScript (RVS)"
-let immutable_pl18 = "Lua"
+... let immutable_pl0 = "Python"
+... let immutable_pl1 = "Java"
+... let immutable_pl2 = "C#"
+... let immutable_pl3 = "C++"
+... let immutable_pl4 = "C"
+... let immutable_pl5 = "Rust"
+... let immutable_pl6 = "Go"
+... let immutable_pl7 = "Assembly"
+... let immutable_pl8 = "Ruby"
+... let immutable_pl9 = "Kotlin"
+... let immutable_pl10 = "Pascal"
+... let immutable_pl11 = "Basic"
+... let immutable_pl12 = "Cobol"
+... let immutable_pl13 = "Ada"
+... let immutable_pl14 = "JavaScript"
+... let immutable_pl15 = "TypeScript"
+... let immutable_pl16 = "PHP"
+... let immutable_pl17 = "RevanScript (RVS)"
+... let immutable_pl18 = "Lua"
 
 out mutable_pl0
 prt "\n"
-out immutable_pl0
-prt "\n"
+... out immutable_pl0
+... prt "\n"
 
 out mutable_pl1
 prt "\n"
-out immutable_pl1
-prt "\n"
+... out immutable_pl1
+... prt "\n"
 
 out mutable_pl2
 prt "\n"
-out immutable_pl2
-prt "\n"
+... out immutable_pl2
+... prt "\n"
 
 out mutable_pl3
 prt "\n"
-out immutable_pl3
-prt "\n"
+... out immutable_pl3
+... prt "\n"
 
 out mutable_pl4
 prt "\n"
-out immutable_pl4
-prt "\n"
+... out immutable_pl4
+... prt "\n"
 
 out mutable_pl5
 prt "\n"
-out immutable_pl5
-prt "\n"
+... out immutable_pl5
+... prt "\n"
 
 out mutable_pl6
 prt "\n"
-out immutable_pl6
-prt "\n"
+... out immutable_pl6
+... prt "\n"
 
 out mutable_pl7
 prt "\n"
-out immutable_pl7
-prt "\n"
+... out immutable_pl7
+... prt "\n"
 
 out mutable_pl8
 prt "\n"
-out immutable_pl8
-prt "\n"
+... out immutable_pl8
+... prt "\n"
 
 out mutable_pl9
 prt "\n"
-out immutable_pl9
-prt "\n"
+... out immutable_pl9
+... prt "\n"
 
 out mutable_pl10
 prt "\n"
-out immutable_pl10
-prt "\n"
+... out immutable_pl10
+... prt "\n"
 
 out mutable_pl11
 prt "\n"
-out immutable_pl11
-prt "\n"
+... out immutable_pl11
+... prt "\n"
 
 out mutable_pl12
 prt "\n"
-out immutable_pl12
-prt "\n"
+... out immutable_pl12
+... prt "\n"
 
 out mutable_pl13
 prt "\n"
-out immutable_pl13
-prt "\n"
+... out immutable_pl13
+... prt "\n"
 
 out mutable_pl14
 prt "\n"
-out immutable_pl14
-prt "\n"
+... out immutable_pl14
+... prt "\n"
 
 out mutable_pl15
 prt "\n"
-out immutable_pl15
-prt "\n"
+... out immutable_pl15
+... prt "\n"
 
 out mutable_pl16
 prt "\n"
-out immutable_pl16
-prt "\n"
+... out immutable_pl16
+... prt "\n"
 
 out mutable_pl17
 prt "\n"
-out immutable_pl17
-prt "\n"
+... out immutable_pl17
+... prt "\n"
 
 out mutable_pl18
 prt "\n"
-out immutable_pl18
-prt "\n"
+... out immutable_pl18
+... prt "\n"
 
 ... Mutable Variable Deallocate
 del mutable_pl0
@@ -158,22 +158,22 @@ del mutable_pl17
 del mutable_pl18
 
 ... Immutable Variable Deallocate
-del immutable_pl0
-del immutable_pl1
-del immutable_pl2
-del immutable_pl3
-del immutable_pl4
-del immutable_pl5
-del immutable_pl6
-del immutable_pl7
-del immutable_pl8
-del immutable_pl9
-del immutable_pl10
-del immutable_pl11
-del immutable_pl12
-del immutable_pl13
-del immutable_pl14
-del immutable_pl15
-del immutable_pl16
-del immutable_pl17
-del immutable_pl18
+... del immutable_pl0
+... del immutable_pl1
+... del immutable_pl2
+... del immutable_pl3
+... del immutable_pl4
+... del immutable_pl5
+... del immutable_pl6
+... del immutable_pl7
+... del immutable_pl8
+... del immutable_pl9
+... del immutable_pl10
+... del immutable_pl11
+... del immutable_pl12
+... del immutable_pl13
+... del immutable_pl14
+... del immutable_pl15
+... del immutable_pl16
+... del immutable_pl17
+... del immutable_pl18
