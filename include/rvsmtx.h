@@ -20,6 +20,8 @@ typedef struct{
     const size_t rows;
     const size_t cols;
 } RVS_MATRIX_SIZE;
+
+/*
  
 // RevanScript (RVS) Matrix (Unsafe Create) Functions
 RVS_DYNAMIC_CHARACTER_MATRIX rvs_dynamic_unsafe_character_matrix_create(const RVS_MATRIX_SIZE);
@@ -63,5 +65,7 @@ bool rvs_dynamic_safe_long_long_matrix_resize(RVS_DYNAMIC_LONG_LONG_MATRIX, cons
 
 // RevanScript (RVS) Matrix (Dellocate) Function
 void rvs_dynamic_matrix_delete(void**);
+
+*/
 
 #endif

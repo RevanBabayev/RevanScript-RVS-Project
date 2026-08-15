@@ -12,3 +12,4 @@
 ../src/rvstbl.c
 ../src/rvskey.c
 ../src/rvsarr.c
+../src/rvsmtx.c
