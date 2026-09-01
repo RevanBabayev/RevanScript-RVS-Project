@@ -52,3 +52,4 @@ RevanScript inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün a
 * **💬 Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) — Fikir bildirmək, müzakirə etmək və sual vermək üçün rəsmi sub-reddit.
 
 ## 💡 Creator Revan Babayev (RvCodes9)
+RevanScript (RVS) 2026 ci ildə 4 aprel yaradılmış bir proqramlaşdırma dili lahiyəsidir. Proqramlaşdırma dilinin yaradıcısi Rəvan Babayev (Rəvan Babayev) dir. RevanScript (RVS) hazırda aktiv inkişaf etməkdə olan lahiyədir.
