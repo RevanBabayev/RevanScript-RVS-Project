@@ -50,3 +50,5 @@ RevanScript inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün a
 * **📺 YouTube Tutorials:** [RvCodes9 YouTube Channel](https://youtube.com/@RvCodes9) — Praktik nümunələr və video bələdçilər.
 * **📄 Official Documentation:** [RevanScript Pages Site](https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/) — Geniş məlumat və dərsliklər.
 * **💬 Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) — Fikir bildirmək, müzakirə etmək və sual vermək üçün rəsmi sub-reddit.
+
+## 💡 Creator Revan Babayev (RvCodes9)
