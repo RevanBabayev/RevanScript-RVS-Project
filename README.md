@@ -2,7 +2,7 @@
 An efficient, lightweight, and direct execution interpreter model built from scratch.
 
 <p align="center">
-  <img src="RevanScript-Logo.png" width="200" alt="RevanScript Logo"/>
+  <img src="RevanScript-RVS-Logo.png" width="200" alt="RevanScript Logo"/>
 </p>
 
 ## 📖 Introduction
