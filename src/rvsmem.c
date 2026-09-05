@@ -27,10 +27,10 @@
 #include <string.h>
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvsio.h"
-#include "../include/rvserr.h"
-#include "../include/rvsbuf.h"
-#include "../include/rvsmem.h"
+#include "../includes/rvsio.h"
+#include "../includes/rvserr.h"
+#include "../includes/rvsbuf.h"
+#include "../includes/rvsmem.h"
 
 
 // RevanScript (RVS) Memory (RVSMEM) Realloc Function

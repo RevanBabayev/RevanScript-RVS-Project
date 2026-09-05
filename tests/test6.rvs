@@ -1,0 +1,7 @@
+var text = "Hello"
+var copy = text
+
+out text
+prt "\n"
+out copy
+prt "\n"

@@ -26,7 +26,7 @@
 #include <stdbool.h>
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvsmth.h"
+#include "../includes/rvsmth.h"
 
 
 // RevanScript (RVS) Stabilize Number Length Function 

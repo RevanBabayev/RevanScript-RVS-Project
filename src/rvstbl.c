@@ -26,7 +26,7 @@
 
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvstbl.h"
+#include "../includes/rvstbl.h"
 
 
 // RevanScript (RVS) Table Create Function

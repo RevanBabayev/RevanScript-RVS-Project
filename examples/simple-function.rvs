@@ -1,0 +1,5 @@
+fun SimpleFunction(){
+    prt "Hello, World!\n"
+}
+run SimpleFunction()
+end

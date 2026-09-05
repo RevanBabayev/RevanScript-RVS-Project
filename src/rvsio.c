@@ -30,8 +30,8 @@
 
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvsio.h"
-#include "../include/rvstbl.h"
+#include "../includes/rvsio.h"
+#include "../includes/rvstbl.h"
 
 
 // RevanScript Standard Output Function
@@ -103,7 +103,6 @@ void rvs_standard_output(const RVSIO_Buffer* const data, const int8_t* const rvs
                 case '7': printf("%s", RVS_COLOR_CYAN_ESCAPE_CODE);    i += 3; break;
                 case '8': printf("%s", RVS_COLOR_WHITE_ESCAPE_CODE);   i += 3; break;
                 case 'r':
-                    srand(time(NULL));
                     unsigned int random_color_index = (unsigned int) rand() % 8;
                     switch (random_color_index){
                         case 0: printf("%s", RVS_COLOR_RESET_ESCAPE_CODE);    break;

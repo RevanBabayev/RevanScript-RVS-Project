@@ -25,9 +25,9 @@
 #include <string.h>
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvsexp.h"
-#include "../include/rvsbuf.h"
-#include "../include/rvsmth.h"
+#include "../includes/rvsexp.h"
+#include "../includes/rvsbuf.h"
+#include "../includes/rvsmth.h"
 
 
 // RevanScript Expression Memory Create

@@ -1,0 +1,206 @@
+... RevanScript Programming Language
+... RevanScript Real Test Case 
+
+... Mutable Variable Initialize
+var mutable_pl0 = "[\dt][\tm]\c1\tPython\c0 Programming Language Created \cr1991"
+var mutable_pl1 = "[\dt][\tm]\c2\tJava\c0 Programming Language Created \cr1995"
+var mutable_pl2 = "[\dt][\tm]\c3\tC#\c0 Programming Language Created \cr2000"
+var mutable_pl3 = "[\dt][\tm]\c4\tC++\c0 Programming Language Created \cr1983"
+var mutable_pl4 = "[\dt][\tm]\c5\tC\c0 Programming Language Created \cr1972"
+var mutable_pl5 = "[\dt][\tm]\c6\tRust\c0 Programming Language Created \cr2010"
+var mutable_pl6 = "[\dt][\tm]\c7\tGo\c0 Programming Language Created \cr2009"
+var mutable_pl7 = "[\dt][\tm]\c8\tAssembly\c0 Programming Language Created \cr1950"
+var mutable_pl8 = "[\dt][\tm]\c1\tRuby\c0 Programming Language Created \cr-"
+var mutable_pl9 = "[\dt][\tm]\c2\tKotlin\c0 Programming Language Created \cr2011"
+var mutable_pl10 = "[\dt][\tm]\c3\tPascal\c0 Programming Language Created \cr1970"
+var mutable_pl11 = "[\dt][\tm]\c4\tBasic\c0 Programming Language Created \cr1964"
+var mutable_pl12 = "[\dt][\tm]\c5\tCobol\c0 Programming Language Created \cr1959"
+var mutable_pl13 = "[\dt][\tm]\c6\tAda\c0 Programming Language Created \cr-"
+var mutable_pl14 = "[\dt][\tm]\c7\tJavaScript\c0 Programming Language Created \cr1995"
+var mutable_pl15 = "[\dt][\tm]\c8\tTypeScript\c0 Programming Language Created \cr-"
+var mutable_pl16 = "[\dt][\tm]\c1\tPHP\c0 Programming Language Created \cr1994"
+var mutable_pl17 = "[\dt][\tm]\c2\tRevanScript (RVS)\c0 Programming Language Created \cr2026"
+var mutable_pl18 = "[\dt][\tm]\c3\tLua\c0 Programming Language Created \cr1994"
+
+... Immutable Variable Initialize
+let immutable_pl0 = mutable_pl0
+let immutable_pl1 = mutable_pl1
+let immutable_pl2 = mutable_pl2
+let immutable_pl3 = mutable_pl3
+let immutable_pl4 = mutable_pl4
+let immutable_pl5 = mutable_pl5
+let immutable_pl6 = mutable_pl6
+let immutable_pl7 = mutable_pl7
+let immutable_pl8 = mutable_pl8
+let immutable_pl9 = mutable_pl9
+let immutable_pl10 = mutable_pl10
+let immutable_pl11 = mutable_pl11
+let immutable_pl12 = mutable_pl12
+let immutable_pl13 = mutable_pl13
+let immutable_pl14 = mutable_pl14
+let immutable_pl15 = mutable_pl15
+let immutable_pl16 = mutable_pl16
+let immutable_pl17 = mutable_pl17
+let immutable_pl18 = mutable_pl18
+
+... Input Keyboard
+prt "Keyboard Input : "
+inp mutable_pl0
+prt "Keyboard Input : "
+inp mutable_pl1
+prt "Keyboard Input : "
+inp mutable_pl2
+prt "Keyboard Input : "
+inp mutable_pl3
+prt "Keyboard Input : "
+inp mutable_pl4
+prt "Keyboard Input : "
+inp mutable_pl5
+prt "Keyboard Input : "
+inp mutable_pl6
+prt "Keyboard Input : "
+inp mutable_pl7
+prt "Keyboard Input : " 
+inp mutable_pl8
+prt "Keyboard Input : "
+inp mutable_pl9
+prt "Keyboard Input : "
+inp mutable_pl10
+prt "Keyboard Input : "
+inp mutable_pl11
+prt "Keyboard Input : "
+inp mutable_pl12
+prt "Keyboard Input : "
+inp mutable_pl13
+prt "Keyboard Input : "
+inp mutable_pl14
+prt "Keyboard Input : "
+inp mutable_pl15
+prt "Keyboard Input : "
+inp mutable_pl16
+prt "Keyboard Input : "
+inp mutable_pl17
+prt "Keyboard Input : "
+inp mutable_pl18
+
+... Mutable Variable Output
+out mutable_pl0
+prt "\n"
+out mutable_pl1
+prt "\n"
+out mutable_pl2
+prt "\n"
+out mutable_pl3
+prt "\n"
+out mutable_pl4
+prt "\n"
+out mutable_pl5
+prt "\n"
+out mutable_pl6
+prt "\n"
+out mutable_pl7
+prt "\n"
+out mutable_pl8
+prt "\n"
+out mutable_pl9
+prt "\n"
+out mutable_pl10
+prt "\n"
+out mutable_pl11
+prt "\n"
+out mutable_pl12
+prt "\n"
+out mutable_pl13
+prt "\n"
+out mutable_pl14
+prt "\n"
+out mutable_pl15
+prt "\n"
+out mutable_pl16
+prt "\n"
+out mutable_pl17
+prt "\n"
+out mutable_pl18
+
+... Imutable Variable Output
+prt "\n"
+out immutable_pl0
+prt "\n"
+out immutable_pl1
+prt "\n"
+out immutable_pl2
+prt "\n"
+out immutable_pl3
+prt "\n"
+out immutable_pl4
+prt "\n"
+out immutable_pl5
+prt "\n"
+out immutable_pl6
+prt "\n"
+out immutable_pl7
+prt "\n"
+out immutable_pl8
+prt "\n"
+out immutable_pl9
+prt "\n"
+out immutable_pl10
+prt "\n"
+out immutable_pl11
+prt "\n"
+out immutable_pl12
+prt "\n"
+out immutable_pl13
+prt "\n"
+out immutable_pl14
+prt "\n"
+out immutable_pl15
+prt "\n"
+out immutable_pl16
+prt "\n"
+out immutable_pl17
+prt "\n"
+out immutable_pl18
+prt "\n"
+
+... Mutable Variable Deallocate
+del mutable_pl0
+del mutable_pl1
+del mutable_pl2
+del mutable_pl3
+del mutable_pl4
+del mutable_pl5
+del mutable_pl6
+del mutable_pl7
+del mutable_pl8
+del mutable_pl9
+del mutable_pl10
+del mutable_pl11
+del mutable_pl12
+del mutable_pl13
+del mutable_pl14
+del mutable_pl15
+del mutable_pl16
+del mutable_pl17
+del mutable_pl18
+
+... Immutable Variable Deallocate
+del immutable_pl0
+del immutable_pl1
+del immutable_pl2
+del immutable_pl3
+del immutable_pl4
+del immutable_pl5
+del immutable_pl6
+del immutable_pl7
+del immutable_pl8
+del immutable_pl9
+del immutable_pl10
+del immutable_pl11
+del immutable_pl12
+del immutable_pl13
+del immutable_pl14
+del immutable_pl15
+del immutable_pl16
+del immutable_pl17
+del immutable_pl18

@@ -24,10 +24,10 @@
 #include <string.h>
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvsprs.h"
-#include "../include/rvsmem.h"
-#include "../include/rvsbuf.h"
-#include "../include/rvsctl.h"
+#include "../includes/rvsprs.h"
+#include "../includes/rvsmem.h"
+#include "../includes/rvsbuf.h"
+#include "../includes/rvsctl.h"
 
 
 // RevanScript Variable Automatic Configure Function 

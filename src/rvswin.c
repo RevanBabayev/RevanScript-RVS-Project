@@ -20,10 +20,10 @@
 
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvswin.h"
+#include "../includes/rvswin.h"
 
 // Windows Console Initialize Function 
-void windows_console_init(void){
+void rvs_windows_console_init(void){
     HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
     DWORD mode;
     GetConsoleMode(hConsole, &mode);

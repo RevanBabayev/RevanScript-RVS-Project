@@ -80,8 +80,8 @@
 
 	Birdə daha çox tip əlavə etməyi düşünürəm.
 
-	RevanScript Data Types -> [String, Integer, Float, Boolean]
-	RevanScript Data Structures Types -> [Box, Map]
+	RevanScript Data Types -> [String, Integer, Float, Boolean, Null]
+	RevanScript Data Structure Types -> [Box, Map]
 
 	[Box == Dynamic Array]
 	[Map == Hash Map]
@@ -95,14 +95,15 @@
 #include <stddef.h>
 #include <stdint.h>
 #include <stdbool.h>
+#include <time.h>
 
 // RevanScript (RVS) Standard Core/Engine Libraries
-#include "../include/rvsio.h"
-#include "../include/rvsctl.h"
-#include "../include/rvsmem.h"
-#include "../include/rvsflg.h"
-#include "../include/rvskey.h"
-#include "../include/rvserr.h"
+#include "../includes/rvsio.h"
+#include "../includes/rvsctl.h"
+#include "../includes/rvsmem.h"
+#include "../includes/rvsflg.h"
+#include "../includes/rvskey.h"
+#include "../includes/rvserr.h"
 
 // RevanScript (RVS) Windows Application Programming Interface (API) Library
 #ifdef __RVS_WINDOWS_OS_DEFINE__
@@ -204,22 +205,25 @@ int main(const int argc, const char** const argv){
 
 	// Windows Support (Console)
 	#ifdef __RVS_WINDOWS_OS_DEFINE__
-		windows_console_init();
+		rvs_windows_console_init();
 	#endif
 
+	// Random Value Generate
+	srand(time(NULL));
+
 	// RevanScript Global Memory
-	RVSMEM* rvs_global_memory = rvs_memory_create();
-	if (!rvs_global_memory) return 1;
+	RVSMEM* rvs_memory = rvs_memory_create();
+	if (!rvs_memory) return 1;
 
 	// REPL mode
 	if (argc == 1){
-		if (!repl(rvs_global_memory)){
-			rvs_memory_delete(rvs_global_memory);
+		if (!repl(rvs_memory)){
+			rvs_memory_delete(rvs_memory);
 			return 1;
 		}
 
 		else{
-			rvs_memory_delete(rvs_global_memory);
+			rvs_memory_delete(rvs_memory);
 			return 0;
 		}
 	}
@@ -233,26 +237,25 @@ int main(const int argc, const char** const argv){
 		}
 
 		else if (flag_title_check == 2 && rvs_file_type_check(argv[1] + (strlen(argv[1]) - 4)) == true){
-
-			if (!file(argv[1], rvs_global_memory)){
-				rvs_memory_delete(rvs_global_memory);
+			if (!file(argv[1], rvs_memory)){
+				rvs_memory_delete(rvs_memory);
 				return 1;
 			}
 
 			else{
-				rvs_memory_delete(rvs_global_memory);
+				rvs_memory_delete(rvs_memory);
 				return 0;
 			}
 		}
 
 		else{
-			rvs_memory_delete(rvs_global_memory);
+			rvs_memory_delete(rvs_memory);
 			return 1;
 		}
 	}
 
 	else{
-		rvs_memory_delete(rvs_global_memory);
+		rvs_memory_delete(rvs_memory);
 		return 1;
 	}
 }

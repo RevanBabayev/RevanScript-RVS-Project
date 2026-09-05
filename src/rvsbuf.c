@@ -24,7 +24,7 @@
 #include <stdbool.h>
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvsbuf.h"
+#include "../includes/rvsbuf.h"
 
 
 // RevanScript (RVS) Direct Data Buffer (Create Function)

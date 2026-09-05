@@ -27,13 +27,13 @@
 
 
 // RevanScript (RVS) Core/Engine Libraries
-#include "../include/rvsprs.h"
-#include "../include/rvsbuf.h"
-#include "../include/rvsexp.h"
-#include "../include/rvslgc.h"
-#include "../include/rvsmem.h"
-#include "../include/rvsctl.h"
-#include "../include/rvserr.h"
+#include "../includes/rvsprs.h"
+#include "../includes/rvsbuf.h"
+#include "../includes/rvsexp.h"
+#include "../includes/rvslgc.h"
+#include "../includes/rvsmem.h"
+#include "../includes/rvsctl.h"
+#include "../includes/rvserr.h"
 
 
 // RevanScript (RVS) Variable Parser Memory (Create Function)
@@ -126,7 +126,7 @@ RVSPRS* rvs_variable_parser(const char* const code_line){
 			}
 
 			// Expression Parsing
-			else if (code_line[i] == '('){ // Open 
+			else if (rvs_parser->rvs_logic->string_literal_check == false && code_line[i] == '('){ // Open 
 				if (rvs_parser->rvs_logic->expression_check == false){
 					rvs_parser->rvs_logic->expression_check = true;
 					if (rvs_parser->rvs_buffer->variable_type == RVS_UNDEFINED_TYPE){
@@ -135,7 +135,7 @@ RVSPRS* rvs_variable_parser(const char* const code_line){
 				}
 			}
 			
-			else if (code_line[i] == ')'){ // Close
+			else if (rvs_parser->rvs_logic->string_literal_check == false && code_line[i] == ')'){ // Close
 				if (rvs_parser->rvs_logic->expression_check == true){
 					rvs_parser->rvs_logic->expression_check = false;
 					break;
@@ -319,7 +319,7 @@ RVS_DIRECT_PARSER* rvs_direct_data_parser(const char* const code_line){
 		}
 
 		// Expression Parsing
-		else if (code_line[i] == '('){ // Open 
+		else if (rvs_direct_parser->rvs_direct_logic->string_literal_check == false && code_line[i] == '('){ // Open 
 			if (rvs_direct_parser->rvs_direct_logic->expression_check == false){
 				rvs_direct_parser->rvs_direct_logic->expression_check = true;
 				if (rvs_direct_parser->rvs_direct_buffer->direct_type == RVS_UNDEFINED_TYPE){
@@ -328,7 +328,7 @@ RVS_DIRECT_PARSER* rvs_direct_data_parser(const char* const code_line){
 			}
 		}
 		
-		else if (code_line[i] == ')'){ // Close
+		else if (rvs_direct_parser->rvs_direct_logic->string_literal_check == false && code_line[i] == ')'){ // Close
 			if (rvs_direct_parser->rvs_direct_logic->expression_check == true){
 				rvs_direct_parser->rvs_direct_logic->expression_check = false;
 				break;

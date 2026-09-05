@@ -18,70 +18,139 @@
 	---------------------------------------------
 */
 
-
 // C Standard Libraries
 #include <stdlib.h>
 #include <stdbool.h>
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvsarr.h"
-
+#include "../includes/rvsarr.h"
 
 // Signed Unsafe Array Create Functions
 
-
 // RevanScript (RVS) Character Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_CHARACTER_ARRAY rvs_dynamic_unsafe_character_array_create(const size_t size){
-    RVS_DYNAMIC_CHARACTER_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_CHARACTER_ARRAY) malloc(sizeof(char) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_CHARACTER_ARRAY* rvs_dynamic_unsafe_character_array_create(const size_t size){
+    RVS_DYNAMIC_CHARACTER_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_CHARACTER_ARRAY*) malloc(sizeof(RVS_DYNAMIC_CHARACTER_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (char*) malloc(sizeof(char) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Integer Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_INTEGER_ARRAY rvs_dynamic_unsafe_integer_array_create(const size_t size){
-    RVS_DYNAMIC_INTEGER_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_INTEGER_ARRAY) malloc(sizeof(int) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_INTEGER_ARRAY* rvs_dynamic_unsafe_integer_array_create(const size_t size){
+    RVS_DYNAMIC_INTEGER_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_INTEGER_ARRAY*) malloc(sizeof(RVS_DYNAMIC_INTEGER_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (int*) malloc(sizeof(int) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Float Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_FLOAT_ARRAY rvs_dynamic_unsafe_float_array_create(const size_t size){
-    RVS_DYNAMIC_FLOAT_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_FLOAT_ARRAY) malloc(sizeof(float) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_FLOAT_ARRAY* rvs_dynamic_unsafe_float_array_create(const size_t size){
+    RVS_DYNAMIC_FLOAT_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_FLOAT_ARRAY*) malloc(sizeof(RVS_DYNAMIC_FLOAT_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (float*) malloc(sizeof(float) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Double Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_DOUBLE_ARRAY rvs_dynamic_unsafe_double_array_create(const size_t size){
-    RVS_DYNAMIC_DOUBLE_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_DOUBLE_ARRAY) malloc(sizeof(double) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_DOUBLE_ARRAY* rvs_dynamic_unsafe_double_array_create(const size_t size){
+    RVS_DYNAMIC_DOUBLE_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_DOUBLE_ARRAY*) malloc(sizeof(RVS_DYNAMIC_DOUBLE_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (double*) malloc(sizeof(double) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Boolean Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_BOOLEAN_ARRAY rvs_dynamic_unsafe_boolean_array_create(const size_t size){
-    RVS_DYNAMIC_BOOLEAN_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_BOOLEAN_ARRAY) malloc(sizeof(bool) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_BOOLEAN_ARRAY* rvs_dynamic_unsafe_boolean_array_create(const size_t size){
+    RVS_DYNAMIC_BOOLEAN_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_BOOLEAN_ARRAY*) malloc(sizeof(RVS_DYNAMIC_BOOLEAN_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (bool*) malloc(sizeof(bool) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Short Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_SHORT_ARRAY rvs_dynamic_unsafe_short_array_create(const size_t size){
-    RVS_DYNAMIC_SHORT_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_SHORT_ARRAY) malloc(sizeof(short) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_SHORT_ARRAY* rvs_dynamic_unsafe_short_array_create(const size_t size){
+    RVS_DYNAMIC_SHORT_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_SHORT_ARRAY*) malloc(sizeof(RVS_DYNAMIC_SHORT_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (short*) malloc(sizeof(short) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Long Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_LONG_ARRAY rvs_dynamic_unsafe_long_array_create(const size_t size){
-    RVS_DYNAMIC_LONG_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_LONG_ARRAY) malloc(sizeof(long) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_LONG_ARRAY* rvs_dynamic_unsafe_long_array_create(const size_t size){
+    RVS_DYNAMIC_LONG_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_LONG_ARRAY*) malloc(sizeof(RVS_DYNAMIC_LONG_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (long*) malloc(sizeof(long) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Long Long Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_LONG_LONG_ARRAY rvs_dynamic_unsafe_long_long_array_create(const size_t size){
-    RVS_DYNAMIC_LONG_LONG_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_LONG_LONG_ARRAY) malloc(sizeof(long long) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_LONG_LONG_ARRAY* rvs_dynamic_unsafe_long_long_array_create(const size_t size){
+    RVS_DYNAMIC_LONG_LONG_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_LONG_LONG_ARRAY*) malloc(sizeof(RVS_DYNAMIC_LONG_LONG_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (long long*) malloc(sizeof(long long) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Long Double Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_unsafe_long_double_array_create(const size_t size){
-    RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_LONG_DOUBLE_ARRAY) malloc(sizeof(long double) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_LONG_DOUBLE_ARRAY* rvs_dynamic_unsafe_long_double_array_create(const size_t size){
+    RVS_DYNAMIC_LONG_DOUBLE_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_LONG_DOUBLE_ARRAY*) malloc(sizeof(RVS_DYNAMIC_LONG_DOUBLE_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (long double*) malloc(sizeof(long double) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 
@@ -89,33 +158,73 @@ RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_unsafe_long_double_array_create(const 
 
 
 // RevanScript (RVS) Unsigned Character Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY rvs_dynamic_unsafe_unsigned_character_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY) malloc(sizeof(unsigned char) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* rvs_dynamic_unsafe_unsigned_character_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned char*) malloc(sizeof(unsigned char) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Unsigned Integer Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY rvs_dynamic_unsafe_unsigned_integer_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY) malloc(sizeof(unsigned int));
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY* rvs_dynamic_unsafe_unsigned_integer_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned int*) malloc(sizeof(unsigned int) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Unsigned Short Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY rvs_dynamic_unsafe_unsigned_short_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY) malloc(sizeof(unsigned short) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY* rvs_dynamic_unsafe_unsigned_short_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned short*) malloc(sizeof(unsigned short) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Unsigned Long Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_UNSIGNED_LONG_ARRAY rvs_dynamic_unsafe_unsigned_long_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_LONG_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_LONG_ARRAY) malloc(sizeof(unsigned long) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_LONG_ARRAY* rvs_dynamic_unsafe_unsigned_long_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_LONG_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_LONG_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_LONG_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned long*) malloc(sizeof(unsigned long) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Unsigned Long Long Dynamic Unsafe Array Create Function
-RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_unsafe_unsigned_long_long_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY) malloc(sizeof(unsigned long long) * size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* rvs_dynamic_unsafe_unsigned_long_long_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY*) malloc(sizeof(RVS_DYNAMIC_LONG_LONG_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned long long*) malloc(sizeof(unsigned long long) * size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 
@@ -123,74 +232,83 @@ RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_unsafe_unsigned_long_long_array
 
 
 // RevanScript (RVS) Character Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_character_array_resize(RVS_DYNAMIC_CHARACTER_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_CHARACTER_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_CHARACTER_ARRAY) realloc(rvs_dynamic_array, sizeof(char) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_character_array_resize(RVS_DYNAMIC_CHARACTER_ARRAY* rvs_dynamic_array, const size_t new_size){
+    char* __rvs_dynamic_array_realloc = (char*) realloc(rvs_dynamic_array->buffer, sizeof(char) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Integer Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_integer_array_resize(RVS_DYNAMIC_INTEGER_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_INTEGER_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_INTEGER_ARRAY) realloc(rvs_dynamic_array, sizeof(int) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_integer_array_resize(RVS_DYNAMIC_INTEGER_ARRAY* rvs_dynamic_array, const size_t new_size){
+    int* __rvs_dynamic_array_realloc = (int*) realloc(rvs_dynamic_array->buffer, sizeof(int) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Float Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_float_array_resize(RVS_DYNAMIC_FLOAT_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_FLOAT_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_FLOAT_ARRAY) realloc(rvs_dynamic_array, sizeof(float) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_float_array_resize(RVS_DYNAMIC_FLOAT_ARRAY* rvs_dynamic_array, const size_t new_size){
+    float* __rvs_dynamic_array_realloc = (float*) realloc(rvs_dynamic_array->buffer, sizeof(float) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Double Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_double_array_resize(RVS_DYNAMIC_DOUBLE_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_DOUBLE_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_DOUBLE_ARRAY) realloc(rvs_dynamic_array, sizeof(double) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_double_array_resize(RVS_DYNAMIC_DOUBLE_ARRAY* rvs_dynamic_array, const size_t new_size){
+    double* __rvs_dynamic_array_realloc = (double*) realloc(rvs_dynamic_array->buffer, sizeof(double) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Boolean Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_boolean_array_resize(RVS_DYNAMIC_BOOLEAN_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_BOOLEAN_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_BOOLEAN_ARRAY) realloc(rvs_dynamic_array, sizeof(bool) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_boolean_array_resize(RVS_DYNAMIC_BOOLEAN_ARRAY* rvs_dynamic_array, const size_t new_size){
+    bool* __rvs_dynamic_array_realloc = (bool*) realloc(rvs_dynamic_array->buffer, sizeof(bool) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Short Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_short_array_resize(RVS_DYNAMIC_SHORT_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_SHORT_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_SHORT_ARRAY) realloc(rvs_dynamic_array, sizeof(short) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_short_array_resize(RVS_DYNAMIC_SHORT_ARRAY* rvs_dynamic_array, const size_t new_size){
+    short* __rvs_dynamic_array_realloc = (short*) realloc(rvs_dynamic_array->buffer, sizeof(short) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Long Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_long_array_resize(RVS_DYNAMIC_LONG_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_LONG_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_LONG_ARRAY) realloc(rvs_dynamic_array, sizeof(long) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_long_array_resize(RVS_DYNAMIC_LONG_ARRAY* rvs_dynamic_array, const size_t new_size){
+    long* __rvs_dynamic_array_realloc = (long*) realloc(rvs_dynamic_array->buffer, sizeof(long) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Long Long Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_long_long_array_resize(RVS_DYNAMIC_LONG_LONG_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_LONG_LONG_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_LONG_LONG_ARRAY) realloc(rvs_dynamic_array, sizeof(long long) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_long_long_array_resize(RVS_DYNAMIC_LONG_LONG_ARRAY* rvs_dynamic_array, const size_t new_size){
+    long long* __rvs_dynamic_array_realloc = (long long*) realloc(rvs_dynamic_array->buffer, sizeof(long long) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Long Double Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_long_double_array_resize(RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_LONG_DOUBLE_ARRAY) realloc(rvs_dynamic_array, sizeof(long double) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_long_double_array_resize(RVS_DYNAMIC_LONG_DOUBLE_ARRAY* rvs_dynamic_array, const size_t new_size){
+    long double* __rvs_dynamic_array_realloc = (long double*) realloc(rvs_dynamic_array->buffer, sizeof(long double) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
@@ -199,42 +317,47 @@ bool rvs_dynamic_unsafe_long_double_array_resize(RVS_DYNAMIC_LONG_DOUBLE_ARRAY r
 
 
 // RevanScript (RVS) Unsigned Character Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_unsigned_character_array_resize(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned char) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_unsigned_character_array_resize(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned char* __rvs_dynamic_array_realloc = (unsigned char*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned char) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Unsigned Integer Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_unsigned_integer_array_resize(RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned int) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_unsigned_integer_array_resize(RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned int* __rvs_dynamic_array_realloc = (unsigned int*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned int) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Unsigned Short Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_unsigned_short_array_resize(RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned short) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_unsigned_short_array_resize(RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned short* __rvs_dynamic_array_realloc = (unsigned short*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned short) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Unsigned Long Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_unsigned_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_LONG_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_LONG_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned long) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_unsigned_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned long* __rvs_dynamic_array_realloc = (unsigned long*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned long) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Unsigned Long Long Dynamic Unsafe Array Resize Function
-bool rvs_dynamic_unsafe_unsigned_long_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_array, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned long long) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
+bool rvs_dynamic_unsafe_unsigned_long_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned long long* __rvs_dynamic_array_realloc = (unsigned long long*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned long long) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
@@ -242,57 +365,129 @@ bool rvs_dynamic_unsafe_unsigned_long_long_array_resize(RVS_DYNAMIC_UNSIGNED_LON
 
 
 // RevanScript (RVS) Character Dynamic Safe Array Function
-RVS_DYNAMIC_CHARACTER_ARRAY rvs_dynamic_safe_character_array_create(const size_t size){
-    RVS_DYNAMIC_CHARACTER_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_CHARACTER_ARRAY) calloc(sizeof(char), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_CHARACTER_ARRAY* rvs_dynamic_safe_character_array_create(const size_t size){
+    RVS_DYNAMIC_CHARACTER_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_CHARACTER_ARRAY*) malloc(sizeof(RVS_DYNAMIC_CHARACTER_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (char*) calloc(sizeof(char), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0; 
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Integer Dynamic Safe Array Function
-RVS_DYNAMIC_INTEGER_ARRAY rvs_dynamic_safe_integer_array_create(const size_t size){
-    RVS_DYNAMIC_INTEGER_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_INTEGER_ARRAY) calloc(sizeof(int), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_INTEGER_ARRAY* rvs_dynamic_safe_integer_array_create(const size_t size){
+    RVS_DYNAMIC_INTEGER_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_INTEGER_ARRAY*) malloc(sizeof(RVS_DYNAMIC_INTEGER_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (int*) calloc(sizeof(int), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Float Dynamic Safe Array Function
-RVS_DYNAMIC_FLOAT_ARRAY rvs_dynamic_safe_float_array_create(const size_t size){
-    RVS_DYNAMIC_FLOAT_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_FLOAT_ARRAY) calloc(sizeof(float), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_FLOAT_ARRAY* rvs_dynamic_safe_float_array_create(const size_t size){
+    RVS_DYNAMIC_FLOAT_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_FLOAT_ARRAY*) malloc(sizeof(RVS_DYNAMIC_FLOAT_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (float*) calloc(sizeof(float), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0; 
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Double Dynamic Safe Array Function
-RVS_DYNAMIC_DOUBLE_ARRAY rvs_dynamic_safe_double_array_create(const size_t size){
-    RVS_DYNAMIC_DOUBLE_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_DOUBLE_ARRAY) calloc(sizeof(double), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_DOUBLE_ARRAY* rvs_dynamic_safe_double_array_create(const size_t size){
+    RVS_DYNAMIC_DOUBLE_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_DOUBLE_ARRAY*) malloc(sizeof(RVS_DYNAMIC_DOUBLE_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (double*) calloc(sizeof(double), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Boolean Dynamic Safe Array Function
-RVS_DYNAMIC_BOOLEAN_ARRAY rvs_dynamic_safe_boolean_array_create(const size_t size){
-    RVS_DYNAMIC_BOOLEAN_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_BOOLEAN_ARRAY) calloc(sizeof(bool), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_BOOLEAN_ARRAY* rvs_dynamic_safe_boolean_array_create(const size_t size){
+    RVS_DYNAMIC_BOOLEAN_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_BOOLEAN_ARRAY*) malloc(sizeof(RVS_DYNAMIC_BOOLEAN_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (bool*) calloc(sizeof(bool), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Short Dynamic Safe Array Function
-RVS_DYNAMIC_SHORT_ARRAY rvs_dynamic_safe_short_array_create(const size_t size){
-    RVS_DYNAMIC_SHORT_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_SHORT_ARRAY) calloc(sizeof(short), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_SHORT_ARRAY* rvs_dynamic_safe_short_array_create(const size_t size){
+    RVS_DYNAMIC_SHORT_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_SHORT_ARRAY*) malloc(sizeof(RVS_DYNAMIC_SHORT_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (short*) calloc(sizeof(short), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Long Dynamic Safe Array Function
-RVS_DYNAMIC_LONG_ARRAY rvs_dynamic_safe_long_array_create(const size_t size){
-    RVS_DYNAMIC_LONG_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_LONG_ARRAY) calloc(sizeof(long), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_LONG_ARRAY* rvs_dynamic_safe_long_array_create(const size_t size){
+    RVS_DYNAMIC_LONG_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_LONG_ARRAY*) malloc(sizeof(RVS_DYNAMIC_LONG_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (long*) calloc(sizeof(long), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Long Long Dynamic Safe Array Function
-RVS_DYNAMIC_LONG_LONG_ARRAY rvs_dynamic_safe_long_long_array_create(const size_t size){
-    RVS_DYNAMIC_LONG_LONG_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_LONG_LONG_ARRAY) calloc(sizeof(long long), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_LONG_LONG_ARRAY* rvs_dynamic_safe_long_long_array_create(const size_t size){
+    RVS_DYNAMIC_LONG_LONG_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_LONG_LONG_ARRAY*) malloc(sizeof(RVS_DYNAMIC_LONG_LONG_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (long long*) calloc(sizeof(long long), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Long Double Dynamic Safe Array Function
-RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_safe_long_double_array_create(const size_t size){
-    RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_LONG_DOUBLE_ARRAY) calloc(sizeof(long double), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_LONG_DOUBLE_ARRAY* rvs_dynamic_safe_long_double_array_create(const size_t size){
+    RVS_DYNAMIC_LONG_DOUBLE_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_LONG_DOUBLE_ARRAY*) malloc(sizeof(RVS_DYNAMIC_LONG_DOUBLE_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (long double*) calloc(sizeof(long double), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 
@@ -300,33 +495,73 @@ RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_safe_long_double_array_create(const si
 
 
 // RevanScript (RVS) Unsigned Character Dynamic Safe Array Function
-RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY rvs_dynamic_safe_unsigned_character_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY) calloc(sizeof(unsigned char), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* rvs_dynamic_safe_unsigned_character_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned char*) calloc(sizeof(unsigned char), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Unsigned Integer Dyanmic Safe Array Function
-RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY rvs_dynamic_safe_unsigned_integer_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY) calloc(sizeof(unsigned int), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY* rvs_dynamic_safe_unsigned_integer_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned int*) calloc(sizeof(unsigned int), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Unsigned Short Dynamic Safe Array Function
-RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY rvs_dynamic_safe_unsigned_short_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY) calloc(sizeof(unsigned short), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY* rvs_dynamic_safe_unsigned_short_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned short*) calloc(sizeof(unsigned short), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Unsigned Long Dynamic Safe Array Function 
-RVS_DYNAMIC_UNSIGNED_LONG_ARRAY rvs_dynamic_safe_unsigned_long_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_LONG_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_LONG_ARRAY) calloc(sizeof(unsigned long), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_LONG_ARRAY* rvs_dynamic_safe_unsigned_long_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_LONG_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_LONG_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_LONG_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned long*) calloc(sizeof(unsigned long), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 // RevanScript (RVS) Unsigned Long Long Dynamic Safe Array Function
-RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_safe_unsigned_long_long_array_create(const size_t size){
-    RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY) calloc(sizeof(unsigned long long), size);
-    return rvs_dynamic_array;
+RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* rvs_dynamic_safe_unsigned_long_long_array_create(const size_t size){
+    RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* __rvs_dynamic_array = (RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY*) malloc(sizeof(RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY));
+    if (!__rvs_dynamic_array) return NULL;
+    __rvs_dynamic_array->buffer = (unsigned long long*) calloc(sizeof(unsigned long long), size);
+    if (!__rvs_dynamic_array->buffer){
+        free(__rvs_dynamic_array);
+        return NULL;
+    }
+    __rvs_dynamic_array->capacity = size;
+    __rvs_dynamic_array->iterator = 0;
+    return __rvs_dynamic_array;
 }
 
 
@@ -334,103 +569,112 @@ RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_safe_unsigned_long_long_array_c
 
 
 // RevanScript (RVS) Character Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_character_array_resize(RVS_DYNAMIC_CHARACTER_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_CHARACTER_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_CHARACTER_ARRAY) realloc(rvs_dynamic_array, sizeof(char) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        size_t i = old_size; 
-        for (; i < new_size; i++) rvs_dynamic_array[i] = ' ';
-        rvs_dynamic_array[i] = '\0';
+bool rvs_dynamic_safe_character_array_resize(RVS_DYNAMIC_CHARACTER_ARRAY* rvs_dynamic_array, const size_t new_size){
+    char* __rvs_dynamic_array_realloc = (char*) realloc(rvs_dynamic_array->buffer, sizeof(char) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        size_t i = rvs_dynamic_array->capacity; 
+        for (; i < new_size; i++) rvs_dynamic_array->buffer[i] = ' ';
+        rvs_dynamic_array->buffer[i] = '\0';
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Integer Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_integer_array_resize(RVS_DYNAMIC_INTEGER_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_INTEGER_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_INTEGER_ARRAY) realloc(rvs_dynamic_array, sizeof(int) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0;
+bool rvs_dynamic_safe_integer_array_resize(RVS_DYNAMIC_INTEGER_ARRAY* rvs_dynamic_array, const size_t new_size){
+    int* __rvs_dynamic_array_realloc = (int*) realloc(rvs_dynamic_array->buffer, sizeof(int) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Float Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_float_array_resize(RVS_DYNAMIC_FLOAT_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_FLOAT_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_FLOAT_ARRAY) realloc(rvs_dynamic_array, sizeof(float) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0.0;
+bool rvs_dynamic_safe_float_array_resize(RVS_DYNAMIC_FLOAT_ARRAY* rvs_dynamic_array, const size_t new_size){
+    float* __rvs_dynamic_array_realloc = (float*) realloc(rvs_dynamic_array->buffer, sizeof(float) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0.0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Double Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_double_array_resize(RVS_DYNAMIC_DOUBLE_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_DOUBLE_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_DOUBLE_ARRAY) realloc(rvs_dynamic_array, sizeof(double) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0.0;
+bool rvs_dynamic_safe_double_array_resize(RVS_DYNAMIC_DOUBLE_ARRAY* rvs_dynamic_array, const size_t new_size){
+    double* __rvs_dynamic_array_realloc = (double*) realloc(rvs_dynamic_array, sizeof(double) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0.0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Boolean Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_boolean_array_resize(RVS_DYNAMIC_BOOLEAN_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_BOOLEAN_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_BOOLEAN_ARRAY) realloc(rvs_dynamic_array, sizeof(bool) * new_size);
+bool rvs_dynamic_safe_boolean_array_resize(RVS_DYNAMIC_BOOLEAN_ARRAY* rvs_dynamic_array, const size_t new_size){
+    bool* rvs_dynamic_array_realloc = (bool*) realloc(rvs_dynamic_array, sizeof(bool) * new_size);
     if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = false;
+    rvs_dynamic_array->buffer = rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = false;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Short Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_short_array_resize(RVS_DYNAMIC_SHORT_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_SHORT_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_SHORT_ARRAY) realloc(rvs_dynamic_array, sizeof(short) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0;
+bool rvs_dynamic_safe_short_array_resize(RVS_DYNAMIC_SHORT_ARRAY* rvs_dynamic_array, const size_t new_size){
+    short* __rvs_dynamic_array_realloc = (short*) realloc(rvs_dynamic_array->buffer, sizeof(short) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Long Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_long_array_resize(RVS_DYNAMIC_LONG_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_LONG_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_LONG_ARRAY) realloc(rvs_dynamic_array, sizeof(long) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0;
+bool rvs_dynamic_safe_long_array_resize(RVS_DYNAMIC_LONG_ARRAY* rvs_dynamic_array, const size_t new_size){
+    long* __rvs_dynamic_array_realloc = (long*) realloc(rvs_dynamic_array->buffer, sizeof(long) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Long Long Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_long_long_array_resize(RVS_DYNAMIC_LONG_LONG_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_LONG_LONG_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_LONG_LONG_ARRAY) realloc(rvs_dynamic_array, sizeof(long long) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0;
+bool rvs_dynamic_safe_long_long_array_resize(RVS_DYNAMIC_LONG_LONG_ARRAY* rvs_dynamic_array, const size_t new_size){
+    long long* __rvs_dynamic_array_realloc = (long long*) realloc(rvs_dynamic_array->buffer, sizeof(long long) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Long Double Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_long_double_array_resize(RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_LONG_DOUBLE_ARRAY) realloc(rvs_dynamic_array, sizeof(long double) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0.0;
+bool rvs_dynamic_safe_long_double_array_resize(RVS_DYNAMIC_LONG_DOUBLE_ARRAY* rvs_dynamic_array, const size_t new_size){
+    long double* __rvs_dynamic_array_realloc = (long double*) realloc(rvs_dynamic_array->buffer, sizeof(long double) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0.0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
@@ -439,63 +683,155 @@ bool rvs_dynamic_safe_long_double_array_resize(RVS_DYNAMIC_LONG_DOUBLE_ARRAY rvs
 
 
 // RevanScript (RVS) Unsigned Character Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_unsigned_character_array_resize(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned char) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        size_t i = old_size; 
-        for (; i < new_size; i++) rvs_dynamic_array[i] = ' '; 
-        rvs_dynamic_array[i] = '\0';
+bool rvs_dynamic_safe_unsigned_character_array_resize(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned char* __rvs_dynamic_array_realloc = (unsigned char*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned char) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        size_t i = rvs_dynamic_array->capacity; 
+        for (; i < new_size; i++) rvs_dynamic_array->buffer[i] = ' '; 
+        rvs_dynamic_array->buffer[i] = '\0';
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Unsigned Integer Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_unsigned_integer_array_resize(RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned int) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0;
+bool rvs_dynamic_safe_unsigned_integer_array_resize(RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned int* __rvs_dynamic_array_realloc = (unsigned int*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned int) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 } 
 
 // RevanScript (RVS) Unsigned Short Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_unsigned_short_array_resize(RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned short) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0;
+bool rvs_dynamic_safe_unsigned_short_array_resize(RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned short* __rvs_dynamic_array_realloc = (unsigned short*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned short) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Unsigned Long Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_unsigned_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_LONG_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_LONG_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned long) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0;
+bool rvs_dynamic_safe_unsigned_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned long* __rvs_dynamic_array_realloc = (unsigned long*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned long) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
 // RevanScript (RVS) Unsigned Long Long Dynamic Safe Array Resize Function
-bool rvs_dynamic_safe_unsigned_long_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_array, const size_t old_size, const size_t new_size){
-    RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY rvs_dynamic_array_realloc = (RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY) realloc(rvs_dynamic_array, sizeof(unsigned long long) * new_size);
-    if (!rvs_dynamic_array_realloc) return false;
-    rvs_dynamic_array = rvs_dynamic_array_realloc;
-    if (new_size > old_size){
-        for (size_t i = old_size; i <= new_size; i++) rvs_dynamic_array[i] = 0;
+bool rvs_dynamic_safe_unsigned_long_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* rvs_dynamic_array, const size_t new_size){
+    unsigned long long* __rvs_dynamic_array_realloc = (unsigned long long*) realloc(rvs_dynamic_array->buffer, sizeof(unsigned long long) * new_size);
+    if (!__rvs_dynamic_array_realloc) return false;
+    rvs_dynamic_array->buffer = __rvs_dynamic_array_realloc;
+    if (new_size > rvs_dynamic_array->capacity){
+        for (size_t i = rvs_dynamic_array->capacity; i <= new_size; i++) rvs_dynamic_array->buffer[i] = 0;
     }
+    rvs_dynamic_array->capacity = new_size;
     return true;
 }
 
-// RevanScript (RVS) Dellocate Array Function
-void rvs_dynamic_array_delete(void* dynamic_array){
+
+// Deallocate Array Functions
+
+
+// RevanScript (RVS) Deallocate Character Array Function
+void rvs_dynamic_character_array_delete(RVS_DYNAMIC_CHARACTER_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
     free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Integer Array Function
+void rvs_dynamic_integer_array_delete(RVS_DYNAMIC_INTEGER_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Float Array Function
+void rvs_dynamic_float_array_delete(RVS_DYNAMIC_FLOAT_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Double Array Function
+void rvs_dynamic_double_array_delete(RVS_DYNAMIC_DOUBLE_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Boolean Array Function
+void rvs_dynamic_boolean_array_delete(RVS_DYNAMIC_BOOLEAN_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Short Array Function
+void rvs_dynamic_short_array_delete(RVS_DYNAMIC_SHORT_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Long Array Function
+void rvs_dynamic_long_array_delete(RVS_DYNAMIC_LONG_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Long Long Array Function
+void rvs_dyanmic_long_long_array_delete(RVS_DYNAMIC_LONG_LONG_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Long Double Array Function
+void rvs_dynamic_long_double_array_delete(RVS_DYNAMIC_LONG_DOUBLE_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+
+// Unsigned Type Deallocate
+
+
+// RevanScript (RVS) Deallocate Unsigned Character Array Function
+void rvs_dynamic_unsigned_character_array_delete(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Unsigned Integer Array Function
+void rvs_dynamic_unsigned_integer_array_delete(RVS_DYNAMIC_UNSIGNED_INTEGER_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Unsigned Short Array Function
+void rvs_dynamic_unsigned_short_array_delete(RVS_DYNAMIC_UNSIGNED_SHORT_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Unsigned Long Array Function 
+void rvs_dynamic_unsigned_long_array_delete(RVS_DYNAMIC_UNSIGNED_LONG_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);
+}
+
+// RevanScript (RVS) Deallocate Unsigned Long Long Array Function
+void rvs_dynamic_unsigned_long_long_array_delete(RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* dynamic_array){
+    free(dynamic_array->buffer);
+    free(dynamic_array);    
 }

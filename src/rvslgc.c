@@ -23,8 +23,8 @@
 #include <stdlib.h>
 
 // RevanScript (RVS) Core / Engine Libraries 
-#include "../include/rvsctl.h"
-#include "../include/rvslgc.h"
+#include "../includes/rvsctl.h"
+#include "../includes/rvslgc.h"
 
 
 // RevanScript Direct Data Logic (Create Function)

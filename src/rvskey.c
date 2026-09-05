@@ -28,15 +28,15 @@
 #include <stdbool.h>
 
 // RevanScript (RVS) Core / Engine Libraries
-#include "../include/rvsio.h"
-#include "../include/rvsctl.h"
-#include "../include/rvsmem.h"
-#include "../include/rvsflg.h"
-#include "../include/rvsprs.h"
-#include "../include/rvstbl.h"
-#include "../include/rvsstd.h"
-#include "../include/rvserr.h"
-#include "../include/rvskey.h"
+#include "../includes/rvsio.h"
+#include "../includes/rvsctl.h"
+#include "../includes/rvsmem.h"
+#include "../includes/rvsflg.h"
+#include "../includes/rvsprs.h"
+#include "../includes/rvstbl.h"
+#include "../includes/rvsstd.h"
+#include "../includes/rvserr.h"
+#include "../includes/rvskey.h"
 
 
 // RevanScript (RVS) Keywords (Length)

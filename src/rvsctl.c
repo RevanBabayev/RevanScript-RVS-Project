@@ -27,17 +27,16 @@
 #include <stdint.h>
 
 // RevanScript (RVS) Core/Engine Libraries
-#include "../include/rvsmem.h"
-#include "../include/rvsio.h"
-#include "../include/rvslgc.h"
-#include "../include/rvskey.h"
-#include "../include/rvsctl.h"
-#include "../include/rvserr.h"
+#include "../includes/rvsmem.h"
+#include "../includes/rvsio.h"
+#include "../includes/rvslgc.h"
+#include "../includes/rvskey.h"
+#include "../includes/rvsctl.h"
+#include "../includes/rvserr.h"
 
 
 // RevanScript (RVS) Main Data Type Check Function
 bool __rvs_value_type_check(RVSBUF* const rvs_buffer, const RVSLGC* const rvs_logic, int8_t type){
-
     if (type == RVS_SEMANTIC_VARIABLE_TYPE){
 
         // No Variable Data Checking
