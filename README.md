@@ -2,24 +2,24 @@
 An efficient, lightweight, and direct execution interpreter model built from scratch.
 
 <p align="center">
-  <img src="RevanScript-RVS-Logo.png" width="200" alt="RevanScript Logo"/>
+  <img src="RevanScript-Logo.png" width="200" alt="RevanScript Logo"/>
 </p>
 
-## ≡ƒôû Introduction
-**RevanScript (RVS)** sad╔Ö, command-based (╔Ömr ╔Ösasl─▒) t╔Öm╔Öl╔Ö sahib bir proqramla┼ƒd─▒rma dilidir. Olduqca minimal v╔Ö anla┼ƒ─▒lan bir sintaksis╔Ö malikdir. RevanScript (RVS) dilinin ╔Ösas ├╝st├╝nl├╝y├╝ onun s├╝r╔Ötli v╔Ö y├╝ng├╝l i┼ƒl╔Öy╔Ön daxili t╔Örc├╝m╔Ö├ºi (interpreter) proqram─▒na sahib olmas─▒d─▒r. 
+## 📖 Introduction
+**RevanScript (RVS)** sadə, command-based (əmr əsaslı) təmələ sahib bir proqramlaşdırma dilidir. Olduqca minimal və anlaşılan bir sintaksisə malikdir. RevanScript (RVS) dilinin əsas üstünlüyü onun sürətli və yüngül işləyən daxili tərcüməçi (interpreter) proqramına sahib olmasıdır. 
 
-Layih╔Ö tamamil╔Ö **C proqramla┼ƒd─▒rma dili** il╔Ö s─▒f─▒rdan haz─▒rlanm─▒┼ƒd─▒r.
+Layihə tamamilə **C proqramlaşdırma dili** ilə sıfırdan hazırlanmışdır.
 
-## ≡ƒÆÄ Data Types
-Dild╔Ö m├╝xt╔Ölif m╔Ölumat tipl╔Örinin idar╔Ö edilm╔Ösi n╔Öz╔Örd╔Ö tutulmu┼ƒdur. Haz─▒rda a┼ƒa─ƒ─▒dak─▒ primitiv tipl╔Ör tam i┼ƒl╔Ök v╔Öziyy╔Ötd╔Ödir:
-* **String** (M╔Ötn tipi)
-* **Integer** (Tam ╔Öd╔Öd tipi)
-* **Float** (K╔Ösr ╔Öd╔Öd tipi)
-* **Boolean** (M╔Öntiq tipi)
-* **Null** (Bo┼ƒluq tipi)
+## 💎 Data Types
+Dildə müxtəlif məlumat tiplərinin idarə edilməsi nəzərdə tutulmuşdur. Hazırda aşağıdakı primitiv tiplər tam işlək vəziyyətdədir:
+* **String** (Mətn tipi)
+* **Integer** (Tam ədəd tipi)
+* **Float** (Kəsr ədəd tipi)
+* **Boolean** (Məntiq tipi)
+* **Null** (Boşluq tipi)
 
-## ≡ƒôé Project Layers & Architecture
-RevanScript layih╔Ösi modulyar arxitekturaya malikdir v╔Ö a┼ƒa─ƒ─▒dak─▒ C fayllar─▒ (Layers) vasit╔Ösil╔Ö idar╔Ö olunur:
+## 📂 Project Layers & Architecture
+RevanScript layihəsi modulyar arxitekturaya malikdir və aşağıdakı C faylları (Layers) vasitəsilə idarə olunur:
 
 1. **Memory Management:** `src/rvsmem.c` | `include/rvsmem.h`
 2. **Buffer Memory Management:** `src/rvsbuf.c` | `include/rvsbuf.h`
@@ -29,8 +29,8 @@ RevanScript layih╔Ösi modulyar arxitekturaya malikdir v╔Ö a┼ƒa─ƒ─�
 6. **Control & Checking:** `src/rvsctl.c` | `include/rvsctl.h`
 7. **Math Engine:** `src/rvsmth.c` | `include/rvsmth.h`
 
-## ≡ƒÆ╗ RevanScript Code Examples
-A┼ƒa─ƒ─▒da RevanScript (RVS) dilinin ╔Ösas ╔Ömrl╔Örini v╔Ö sintaksisini g├╢st╔Ör╔Ön sad╔Ö n├╝mun╔Ö kod verilmi┼ƒdir:
+## 💻 RevanScript Code Examples
+Aşağıda RevanScript (RVS) dilinin əsas əmrlərini və sintaksisini göstərən sadə nümunə kod verilmişdir:
 
 ```custom
 ... RevanScript (RVS) Comment 
@@ -44,12 +44,9 @@ cst text
 del text 
 ```
 
-## ≡ƒîÉ Community & Official Links
-RevanScript inki┼ƒaf prosesini izl╔Öm╔Ök v╔Ö layih╔Öy╔Ö d╔Öst╔Ök olmaq ├╝├º├╝n a┼ƒa─ƒ─▒dak─▒ r╔Ösmi resurslardan istifad╔Ö ed╔Ö bil╔Örsiniz:
+## 🌐 Community & Official Links
+RevanScript inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün aşağıdakı rəsmi resurslardan istifadə edə bilərsiniz:
 
-* **≡ƒô║ YouTube Tutorials:** [RvCodes9 YouTube Channel](https://youtube.com/@RvCodes9) ΓÇö Praktik n├╝mun╔Öl╔Ör v╔Ö video b╔Öl╔Öd├ºil╔Ör.
-* **≡ƒôä Official Documentation:** [RevanScript Pages Site](https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/) ΓÇö Geni┼ƒ m╔Ölumat v╔Ö d╔Örslikl╔Ör.
-* **≡ƒÆ¼ Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) ΓÇö Fikir bildirm╔Ök, m├╝zakir╔Ö etm╔Ök v╔Ö sual verm╔Ök ├╝├º├╝n r╔Ösmi sub-reddit.
-
-## ≡ƒÆí Creator
-RevanScript (RVS) 2026 ci ild╔Ö 4 aprel yarad─▒lm─▒┼ƒ bir proqramla┼ƒd─▒rma dili lahiy╔Ösidir. Proqramla┼ƒd─▒rma dilinin yarad─▒c─▒si R╔Övan Babayev (Revan Babayev) dir. RevanScript (RVS) haz─▒rda aktiv inki┼ƒaf etm╔Ökd╔Ö olan lahiy╔Ödir.
+* **📺 YouTube Tutorials:** [RvCodes9 YouTube Channel](https://youtube.com/@RvCodes9) — Praktik nümunələr və video bələdçilər.
+* **📄 Official Documentation:** [RevanScript Pages Site](https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/) — Geniş məlumat və dərsliklər.
+* **💬 Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) — Fikir bildirmək, müzakirə etmək və sual vermək üçün rəsmi sub-reddit.
