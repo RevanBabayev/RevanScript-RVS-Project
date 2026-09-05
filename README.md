@@ -19,7 +19,7 @@ Dildə müxtəlif məlumat tiplərinin idarə edilməsi nəzərdə tutulmuşdur.
 * **Null** (Boşluq tipi)
 
 ## ⚙️ Structure Types
-Dildə müxtəlif malumatları toplu şəkildə saxlamaq üçün daha mürrəktəb tiplərə ehtiyac olur:
+Dildə müxtəlif məlumatları toplu şəkildə saxlamaq üçün daha mürrəkkəb tiplərə ehtiyac olur:
 * **Box** (Siyahı tipi)
 * **Map** (Xəritə tipi)
 
