@@ -18,6 +18,11 @@ Dildə müxtəlif məlumat tiplərinin idarə edilməsi nəzərdə tutulmuşdur.
 * **Boolean** (Məntiq tipi)
 * **Null** (Boşluq tipi)
 
+## ⚙️ Structure Types
+Dildə müxtəlif malumatları toplu şəkildə saxlamaq üçün daha mürrəktəb tiplərə ehtiyac olur:
+* **Box** (Siyahı tipi)
+* **Map** (Xəritə tipi)
+
 ## 📂 Project Layers & Architecture
 RevanScript layihəsi modulyar arxitekturaya malikdir və aşağıdakı C faylları (Layers) vasitəsilə idarə olunur:
 
