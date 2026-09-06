@@ -8,7 +8,7 @@ An efficient, lightweight, and direct execution interpreter model built from scr
 ## 📖 Introduction
 **RevanScript (RVS)** sadə, command-based (əmr əsaslı) təmələ sahib bir proqramlaşdırma dilidir. Olduqca minimal və anlaşılan bir sintaksisə malikdir. RevanScript (RVS) dilinin əsas üstünlüyü onun sürətli və yüngül işləyən daxili tərcüməçi (interpreter) proqramına sahib olmasıdır. 
 
-Layihə tamamilə **C proqramlaşdırma dili** ilə sıfırdan hazırlanmışdır.
+Layihə tamamilə **C proqramlaşdırma dili** ilə sıfırdan hazırlanmışdır. C dilinin 1999 cu ildə tərtib olunmuş C99 Standardını istifadə edilir. Lahiyədə (GCC, Clang, MinGW-GCC) kompilatorlarından istifadə olunur. Lahiyənin platforma dəstəyi (Linux, Windows) üçün dəstəklənir.
 
 ## 💎 Data Types
 Dildə müxtəlif məlumat tiplərinin idarə edilməsi nəzərdə tutulmuşdur. Hazırda aşağıdakı primitiv tiplər tam işlək vəziyyətdədir:
@@ -55,6 +55,13 @@ RevanScript inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün a
 * **📺 YouTube Tutorials:** [RvCodes9 YouTube Channel](https://youtube.com/@RvCodes9) — Praktik nümunələr və video bələdçilər.
 * **📄 Official Documentation:** [RevanScript Pages Site](https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/) — Geniş məlumat və dərsliklər.
 * **💬 Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) — Fikir bildirmək, müzakirə etmək və sual vermək üçün rəsmi sub-reddit.
+
+## 🤖 Build System & Automation
+RevanScript (RVS) interpreter kodlarının kompilasiya prosesini aftomatlaşdırmaq üçün bir neçə alət istifadə olunur.
+
+* Python Build Script (CPython 3.12)
+* SimpleMake (My Project)
+* Shell Script (Linux Terminal)
 
 ## 💡 Creator & Developer
 RevanScript (RVS) proqramlaşdırma dili 2026-cı ildə Rəvan Babayev tərəfindən yaradılmışdir və hazırda aktiv ikişaf etdirilən lahiyədir.
