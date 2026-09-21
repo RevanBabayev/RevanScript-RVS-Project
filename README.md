@@ -56,12 +56,5 @@ RevanScript inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün a
 * **📄 Official Documentation:** [RevanScript Pages Site](https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/) — Geniş məlumat və dərsliklər.
 * **💬 Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) — Fikir bildirmək, müzakirə etmək və sual vermək üçün rəsmi sub-reddit.
 
-## 🤖 Build System & Automation
-RevanScript (RVS) interpreter kodlarının kompilasiya prosesini aftomatlaşdırmaq üçün bir neçə alət istifadə olunur.
-
-* Python Build Script (CPython 3.12)
-* SimpleMake (My Project)
-* Shell Script (Linux Terminal)
-
 ## 💡 Creator & Developer
 RevanScript (RVS) proqramlaşdırma dili 2026-cı ildə Rəvan Babayev tərəfindən yaradılmışdir və hazırda aktiv ikişaf etdirilən lahiyədir.
