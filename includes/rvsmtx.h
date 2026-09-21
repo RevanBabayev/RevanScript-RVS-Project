@@ -82,35 +82,35 @@ typedef struct{
 // Unsigned Types
 
 
-// Unsigned Character Struct Type Implementation
+// Unsigned Character Matrix Struct Type Implementation
 typedef struct{
     unsigned char** buffer;
     size_t iterator;
     RVS_MATRIX_SIZE capacity;
 } RVS_DYNAMIC_UNSIGNED_CHARACTER_MATRIX;
 
-// Unsigned Integer Struct Type Implementation
+// Unsigned Integer Matrix Struct Type Implementation
 typedef struct{
     unsigned int** buffer;
     size_t iterator;
     RVS_MATRIX_SIZE capacity;
 } RVS_DYNAMIC_UNSIGNED_INTEGER_MATRIX;
 
-// Unsigned Short Struct Type Implementation
+// Unsigned Short Matrix Struct Type Implementation
 typedef struct{
     unsigned short** buffer;
     size_t iterator;
     RVS_MATRIX_SIZE capacity;
 } RVS_DYNAMIC_UNSIGNED_SHORT_MATRIX;
 
-// Unsigned Long Struct Type Implementation
+// Unsigned Long Matrix Struct Type Implementation
 typedef struct{
     unsigned long** buffer;
     size_t iterator;
     RVS_MATRIX_SIZE capacity;
 } RVS_DYNAMIC_UNSIGNED_LONG_MATRIX;
 
-// Unsigned Long Long Struct Type Implementation
+// Unsigned Long Long Matrix Struct Type Implementation
 typedef struct{
     unsigned long long** buffer;
     size_t iterator;
@@ -129,14 +129,14 @@ RVS_DYNAMIC_LONG_MATRIX* rvs_dynamic_unsafe_long_matrix_create(const RVS_MATRIX_
 RVS_DYNAMIC_LONG_LONG_MATRIX* rvs_dynamic_unsafe_long_long_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_LONG_DOUBLE_MATRIX* rvs_dynamic_unsafe_long_double_matrix_create(const RVS_MATRIX_SIZE);
 
-// Dynamic Unsafe (Unsigned) Array Create Functions
+// Dynamic Unsafe (Unsigned) Matrix Create Functions
 RVS_DYNAMIC_UNSIGNED_CHARACTER_MATRIX* rvs_dynamic_unsafe_unsigned_character_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_UNSIGNED_INTEGER_MATRIX* rvs_dynamic_unsafe_unsigned_integer_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_UNSIGNED_SHORT_MATRIX* rvs_dynamic_unsafe_unsigned_short_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_UNSIGNED_LONG_MATRIX* rvs_dynamic_unsafe_unsigned_long_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_UNSIGNED_LONG_LONG_MATRIX* rvs_dynamic_unsafe_unsigned_long_long_matrix_create(const RVS_MATRIX_SIZE);
 
-// Dynamic Unsafe (Signed) Array Resize Functions
+// Dynamic Unsafe (Signed) Matrix Resize Functions
 bool rvs_dynamic_unsafe_character_matrix_resize(RVS_DYNAMIC_CHARACTER_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_unsafe_integer_matrix_resize(RVS_DYNAMIC_INTEGER_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_unsafe_float_matrix_resize(RVS_DYNAMIC_FLOAT_MATRIX*, const RVS_MATRIX_SIZE);
@@ -147,14 +147,14 @@ bool rvs_dynamic_unsafe_long_matrix_resize(RVS_DYNAMIC_LONG_MATRIX*, const RVS_M
 bool rvs_dynamic_unsafe_long_long_matrix_resize(RVS_DYNAMIC_LONG_LONG_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_unsafe_long_double_matrix_resize(RVS_DYNAMIC_LONG_DOUBLE_MATRIX*, const RVS_MATRIX_SIZE);
 
-// Dynamic Unsafe (Unsigned) Array Resize Functions
+// Dynamic Unsafe (Unsigned) Matrix Resize Functions
 bool rvs_dynamic_unsafe_unsigned_character_matrix_resize(RVS_DYNAMIC_UNSIGNED_CHARACTER_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_unsafe_unsigned_integer_matrix_resize(RVS_DYNAMIC_UNSIGNED_INTEGER_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_unsafe_unsigned_short_matrix_resize(RVS_DYNAMIC_UNSIGNED_SHORT_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_unsafe_unsigned_long_matrix_resize(RVS_DYNAMIC_UNSIGNED_LONG_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_unsafe_unsigned_long_long_matrix_resize(RVS_DYNAMIC_UNSIGNED_LONG_LONG_MATRIX*, const RVS_MATRIX_SIZE); 
 
-// Dynamic Safe Array Create Functions
+// Dynamic Safe Matrix Create Functions
 RVS_DYNAMIC_CHARACTER_MATRIX* rvs_dynamic_safe_character_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_INTEGER_MATRIX* rvs_dynamic_safe_integer_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_FLOAT_MATRIX* rvs_dynamic_safe_float_matrix_create(const RVS_MATRIX_SIZE);
@@ -165,14 +165,14 @@ RVS_DYNAMIC_LONG_MATRIX* rvs_dynamic_safe_long_matrix_create(const RVS_MATRIX_SI
 RVS_DYNAMIC_LONG_LONG_MATRIX* rvs_dynamic_safe_long_long_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_LONG_DOUBLE_MATRIX* rvs_dynamic_safe_long_double_matrix_create(const RVS_MATRIX_SIZE);
 
-// Dynamic Safe (Unsigned) Array Create Functions
+// Dynamic Safe (Unsigned) Matrix Create Functions
 RVS_DYNAMIC_UNSIGNED_CHARACTER_MATRIX* rvs_dynamic_safe_unsigned_character_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_UNSIGNED_INTEGER_MATRIX* rvs_dynamic_safe_unsigned_integer_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_UNSIGNED_SHORT_MATRIX* rvs_dynamic_safe_unsigned_short_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_UNSIGNED_LONG_MATRIX* rvs_dynamic_safe_unsigned_long_matrix_create(const RVS_MATRIX_SIZE);
 RVS_DYNAMIC_UNSIGNED_LONG_LONG_MATRIX* rvs_dynamic_safe_unsigned_long_long_matrix_create(const RVS_MATRIX_SIZE);
 
-// Dynamic Safe Array Resize Functions
+// Dynamic Safe Matrix Resize Functions
 bool rvs_dynamic_safe_character_matrix_resize(RVS_DYNAMIC_CHARACTER_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_safe_integer_matrix_resize(RVS_DYNAMIC_INTEGER_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_safe_float_matrix_resize(RVS_DYNAMIC_FLOAT_MATRIX*, const RVS_MATRIX_SIZE);
@@ -183,29 +183,29 @@ bool rvs_dynamic_safe_long_matrix_resize(RVS_DYNAMIC_LONG_MATRIX*, const RVS_MAT
 bool rvs_dynamic_safe_long_long_matrix_resize(RVS_DYNAMIC_LONG_LONG_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_safe_long_double_matrix_resize(RVS_DYNAMIC_LONG_DOUBLE_MATRIX*, const RVS_MATRIX_SIZE);
 
-// Dynamic Safe (Unsigned) Array Resize Functions
+// Dynamic Safe (Unsigned) Matrix Resize Functions
 bool rvs_dynamic_safe_unsigned_character_matrix_resize(RVS_DYNAMIC_UNSIGNED_CHARACTER_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_safe_unsigned_integer_matrix_resize(RVS_DYNAMIC_UNSIGNED_INTEGER_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_safe_unsigned_short_matrix_resize(RVS_DYNAMIC_UNSIGNED_SHORT_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_safe_unsigned_long_matrix_resize(RVS_DYNAMIC_UNSIGNED_LONG_MATRIX*, const RVS_MATRIX_SIZE);
 bool rvs_dynamic_safe_unsigned_long_long_matrix_resize(RVS_DYNAMIC_UNSIGNED_LONG_LONG_MATRIX*, const RVS_MATRIX_SIZE);
 
-// Deallocate (Signed) Array Memory Functions
-void rvs_dynamic_character_array_delete(RVS_DYNAMIC_CHARACTER_MATRIX*);
-void rvs_dynamic_integer_array_delete(RVS_DYNAMIC_INTEGER_MATRIX*);
-void rvs_dynamic_float_array_delete(RVS_DYNAMIC_FLOAT_MATRIX*);
-void rvs_dynamic_double_array_delete(RVS_DYNAMIC_DOUBLE_MATRIX*);
-void rvs_dynamic_boolean_array_delete(RVS_DYNAMIC_BOOLEAN_MATRIX*);
-void rvs_dynamic_short_array_delete(RVS_DYNAMIC_SHORT_MATRIX*);
-void rvs_dynamic_long_array_delete(RVS_DYNAMIC_LONG_MATRIX*);
-void rvs_dynamic_long_long_array_delete(RVS_DYNAMIC_LONG_LONG_MATRIX*);
-void rvs_dynamic_long_double_array_delete(RVS_DYNAMIC_LONG_DOUBLE_MATRIX*);
+// Deallocate (Signed) Matrix Memory Functions
+void rvs_dynamic_character_matrix_delete(RVS_DYNAMIC_CHARACTER_MATRIX*);
+void rvs_dynamic_integer_matrix_delete(RVS_DYNAMIC_INTEGER_MATRIX*);
+void rvs_dynamic_float_matrix_delete(RVS_DYNAMIC_FLOAT_MATRIX*);
+void rvs_dynamic_double_matrix_delete(RVS_DYNAMIC_DOUBLE_MATRIX*);
+void rvs_dynamic_boolean_matrix_delete(RVS_DYNAMIC_BOOLEAN_MATRIX*);
+void rvs_dynamic_short_matrix_delete(RVS_DYNAMIC_SHORT_MATRIX*);
+void rvs_dynamic_long_matrix_delete(RVS_DYNAMIC_LONG_MATRIX*);
+void rvs_dynamic_long_long_matrix_delete(RVS_DYNAMIC_LONG_LONG_MATRIX*);
+void rvs_dynamic_long_double_matrix_delete(RVS_DYNAMIC_LONG_DOUBLE_MATRIX*);
 
-// Deallocate (Unsigned) Array Memory Functions
-void rvs_dynamic_unsigned_character_array_delete(RVS_DYNAMIC_UNSIGNED_CHARACTER_MATRIX*);
-void rvs_dynamic_unsigned_integer_array_delete(RVS_DYNAMIC_UNSIGNED_INTEGER_MATRIX*);
-void rvs_dynmaic_unsigned_short_array_delete(RVS_DYNAMIC_UNSIGNED_SHORT_MATRIX*);
-void rvs_dynamic_unsigned_long_array_delete(RVS_DYNAMIC_UNSIGNED_LONG_MATRIX*);
-void rvs_dynamic_unsigned_long_long_array_delete(RVS_DYNAMIC_UNSIGNED_LONG_LONG_MATRIX*);
+// Deallocate (Unsigned) Matrix Memory Functions
+void rvs_dynamic_unsigned_character_matrix_delete(RVS_DYNAMIC_UNSIGNED_CHARACTER_MATRIX*);
+void rvs_dynamic_unsigned_integer_matrix_delete(RVS_DYNAMIC_UNSIGNED_INTEGER_MATRIX*);
+void rvs_dynmaic_unsigned_short_matrix_delete(RVS_DYNAMIC_UNSIGNED_SHORT_MATRIX*);
+void rvs_dynamic_unsigned_long_matrix_delete(RVS_DYNAMIC_UNSIGNED_LONG_MATRIX*);
+void rvs_dynamic_unsigned_long_long_matrix_delete(RVS_DYNAMIC_UNSIGNED_LONG_LONG_MATRIX*);
 
 #endif

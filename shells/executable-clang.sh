@@ -64,11 +64,6 @@ if clang -std=c99 -O2 -c ../src/rvskey.c -o ../objects/clang/rvskey.o; then
 else
 	echo "Failed [rvskey.o] object file!!!"
 fi
-if clang -std=c99 -O2 -c ../src/rvskey.c -o ../objects/clang/rvskey.o; then
-	echo "Successful [rvskey.o] object file!!!"
-else
-	echo "Failed [rvskey.o] object file!!!"
-fi
 if clang -std=c99 -O2 -c ../src/rvsarr.c -o ../objects/clang/rvsarr.o; then
 	echo "Successful [rvsarr.o] object file!!!"
 else
@@ -79,7 +74,12 @@ if clang -std=c99 -O2 -c ../src/rvsmtx.c -o ../objects/clang/rvsmtx.o; then
 else
 	echo "Failed [rvsmtx.o] object file!!!"
 fi
-if clang -static -o ../bin/clang/RevanScript ../objects/clang/*.o; then
+if clang -std=c99 -O2 -c ../src/games/menu.c -o ../objects/clang/games/menu.o; then
+	echo "Successful [Subsystem][games/menu.o] object file!!!"
+else
+	echo "Failed [Subsystem][games/menu.o] object file!!!"
+fi
+if clang -static -o ../bin/clang/RevanScript ../objects/clang/*.o ../objects/clang/games/*.o; then
     strip ../bin/clang/RevanScript
     echo "Successful Executable!!!"
 else

@@ -23,7 +23,8 @@ SourceFiles = [
     "../src/rvstbl.c",
     "../src/rvskey.c",
     "../src/rvsarr.c",
-    "../src/rvsmtx.c"
+    "../src/rvsmtx.c",
+    "../src/games/menu.c"
 ]
 ObjectFiles = [
     "../objects/main.o",
@@ -40,7 +41,8 @@ ObjectFiles = [
     "../objects/rvstbl.o",
     "../objects/rvskey.o",
     "../objects/rvsarr.o",
-    "../objects/rvsmtx.o"
+    "../objects/rvsmtx.o",
+    "../objects/games/menu.o"
 ]
 Flags = [
     "-static",

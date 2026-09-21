@@ -137,24 +137,24 @@ bool get(const char* const code_line, const RVSMEM* const rvs_memory, const int8
 	if (rvs_memory_get(rvs_memory, rvs_variable_buffer, false) == true){
 		struct RVSTBLConfig rvs_table_config = {.rows=2, .cols=5, .width=25, .height=1};
 		RVSTBL* rvs_table = rvs_table_create(rvs_table_config);
-		rvs_table_insert(rvs_table, "Variable Name");
-		rvs_table_insert(rvs_table, rvs_variable_buffer->variable_name);
-		rvs_table_insert(rvs_table, "Variable Data");
-		rvs_table_insert(rvs_table, rvs_variable_buffer->variable_data);
-		rvs_table_insert(rvs_table, "Variable Type");
+
+		if (rvs_table_insert(rvs_table, 5, 
+			"Variable Name", rvs_variable_buffer->variable_name,
+			"Variable Data", rvs_variable_buffer->variable_data,
+			"Variable Type") == false) return false;
 
 		switch (rvs_variable_buffer->variable_type){
-			case RVS_STRING_TYPE:  rvs_table_insert(rvs_table, "String");   break;
-			case RVS_INTEGER_TYPE: rvs_table_insert(rvs_table, "Integer");  break;
-			case RVS_FLOAT_TYPE:   rvs_table_insert(rvs_table, "Float");    break;
-			case RVS_BOOLEAN_TYPE: rvs_table_insert(rvs_table, "Boolean");  break;
-			case RVS_NULL_TYPE:    rvs_table_insert(rvs_table, "Null");     break;
+			case RVS_STRING_TYPE:  if (rvs_table_insert(rvs_table, 1, "String") == false){return false;} break;
+			case RVS_INTEGER_TYPE: if (rvs_table_insert(rvs_table, 1, "Integer") == false){return false;} break;
+			case RVS_FLOAT_TYPE:   if (rvs_table_insert(rvs_table, 1, "Float") == false){return false;} break;
+			case RVS_BOOLEAN_TYPE: if (rvs_table_insert(rvs_table, 1, "Boolean") == false){return false;} break;
+			case RVS_NULL_TYPE:    if (rvs_table_insert(rvs_table, 1, "Null") == false){return false;} break;
 		}
 		
-		rvs_table_insert(rvs_table, "Variable Constant");
-		rvs_table_insert(rvs_table, (rvs_variable_buffer->variable_const == true) ? "TRUE" : "FALSE");
-		rvs_table_insert(rvs_table, "Variable Address");
-		rvs_table_insert(rvs_table, rvs_variable_buffer->variable_address);
+		if (rvs_table_insert(rvs_table, 4, 
+			"Variable Constant", (rvs_variable_buffer->variable_const == true) ? "TRUE" : "FALSE",
+			"Variable Address", rvs_variable_buffer->variable_address) == false) return false;
+
 		rvs_standard_table_output(rvs_table);
 		rvs_table_delete(rvs_table);
 	}

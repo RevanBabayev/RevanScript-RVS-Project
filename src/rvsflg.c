@@ -32,6 +32,9 @@
 #include "../includes/rvsdef.h"
 #include "../includes/rvsflg.h"
 
+// RevanScript (RVS) Subsystem Libraries
+#include "../includes/games/menu.h"
+
 
 void rvs_flag_version(void){
     printf("%s\n\t\tRevanScript (RVS) version %.1f%s", 
@@ -74,6 +77,12 @@ bool rvs_flag_documentation(void){
     if (!system("xdg-open https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/")){
         return false;
     }
+    return true;
+}
+
+bool rvs_flag_games(void){
+    if (rvs_games_menu_init() == false) return false;
+    return true;
 }
 
 uint8_t rvs_flag_title_check(const char* const flag_title){
@@ -89,6 +98,11 @@ uint8_t rvs_flag_title_check(const char* const flag_title){
 
     else if (strcmp(flag_title, "-D") == 0 || strcmp(flag_title, "--documentation") == 0){
         if (!rvs_flag_documentation()) return 1;
+        return 0;
+    }
+
+    else if (strcmp(flag_title, "-G") == 0 || strcmp(flag_title, "--games") == 0){
+        if (!rvs_flag_games()) return 1;
         return 0;
     }
 

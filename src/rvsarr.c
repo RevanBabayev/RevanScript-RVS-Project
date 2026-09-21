@@ -153,9 +153,7 @@ RVS_DYNAMIC_LONG_DOUBLE_ARRAY* rvs_dynamic_unsafe_long_double_array_create(const
     return __rvs_dynamic_array;
 }
 
-
 // Unsigned Unsafe Array Create Functions
-
 
 // RevanScript (RVS) Unsigned Character Dynamic Unsafe Array Create Function
 RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* rvs_dynamic_unsafe_unsigned_character_array_create(const size_t size){
@@ -227,9 +225,7 @@ RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* rvs_dynamic_unsafe_unsigned_long_long_arra
     return __rvs_dynamic_array;
 }
 
-
 // Signed Unsafe Array Resize Functions
-
 
 // RevanScript (RVS) Character Dynamic Unsafe Array Resize Function
 bool rvs_dynamic_unsafe_character_array_resize(RVS_DYNAMIC_CHARACTER_ARRAY* rvs_dynamic_array, const size_t new_size){
@@ -312,9 +308,7 @@ bool rvs_dynamic_unsafe_long_double_array_resize(RVS_DYNAMIC_LONG_DOUBLE_ARRAY* 
     return true;
 }
 
-
 // Unsigned Unsafe Array Resize Functions
-
 
 // RevanScript (RVS) Unsigned Character Dynamic Unsafe Array Resize Function
 bool rvs_dynamic_unsafe_unsigned_character_array_resize(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* rvs_dynamic_array, const size_t new_size){
@@ -362,7 +356,6 @@ bool rvs_dynamic_unsafe_unsigned_long_long_array_resize(RVS_DYNAMIC_UNSIGNED_LON
 }
 
 // Signed Safe Array Create Functions
-
 
 // RevanScript (RVS) Character Dynamic Safe Array Function
 RVS_DYNAMIC_CHARACTER_ARRAY* rvs_dynamic_safe_character_array_create(const size_t size){
@@ -490,9 +483,7 @@ RVS_DYNAMIC_LONG_DOUBLE_ARRAY* rvs_dynamic_safe_long_double_array_create(const s
     return __rvs_dynamic_array;
 }
 
-
 // Unsigned Safe Array Create Function
-
 
 // RevanScript (RVS) Unsigned Character Dynamic Safe Array Function
 RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* rvs_dynamic_safe_unsigned_character_array_create(const size_t size){
@@ -564,9 +555,7 @@ RVS_DYNAMIC_UNSIGNED_LONG_LONG_ARRAY* rvs_dynamic_safe_unsigned_long_long_array_
     return __rvs_dynamic_array;
 }
 
-
 // Signed Safe Array Resize Functions
-
 
 // RevanScript (RVS) Character Dynamic Safe Array Resize Function
 bool rvs_dynamic_safe_character_array_resize(RVS_DYNAMIC_CHARACTER_ARRAY* rvs_dynamic_array, const size_t new_size){
@@ -678,9 +667,7 @@ bool rvs_dynamic_safe_long_double_array_resize(RVS_DYNAMIC_LONG_DOUBLE_ARRAY* rv
     return true;
 }
 
-
 // Unsigned Safe Array Resize Functions
-
 
 // RevanScript (RVS) Unsigned Character Dynamic Safe Array Resize Function
 bool rvs_dynamic_safe_unsigned_character_array_resize(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* rvs_dynamic_array, const size_t new_size){
@@ -744,9 +731,7 @@ bool rvs_dynamic_safe_unsigned_long_long_array_resize(RVS_DYNAMIC_UNSIGNED_LONG_
     return true;
 }
 
-
 // Deallocate Array Functions
-
 
 // RevanScript (RVS) Deallocate Character Array Function
 void rvs_dynamic_character_array_delete(RVS_DYNAMIC_CHARACTER_ARRAY* dynamic_array){
@@ -802,9 +787,7 @@ void rvs_dynamic_long_double_array_delete(RVS_DYNAMIC_LONG_DOUBLE_ARRAY* dynamic
     free(dynamic_array);
 }
 
-
 // Unsigned Type Deallocate
-
 
 // RevanScript (RVS) Deallocate Unsigned Character Array Function
 void rvs_dynamic_unsigned_character_array_delete(RVS_DYNAMIC_UNSIGNED_CHARACTER_ARRAY* dynamic_array){

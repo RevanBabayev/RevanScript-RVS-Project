@@ -1,10 +1,9 @@
 #ifndef RVSTBL_H
 #define RVSTBL_H
 
-
 // C Standard Libararys
 #include <stddef.h>
-
+#include <stdbool.h>
 
 // RevanScript Table Configures
 struct RVSTBLConfig{
@@ -14,7 +13,6 @@ struct RVSTBLConfig{
     size_t height;
 };
 
-
 // RevanScript (RVS) Table Structure
 typedef struct{
     struct RVSTBLConfig config;
@@ -23,10 +21,9 @@ typedef struct{
     size_t iter;
 } RVSTBL;
 
-
 // RevanScript (RVS) Table Functions
 RVSTBL* rvs_table_create(const struct RVSTBLConfig);
-bool rvs_table_insert(RVSTBL* rvs_table, const char* const data);
+bool rvs_table_insert(RVSTBL*, const size_t, ...);
 void rvs_table_delete(RVSTBL*);
 
 #endif

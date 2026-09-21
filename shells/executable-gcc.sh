@@ -64,11 +64,6 @@ if gcc -std=c99 -O2 -c ../src/rvskey.c -o ../objects/gcc/rvskey.o; then
 else
 	echo "Failed [rvskey.o] object file!!!"
 fi
-if gcc -std=c99 -O2 -c ../src/rvskey.c -o ../objects/gcc/rvskey.o; then
-	echo "Successful [rvskey.o] object file!!!"
-else
-	echo "Failed [rvskey.o] object file!!!"
-fi
 if gcc -std=c99 -O2 -c ../src/rvsarr.c -o ../objects/gcc/rvsarr.o; then
 	echo "Successful [rvsarr.o] object file!!!"
 else
@@ -79,7 +74,12 @@ if gcc -std=c99 -O2 -c ../src/rvsmtx.c -o ../objects/gcc/rvsmtx.o; then
 else
 	echo "Failed [rvsmtx.o] object file!!!"
 fi
-if gcc -static -o ../bin/gcc/RevanScript ../objects/gcc/*.o; then
+if gcc -std=c99 -O2 -c ../src/games/menu.c -o ../objects/gcc/games/menu.o; then
+	echo "Successful [Subsystem][games/menu.o] object file!!!"
+else
+	echo "Failed [Subsystem][games/menu.o] object file!!!"
+fi
+if gcc -static -o ../bin/gcc/RevanScript ../objects/gcc/*.o ../objects/gcc/games/*.o; then
     strip ../bin/gcc/RevanScript
     echo "Successful Executable!!!"
 else

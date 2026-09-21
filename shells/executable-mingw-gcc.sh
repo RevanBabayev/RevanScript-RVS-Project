@@ -64,11 +64,6 @@ if x86_64-w64-mingw32-gcc -std=c99 -O2 -c ../src/rvskey.c -o ../objects/mingw-gc
 else
 	echo "Failed [rvskey.o] object file!!!"
 fi
-if x86_64-w64-mingw32-gcc -std=c99 -O2 -c ../src/rvskey.c -o ../objects/mingw-gcc/rvskey.o; then
-	echo "Successful [rvskey.o] object file!!!"
-else
-	echo "Failed [rvskey.o] object file!!!"
-fi
 if x86_64-w64-mingw32-gcc -std=c99 -O2 -c ../src/rvsarr.c -o ../objects/mingw-gcc/rvsarr.o; then
 	echo "Successful [rvsarr.o] object file!!!"
 else
@@ -79,7 +74,12 @@ if x86_64-w64-mingw32-gcc -std=c99 -O2 -c ../src/rvsmtx.c -o ../objects/mingw-gc
 else
 	echo "Failed [rvsmtx.o] object file!!!"
 fi
-if x86_64-w64-mingw32-gcc -static -o ../bin/mingw-gcc/RevanScript.exe ../objects/mingw-gcc/*.o; then
+if x86_64-w64-mingw32-gcc -std=c99 -O2 -c ../src/games/menu.c -o ../objects/mingw-gcc/games/menu.o; then
+	echo "Successful [Subsystem][games/menu.o] object file!!!"
+else
+	echo "Failed [Subsystem][games/menu.o] object file!!!"
+fi
+if x86_64-w64-mingw32-gcc -static -o ../bin/mingw-gcc/RevanScript.exe ../objects/mingw-gcc/*.o ../objects/mingw-gcc/games/*.o; then
     strip ../bin/mingw-gcc/RevanScript.exe
     echo "Successful Executable!!!"
 else
