@@ -48,9 +48,15 @@ out text
 cst text 
 del text 
 ```
+## 🎮 Games Mode
+RevanScript (RVS) proqramlaşdırma dili tercüməçi proqramında oyun modu var. Bu mod əyləncə üçün nəzərbə tutulub. Hazırda düşündüyüm oyunlar.
+1. **Tic Tac Toe (Console)**
+2. **Minesweeper (Console)**
+3. **Chess (Console)**
+4. **Sea Battle (Console)**
 
 ## 🌐 Community & Official Links
-RevanScript inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün aşağıdakı rəsmi resurslardan istifadə edə bilərsiniz:
+RevanScript (RVS) inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün aşağıdakı rəsmi resurslardan istifadə edə bilərsiniz:
 
 * **📺 YouTube Tutorials:** [RvCodes9 YouTube Channel](https://youtube.com/@RvCodes9) — Praktik nümunələr və video bələdçilər.
 * **📄 Official Documentation:** [RevanScript Pages Site](https://rvcodes9.github.io/RevanScript-RVS-Documetation-Site/) — Geniş məlumat və dərsliklər.
