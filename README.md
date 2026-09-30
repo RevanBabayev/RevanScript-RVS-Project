@@ -22,6 +22,7 @@ Dildə müxtəlif məlumat tiplərinin idarə edilməsi nəzərdə tutulmuşdur.
 Dildə müxtəlif məlumatları toplu şəkildə saxlamaq üçün daha mürrəkkəb tiplərə ehtiyac olur:
 * **Box** (Siyahı tipi)
 * **Map** (Xəritə tipi)
+* **Set** (Unikal məlumatlar tipi)
 
 ## 📂 Project Layers & Architecture
 RevanScript layihəsi modulyar arxitekturaya malikdir və aşağıdakı C faylları (Layers) vasitəsilə idarə olunur:
