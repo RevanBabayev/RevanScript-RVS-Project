@@ -50,12 +50,14 @@ del text
 ```
 ## 🎮 Games Mode
 RevanScript (RVS) proqramlaşdırma dili tercüməçi proqramında oyun modu var. Bu mod əyləncə üçün nəzərbə tutulub. Hazırda düşündüyüm oyunlar.
-1. **Guess the Number**
+1. **Guess the Number (Console)**
 2. **Tic Tac Toe (Console)**
 3. **Minesweeper (Console)**
 4. **Sudoku (Console)**
 5. **Chess (Console)**
 6. **Sea Battle (Console)**
+7. **Flappy Bird (Graphic)**
+8. **Tetris (Graphic)**
 
 ## 🌐 Community & Official Links
 RevanScript (RVS) inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün aşağıdakı rəsmi resurslardan istifadə edə bilərsiniz:
