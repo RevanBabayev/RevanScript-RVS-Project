@@ -10,9 +10,9 @@ An efficient, lightweight, and direct execution interpreter model built from scr
 
 Layihə tamamilə **C proqramlaşdırma dili** ilə sıfırdan hazırlanmışdır. C dilinin 1999 cu ildə tərtib olunmuş C99 Standardını istifadə edilir. Lahiyədə (GCC, Clang, MinGW-GCC) kompilatorlarından istifadə olunur. Lahiyənin platforma dəstəyi (Linux, Windows) üçün dəstəklənir. Lahiyənin "Build" etmək üçün bir neçə alət istifadə etmək mümkündur.
 
-**1) SimpleMake (Tool)**
-**2) Python (CPython3) Scripts**
-**3) Terminal (Console) Shells**
+* **1) SimpleMake (Tool)**
+* **2) Python (CPython3) Scripts**
+* **3) Terminal (Console) Shells**
 
 ## 💎 Data Types
 Dildə müxtəlif məlumat tiplərinin idarə edilməsi nəzərdə tutulmuşdur. Hazırda aşağıdakı primitiv tiplər tam işlək vəziyyətdədir:
