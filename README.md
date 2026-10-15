@@ -67,7 +67,7 @@ RevanScript (RVS) proqramlaşdırma dili tercüməçi proqramında oyun modu var
 ## 🌐 Community & Official Links
 RevanScript (RVS) inkişaf prosesini izləmək və layihəyə dəstək olmaq üçün aşağıdakı rəsmi resurslardan istifadə edə bilərsiniz:
 
-* **📺 YouTube Tutorials:** [RvCodes9 YouTube Channel](https://youtube.com/@RvCodes9) — Praktik nümunələr və video bələdçilər.
+* **📺 YouTube Tutorials:** [RvCodes9 YouTube Channel](https://youtube.com/@RvCodes9)| [RevanScript (RVS) YouTube Channel](https://youtube.com/@RVS-Lang) — Praktik nümunələr və video bələdçilər.
 * **📄 Official Documentation:** [RevanScript Pages Site](https://rvcodes9.github.io/RevanScript-RVS-Documentation-Site/) — Geniş məlumat və dərsliklər.
 * **💬 Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) — Fikir bildirmək, müzakirə etmək və sual vermək üçün rəsmi sub-reddit.
 
