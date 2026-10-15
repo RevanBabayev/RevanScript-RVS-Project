@@ -8,7 +8,7 @@ An efficient, lightweight, and direct execution interpreter model built from scr
 ## 📖 Introduction
 **RevanScript (RVS)** sadə, command-based (əmr əsaslı) təmələ sahib bir proqramlaşdırma dilidir. Olduqca minimal və anlaşılan bir sintaksisə malikdir. RevanScript (RVS) dilinin əsas üstünlüyü onun sürətli və yüngül işləyən daxili tərcüməçi (interpreter) proqramına sahib olmasıdır. 
 
-Digər proqramlasdırma dilləri Python, Java və JavaScript kimi dillərdən ayıran əsas nöktə sadə icra mühəriyinə sahib olmasıdır və bununla bərabər aftomatlaşmış imkanları qoruyub saxlaya bilməsidir. 
+Digər proqramlaşdırma dilləri Python, Java və JavaScript kimi dillərdən ayıran əsas nöktə sadə icra mühəriyinə sahib olmasıdır və bununla bərabər aftomatlaşmış imkanları qoruyub saxlaya bilməsidir. 
 
 Layihə tamamilə **C proqramlaşdırma dili** ilə sıfırdan hazırlanmışdır. C dilinin 1999 cu ildə tərtib olunmuş C99 Standardını istifadə edilir. Lahiyədə (GCC, Clang, MinGW-GCC) kompilatorlarından istifadə olunur. Lahiyənin platforma dəstəyi (Linux, Windows) üçün dəstəklənir. Lahiyənin "Build" etmək üçün bir neçə alət istifadə etmək mümkündur.
 
