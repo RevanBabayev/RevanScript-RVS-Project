@@ -74,4 +74,4 @@ RevanScript (RVS) inkişaf prosesini izləmək və layihəyə dəstək olmaq ü�
 * **💬 Reddit Community:** [r/RevanScript](https://www.reddit.com/r/RevanScript/) — Fikir bildirmək, müzakirə etmək və sual vermək üçün rəsmi sub-reddit.
 
 ## 💡 Creator & Developer
-RevanScript (RVS) proqramlaşdırma dili 2026-cı ildə Rəvan Babayev tərəfindən yaradılmışdir və hazırda aktiv ikişaf etdirilən lahiyədir.
+RevanScript (RVS) proqramlaşdırma dili 2026-cı ildə Rəvan Babayev tərəfindən yaradılmışdir və hazırda aktiv ikişaf etdirilən lahiyədir. Dilin nəzəri olaraq imkanlarının müəyyən edilməsi (2024-2025) ci illəridə əhatə etməkdədir. 
